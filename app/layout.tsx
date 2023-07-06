@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="container mx-auto flex">
+        <div className="container mx-auto flex border-teal-400 border-2">
           <SideBar />
           <div className="min-h-screen flex-grow border-x">{children}</div>
         </div>
