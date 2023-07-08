@@ -25,8 +25,8 @@ const iconSize = 25;
 
 const SideBar: React.FC<SideBarProps> = () => {
   return (
-    <div className="relative mr-4">
-      <nav className="w-44 flex flex-col gap-1">
+    <div className="relative mx-4 w-64 ">
+      <nav className="flex flex-col gap-1">
         <Link
           href={"/"}
           className={`max-w-fit p-3 rounded-full hover:bg-color-hover`}
@@ -48,7 +48,7 @@ const SideBar: React.FC<SideBarProps> = () => {
         </ul>
       </nav>
       {/* Junsu: todo - add Modal for this button */}
-      <button className="text-default-text bg-[#1D9BF0] rounded-full my-4 px-4 py-3 w-full">
+      <button className="text-default-text bg-[#1D9BF0] rounded-full my-4 px-4 py-3 w-[90%]">
         Tweet
       </button>
       <Account />
