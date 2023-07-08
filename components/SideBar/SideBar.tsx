@@ -21,7 +21,7 @@ const SideBarItems = [
 
 type SideBarProps = {};
 
-const iconSize = 25;
+const iconSize = 30;
 
 const SideBar: React.FC<SideBarProps> = () => {
   return (
@@ -38,10 +38,10 @@ const SideBar: React.FC<SideBarProps> = () => {
             <li key={item.type}>
               <Link
                 href={`/${item.type}`}
-                className={`flex items-center gap-2 max-w-fit rounded-full hover:bg-color-hover p-2 pr-5`}
+                className={`flex items-center my-2 gap-4 max-w-fit rounded-full hover:bg-color-hover p-2 pr-5`}
               >
                 <SideBarIcon type={item.type} size={iconSize} />
-                <span>{item.type}</span>
+                <span className="text-xl">{item.type}</span>
               </Link>
             </li>
           ))}
