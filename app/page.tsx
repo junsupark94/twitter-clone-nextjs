@@ -1,7 +1,7 @@
-import Image from 'next/image'
+import FeedHeader from "@/components/Feed/FeedHeader";
 
-export default function Home() {
+export default function RootPage() {
   return (
-    <div>Hello World</div>
-  )
+    <div>This will not get rendered</div>
+  );
 }

@@ -1,4 +1,4 @@
-import SideBar from "./components/SideBar";
+import SideBar from "@/components/SideBar/SideBar";
 import "./globals.css";
 import { Inter } from "next/font/google";
 
@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="container mx-auto flex border-teal-400 border-2">
+        <div className="container mx-auto flex">
           <SideBar />
           <div className="min-h-screen flex-grow border-x">{children}</div>
         </div>
