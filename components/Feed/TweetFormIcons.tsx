@@ -9,13 +9,13 @@ type TweetFormIconsProps = {};
 
 const TweetFormIcons: React.FC<TweetFormIconsProps> = () => {
   return (
-    <div className="flex gap-2 text-twitter-blue">
-      <InsertPhotoOutlinedIcon/>
-      <GifBoxOutlinedIcon />
-      <BallotOutlinedIcon />
-      <SentimentSatisfiedOutlinedIcon />
-      <ScheduleOutlinedIcon />
-      <LocationOnOutlinedIcon />
+    <div className="flex gap-2 text-twitter-blue text-xl">
+      <InsertPhotoOutlinedIcon fontSize='inherit'/>
+      <GifBoxOutlinedIcon fontSize='inherit'/>
+      <BallotOutlinedIcon fontSize='inherit'/>
+      <SentimentSatisfiedOutlinedIcon fontSize='inherit'/>
+      <ScheduleOutlinedIcon fontSize='inherit'/>
+      <LocationOnOutlinedIcon fontSize='inherit'/>
     </div>
   );
 };
