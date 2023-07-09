@@ -9,34 +9,28 @@ type icon = OverridableComponent<SvgIconTypeMap<{}, "svg">> & {
 
 export default function TweetBottomIcon({
   Icon,
-  color = "twitter-blue",
-  bgColor = "#0A171F",
+  hover_text_color = "hover:text-twitter-blue",
+  hover_bgColor = "hover:bg-[#0A171F]",
   value,
   text,
 }: {
   Icon: icon;
-  color?: string;
-  bgColor?: string;
+  hover_text_color?: string;
+  hover_bgColor?: string;
   value?: number;
   text: string;
 }) {
   const [isHover, setIsHover] = useState(false);
-  if (color !== "twitter-blue") color = `[${color}]`;
-  let background = ""
-  if (isHover) {
-    background = bgColor
-  }
-
 
   return (
     <div
       key={text}
-      className={`hover:text-${color}`}
+      className={`${hover_text_color}`}
       onMouseEnter={setIsHover.bind(null, true)}
       onMouseLeave={setIsHover.bind(null, false)}
     >
       <div className="relative">
-        <span className={`rounded-full p-1`} style={{backgroundColor: background}}>
+        <span className={`rounded-full p-1  ${hover_bgColor}`}>
           <Icon />
         </span>
         <span>{value}</span>

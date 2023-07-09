@@ -1,21 +1,37 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import RepeatOutlinedIcon from "@mui/icons-material/RepeatOutlined";
 import ProfileIcon from "../SideBar/ProfileIcon";
 import TweetBottom from "./TweetBottom";
+import { TweetType } from "./tweet-data";
+import Image from "next/image";
+import timeSince from "@/utils/timeSince";
 
-type TweetProps = {};
+type TweetProps = {
+  tweet: TweetType
+};
 
-const Tweet: React.FC<TweetProps> = () => {
-  const [isRetweet, setIsRetweet] = useState(true);
+const Tweet: React.FC<TweetProps> = ({tweet}) => {
+  const {
+    account,
+    date,
+    displayName,
+    body,
+    media,
+    replies,
+    retweets,
+    likes,
+    views,
+    retweeter,
+    replying,
+  } = tweet
 
-  //border-b border-color-hover
   return (
     <div className="pt-2 pb-4 px-2 border-b-2 border-color-hover">
-      {isRetweet && (
+      {retweeter && (
         <div className="left-4 relative text-gray-600">
           <RepeatOutlinedIcon />
-          This user retweeted this
+          {retweeter} retweeted this
         </div>
       )}
       <div className="flex pt-1">
@@ -24,16 +40,37 @@ const Tweet: React.FC<TweetProps> = () => {
         </div>
         <div className="w-full">
           <div>
-            <span>Display Name </span>
-            <span>@username · </span>
-            <span>time ago</span>
+            <span>{displayName} </span>
+            <span className="text-gray-600">@{account} · </span>
+            <span>{timeSince(date)} ago</span>
           </div>
           <div>
-            <span className="text-gray-600">Replying to </span>
-            <span className="text-twitter-blue">@username</span>
+            {replying && (
+              <>
+                <span className="text-gray-600">Replying to </span>
+                <span className="text-twitter-blue">@{replying}</span>
+              </>
+            )}
           </div>
-          <div className="my-2">Text + media</div>
-          <TweetBottom />
+          <div className="my-2">
+            {body && <div>{body}</div>}
+            {media &&
+              media?.map((item) => (
+                <Image
+                  key={item}
+                  src={item}
+                  width={100}
+                  height={100}
+                  alt="image"
+                />
+              ))}
+          </div>
+          <TweetBottom
+            replies={replies}
+            retweets={retweets}
+            likes={likes}
+            views={views}
+          />
         </div>
       </div>
     </div>
