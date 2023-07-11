@@ -13,8 +13,12 @@ const Modal: React.FC<ModalProps> = ({ closeModal, children }) => {
         closeModal();
       }
     }
+    document.body.style.overflow = "hidden"
     document.addEventListener("keydown", handleEscapeKey);
-    return () => document.removeEventListener("keydown", handleEscapeKey);
+    return () => {
+      document.body.style.overflow = "visible"
+      document.removeEventListener("keydown", handleEscapeKey);
+    }
   }, [closeModal]);
 
   return createPortal(

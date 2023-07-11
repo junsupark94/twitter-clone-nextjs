@@ -14,7 +14,7 @@ const Reply: React.FC<ReplyProps> = ({ value }) => {
     <>
       {showModal && (
         <Modal closeModal={setShowModal.bind(null, false)}>
-          <div className="relative inline top-8 left-1/3 bg-black border border-purple-500">
+          <div className="fixed top-0 bg-black border border-purple-500">
             Reply Modal
           </div>
         </Modal>

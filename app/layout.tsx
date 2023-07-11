@@ -16,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${inter.className}`}>
         <div className="container mx-auto flex">
           <SideBar />
           <div className="min-h-screen flex-grow border-x-2 border-color-hover">
