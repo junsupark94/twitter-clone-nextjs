@@ -7,7 +7,7 @@ type icon = OverridableComponent<SvgIconTypeMap<{}, "svg">> & {
   muiName: string;
 };
 
-export default function TweetBottomIcon({
+export default function IconButton({
   Icon,
   hover_text_color = "hover:text-twitter-blue",
   hover_bgColor = "hover:bg-[#0A171F]",

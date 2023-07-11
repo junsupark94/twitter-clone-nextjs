@@ -1,5 +1,5 @@
 import RetweetIcon from "@mui/icons-material/RepeatOutlined";
-import TweetBottomIcon from "./TweetBottomIcon";
+import IconButton from "../../UI/IconButton";
 
 type RetweetProps = {
   value: number
@@ -8,11 +8,13 @@ type RetweetProps = {
 const Retweet: React.FC<RetweetProps> = ({value}) => {
   return (
     <div>
-      <TweetBottomIcon
+      <IconButton
         Icon={RetweetIcon}
         text="Retweet"
         handleClick={() => console.log("Retweets!")}
         value={value}
+        hover_text_color="hover:text-[#00BA7C]"
+        hover_bgColor="hover:bg-[#071A14]"
       />
     </div>
   );

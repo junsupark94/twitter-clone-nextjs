@@ -1,6 +1,6 @@
 import ViewsIcon from "@mui/icons-material/InsertChartOutlined";
 import { useState } from "react";
-import TweetBottomIcon from "./TweetBottomIcon";
+import TweetBottomIcon from "../../UI/IconButton";
 import Modal from "@/components/UI/Modal";
 import { Dialog } from "@headlessui/react";
 

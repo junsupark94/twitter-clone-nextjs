@@ -1,4 +1,4 @@
-import TweetBottomIcon from "./TweetBottomIcon";
+import IconButton from "../../UI/IconButton";
 import ShareIcon from "@mui/icons-material/FileUploadOutlined";
 
 type ShareProps = {};
@@ -6,7 +6,7 @@ type ShareProps = {};
 const Share: React.FC<ShareProps> = () => {
   return (
     <div>
-      <TweetBottomIcon
+      <IconButton
         Icon={ShareIcon}
         text="Share"
         handleClick={() => console.log("Share!")}

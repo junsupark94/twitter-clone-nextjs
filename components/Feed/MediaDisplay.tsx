@@ -2,7 +2,7 @@ import React from "react";
 import { Media } from "./tweet-data";
 import Image from "next/image";
 
-type MediaProps = {
+type MediaDisplayProps = {
   medias: Media[];
 };
 
@@ -24,7 +24,7 @@ const mediaType = ({ type, src }: Media) => {
   }
 };
 
-const Media: React.FC<MediaProps> = ({ medias }) => {
+const MediaDisplay: React.FC<MediaDisplayProps> = ({ medias }) => {
   let mediaBlocks = null;
   if (medias.length === 1) {
     return (
@@ -52,4 +52,4 @@ const Media: React.FC<MediaProps> = ({ medias }) => {
     );
   }
 };
-export default Media;
+export default MediaDisplay;

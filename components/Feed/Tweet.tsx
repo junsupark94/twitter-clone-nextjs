@@ -5,8 +5,7 @@ import ProfileIcon from "../SideBar/ProfileIcon";
 import TweetBottom from "./TweetBottom/TweetBottom";
 import { TweetType } from "./tweet-data";
 import Image from "next/image";
-import timeSince from "@/utils/timeSince";
-import Media from "./Media";
+import TweetHeader from "./TweetHeader";
 
 type TweetProps = {
   tweet: TweetType;
@@ -40,11 +39,7 @@ const Tweet: React.FC<TweetProps> = ({ tweet }) => {
           <ProfileIcon />
         </div>
         <div className="w-full">
-          <div>
-            <span>{displayName} </span>
-            <span className="text-gray-600">@{account} · </span>
-            <span>{timeSince(date)} ago</span>
-          </div>
+          <TweetHeader displayName={displayName} account={account} date={date}/>
           <div>
             {replying && (
               <>
@@ -63,10 +58,7 @@ const Tweet: React.FC<TweetProps> = ({ tweet }) => {
             {/* {medias && <Media medias={medias}/>} */}
           </div>
           <TweetBottom
-            replies={replies}
-            retweets={retweets}
-            likes={likes}
-            views={views}
+            tweet={tweet}
           />
         </div>
       </div>
