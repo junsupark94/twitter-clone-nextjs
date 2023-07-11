@@ -1,12 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 
 type ModalProps = {
-  closeModal: (e: any) => void;
+  closeModal: () => void;
   children: React.JSX.Element;
 };
 
 const Modal: React.FC<ModalProps> = ({ closeModal, children }) => {
+  useEffect(() => {
+    function handleEscapeKey(e: KeyboardEvent) {
+      if (e.code === "Escape") {
+        closeModal();
+      }
+    }
+    document.addEventListener("keydown", handleEscapeKey);
+    return () => document.removeEventListener("keydown", handleEscapeKey);
+  }, [closeModal]);
+
   return createPortal(
     <div
       onClick={closeModal}

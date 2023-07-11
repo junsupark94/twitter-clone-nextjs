@@ -35,7 +35,7 @@ const Views: React.FC<ViewsProps> = ({ value }) => {
                 </h1>
                 <p className="mb-8">
                   Times this Tweet was seen. To learn more, visit the{" "}
-                  <span className="font-bold underline">Help Center</span>
+                  <a target="_blank" href="https://help.twitter.com/en/using-twitter/view-counts" className="font-bold underline">Help Center</a>
                 </p>
                 <button
                   onClick={setShowModal.bind(null, false)}
