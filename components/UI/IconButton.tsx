@@ -27,22 +27,22 @@ export default function IconButton({
   return (
     <div
       key={text}
-      className={`${hover_text_color}`}
       onMouseEnter={setIsHover.bind(null, true)}
       onMouseLeave={setIsHover.bind(null, false)}
       onClick={handleClick}
+      className={`${hover_text_color} flex items-center relative`}
     >
-      <div className="relative">
-        <span className={`rounded-full p-1 ${hover_bgColor}`}>
-          <Icon />
-        </span>
-        <span>{value}</span>
+      <div
+        className={`rounded-full p-[6px] ${hover_bgColor} flex justify-center`}
+      >
+        <Icon fontSize="inherit"/>
         {isHover && (
-          <div className="absolute top-8 p-1 text-[9px] text-[#F7F8F9] bg-[#495a697d]">
+          <div className="absolute top-9 p-1 text-[9px] text-[#F7F8F9] bg-[#495a697d]">
             {text}
           </div>
         )}
       </div>
+      <div>{value}</div>
     </div>
   );
 }
