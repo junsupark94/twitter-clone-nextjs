@@ -10,7 +10,7 @@ const Modal: React.FC<ModalProps> = ({ closeModal, children }) => {
   return createPortal(
     <div
       onClick={closeModal}
-      className="fixed top-0 left-0 w-screen h-screen bg-gray-700/50"
+      className="fixed top-0 left-0 w-screen h-screen bg-gray-700/50 flex items-center justify-center"
     >
       {children}
     </div>,

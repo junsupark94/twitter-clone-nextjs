@@ -17,7 +17,7 @@ const Views: React.FC<ViewsProps> = ({ value }) => {
         <Modal closeModal={setShowModal.bind(null, false)}>
           <div
             onClick={(e) => e.stopPropagation()}
-            className="relative w-[600px] top-1/3 left-1/3 rounded-xl bg-black pb-12"
+            className="w-[600px] h-fit rounded-xl bg-black pb-12"
           >
             <div className="h-[53px] w-full max-w-[1000px] flex items-center px-4 mx-auto">
               <button
