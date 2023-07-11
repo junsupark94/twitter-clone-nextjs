@@ -2,29 +2,30 @@
 import React from "react";
 import RepeatOutlinedIcon from "@mui/icons-material/RepeatOutlined";
 import ProfileIcon from "../SideBar/ProfileIcon";
-import TweetBottom from "./TweetBottom";
+import TweetBottom from "./TweetBottom/TweetBottom";
 import { TweetType } from "./tweet-data";
 import Image from "next/image";
 import timeSince from "@/utils/timeSince";
+import Media from "./Media";
 
 type TweetProps = {
-  tweet: TweetType
+  tweet: TweetType;
 };
 
-const Tweet: React.FC<TweetProps> = ({tweet}) => {
+const Tweet: React.FC<TweetProps> = ({ tweet }) => {
   const {
     account,
     date,
     displayName,
     body,
-    media,
+    medias,
     replies,
     retweets,
     likes,
     views,
     retweeter,
     replying,
-  } = tweet
+  } = tweet;
 
   return (
     <div className="pt-2 pb-4 px-2 border-b-2 border-color-hover">
@@ -54,16 +55,12 @@ const Tweet: React.FC<TweetProps> = ({tweet}) => {
           </div>
           <div className="my-2">
             {body && <div>{body}</div>}
-            {media &&
-              media?.map((item) => (
-                <Image
-                  key={item}
-                  src={item}
-                  width={100}
-                  height={100}
-                  alt="image"
-                />
-              ))}
+            {medias && medias[0].type === "photo" && (
+              <div className="border border-red-500 relative h-96">
+                <Image src={medias[0].src} alt="Image" fill className="object-cover"/>
+              </div>
+            )}
+            {/* {medias && <Media medias={medias}/>} */}
           </div>
           <TweetBottom
             replies={replies}

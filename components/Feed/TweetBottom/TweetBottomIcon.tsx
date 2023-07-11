@@ -13,12 +13,14 @@ export default function TweetBottomIcon({
   hover_bgColor = "hover:bg-[#0A171F]",
   value,
   text,
+  handleClick,
 }: {
   Icon: icon;
   hover_text_color?: string;
   hover_bgColor?: string;
   value?: number;
   text: string;
+  handleClick?: () => void;
 }) {
   const [isHover, setIsHover] = useState(false);
 
@@ -28,9 +30,10 @@ export default function TweetBottomIcon({
       className={`${hover_text_color}`}
       onMouseEnter={setIsHover.bind(null, true)}
       onMouseLeave={setIsHover.bind(null, false)}
+      onClick={handleClick}
     >
       <div className="relative">
-        <span className={`rounded-full p-1  ${hover_bgColor}`}>
+        <span className={`rounded-full p-1 ${hover_bgColor}`}>
           <Icon />
         </span>
         <span>{value}</span>
