@@ -39,14 +39,21 @@ const Reply: React.FC<ReplyProps> = ({ data }) => {
     <>
       {showModal && (
         <Modal closeModal={setShowModal.bind(null, false)}>
-          <div onClick={e => e.stopPropagation()} className="fixed p-1 top-12 rounded-2xl bg-black max-w-[80vw] max-h-[90vh] min-w-[600px]">
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="fixed p-1 top-12 rounded-2xl bg-black max-w-[80vw] max-h-[90vh] min-w-[600px]"
+          >
             <button className="m-2 w-9 h-9 rounded-full hover:bg-color-hover">
               X
             </button>
             <div className="flex">
-              <div className="mx-2">
-                <ProfileIcon />
+              <div className="mx-2 flex flex-col items-center">
+                <div>
+                  <ProfileIcon />
+                </div>
+                <div className="grow border border-slate-500" />
               </div>
+
               <div className="mx-2">
                 <TweetHeader
                   displayName={displayName}
@@ -62,9 +69,22 @@ const Reply: React.FC<ReplyProps> = ({ data }) => {
                 </div>
               </div>
             </div>
-            <div>
-              <TweetForm placeholder="Tweet your reply!" buttonText="Reply" />
-              <TweetFormIcons />
+            <div className="p-2">
+              <div className="flex pb-8 gap-4">
+                <div>
+                  <ProfileIcon />
+                </div>
+                <textarea
+                  className="bg-black w-full resize-none outline-none"
+                  placeholder="Tweet your reply!"
+                />
+              </div>
+              <div className="flex justify-between items-center">
+                <TweetFormIcons />
+                <button className="rounded-full bg-twitter-blue py-2 px-4">
+                  Reply
+                </button>
+              </div>
             </div>
           </div>
         </Modal>
