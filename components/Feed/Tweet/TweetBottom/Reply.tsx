@@ -43,7 +43,7 @@ const Reply: React.FC<ReplyProps> = ({ data }) => {
             onClick={(e) => e.stopPropagation()}
             className="fixed p-1 top-12 rounded-2xl bg-black max-w-[80vw] max-h-[90vh] min-w-[600px]"
           >
-            <button className="m-2 w-9 h-9 rounded-full hover:bg-color-hover">
+            <button onClick={setShowModal.bind(null, false)} className="m-2 w-9 h-9 rounded-full hover:bg-color-hover">
               X
             </button>
             <div className="flex">
