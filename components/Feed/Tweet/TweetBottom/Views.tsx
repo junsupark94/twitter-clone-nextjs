@@ -1,8 +1,8 @@
 import ViewsIcon from "@mui/icons-material/InsertChartOutlined";
 import { useState } from "react";
-import TweetBottomIcon from "../../UI/IconButton";
 import Modal from "@/components/UI/Modal";
 import { Dialog } from "@headlessui/react";
+import IconButton from "@/components/UI/IconButton";
 
 type ViewsProps = {
   value: number;
@@ -48,7 +48,7 @@ const Views: React.FC<ViewsProps> = ({ value }) => {
           </div>
         </Modal>
       )}
-      <TweetBottomIcon
+      <IconButton
         Icon={ViewsIcon}
         value={value}
         text="Views"

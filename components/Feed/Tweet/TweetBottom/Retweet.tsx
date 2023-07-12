@@ -1,5 +1,5 @@
+import IconButton from "@/components/UI/IconButton";
 import RetweetIcon from "@mui/icons-material/RepeatOutlined";
-import IconButton from "../../UI/IconButton";
 
 type RetweetProps = {
   value: number

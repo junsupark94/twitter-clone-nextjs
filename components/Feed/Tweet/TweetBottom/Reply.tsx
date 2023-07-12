@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import ReplyIcon from "@mui/icons-material/ChatBubbleOutlineOutlined";
-import IconButton from "../../UI/IconButton";
 import Modal from "@/components/UI/Modal";
-import { Media } from "../tweet-data";
-import TweetForm from "../TweetForm/TweetForm";
 import ProfileIcon from "@/components/SideBar/ProfileIcon";
+import { Media } from "../../tweet-data";
 import TweetHeader from "../TweetHeader";
+import TweetForm from "../../TweetForm/TweetForm";
+import TweetFormIcons from "../../TweetForm/TweetFormIcons";
+import IconButton from "@/components/UI/IconButton";
 
 type ReplyProps = {
   data: {
@@ -61,7 +62,10 @@ const Reply: React.FC<ReplyProps> = ({ data }) => {
                 </div>
               </div>
             </div>
-            <TweetForm placeholder="Tweet your reply!" buttonText="Reply" />
+            <div>
+              <TweetForm placeholder="Tweet your reply!" buttonText="Reply" />
+              <TweetFormIcons />
+            </div>
           </div>
         </Modal>
       )}

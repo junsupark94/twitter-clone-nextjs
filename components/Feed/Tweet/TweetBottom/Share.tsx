@@ -1,4 +1,4 @@
-import IconButton from "../../UI/IconButton";
+import IconButton from "@/components/UI/IconButton";
 import ShareIcon from "@mui/icons-material/FileUploadOutlined";
 
 type ShareProps = {};
