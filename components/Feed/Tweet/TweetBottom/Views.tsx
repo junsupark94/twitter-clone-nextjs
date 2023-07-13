@@ -1,8 +1,8 @@
 import ViewsIcon from "@mui/icons-material/InsertChartOutlined";
 import { useState } from "react";
-import Modal from "@/components/UI/Modal";
-import { Dialog } from "@headlessui/react";
+import ModalBackdrop from "@/components/UI/ModalBackdrop";
 import IconButton from "@/components/UI/IconButton";
+import ModalBox from "@/components/UI/ModalBox";
 
 type ViewsProps = {
   value: number;
@@ -14,20 +14,8 @@ const Views: React.FC<ViewsProps> = ({ value }) => {
   return (
     <>
       {showModal && (
-        <Modal closeModal={setShowModal.bind(null, false)}>
-          <div
-            onClick={(e) => e.stopPropagation()}
-            className="w-[600px] h-fit rounded-xl bg-black pb-12"
-          >
-            <div className="h-[53px] w-full max-w-[1000px] flex items-center px-4 mx-auto">
-              <button
-                onClick={setShowModal.bind(null, false)}
-                className="rounded-full hover:bg-color-hover min-w-[36px] min-h-[36px] align-center"
-              >
-                X
-              </button>
-              <div className="flex-shrink" />
-            </div>
+        <ModalBackdrop closeModal={setShowModal.bind(null, false)}>
+          <ModalBox closeModal={setShowModal.bind(null, false)}>
             <div className="w-full flex justify-center items-center">
               <div className="w-[400px] m-8">
                 <h1 className="font-extrabold text-2xl mb-2 text-white">
@@ -45,8 +33,8 @@ const Views: React.FC<ViewsProps> = ({ value }) => {
                 </button>
               </div>
             </div>
-          </div>
-        </Modal>
+          </ModalBox>
+        </ModalBackdrop>
       )}
       <IconButton
         Icon={ViewsIcon}
@@ -58,3 +46,18 @@ const Views: React.FC<ViewsProps> = ({ value }) => {
   );
 };
 export default Views;
+
+
+{/* <div
+      onClick={(e) => e.stopPropagation()}
+      className="w-[600px] h-fit rounded-xl bg-black pb-12"
+    >
+      <div className="h-[53px] w-full max-w-[1000px] flex items-center px-4 mx-auto">
+        <button
+          onClick={setShowModal.bind(null, false)}
+          className="rounded-full hover:bg-color-hover min-w-[36px] min-h-[36px] align-center"
+        >
+          X
+        </button>
+        <div className="flex-shrink" />
+      </div> */}

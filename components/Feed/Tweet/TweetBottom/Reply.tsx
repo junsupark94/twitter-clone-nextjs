@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import ReplyIcon from "@mui/icons-material/ChatBubbleOutlineOutlined";
-import Modal from "@/components/UI/Modal";
 import ProfileIcon from "@/components/SideBar/ProfileIcon";
 import { Media } from "../../tweet-data";
 import TweetHeader from "../TweetHeader";
-import TweetForm from "../../TweetForm/TweetForm";
-import TweetFormIcons from "../../TweetForm/TweetFormIcons";
 import IconButton from "@/components/UI/IconButton";
-import ModalTop from "@/components/UI/ModalBox";
+import ModalBox from "@/components/UI/ModalBox";
+import ModalBackdrop from "@/components/UI/ModalBackdrop";
+import TweetFormIcons from "../../TweetForm/TweetFormIcons";
 
 type ReplyProps = {
   data: {
@@ -16,13 +15,13 @@ type ReplyProps = {
     displayName: string;
     body: string | undefined;
     medias: Media[] | undefined;
-    replies: number;
     retweeter: string | undefined;
     replying: string | number | undefined;
   };
+  value: number;
 };
 
-const Reply: React.FC<ReplyProps> = ({ data }) => {
+const Reply: React.FC<ReplyProps> = ({ data, value }) => {
   const [showModal, setShowModal] = useState(false);
 
   const {
@@ -31,7 +30,6 @@ const Reply: React.FC<ReplyProps> = ({ data }) => {
     displayName,
     body,
     medias,
-    replies,
     retweeter,
     replying,
   } = data;
@@ -39,8 +37,11 @@ const Reply: React.FC<ReplyProps> = ({ data }) => {
   return (
     <>
       {showModal && (
-        <Modal closeModal={setShowModal.bind(null, false)}>
-          <ModalTop closeModal={setShowModal.bind(null, false)}>
+        <ModalBackdrop closeModal={setShowModal.bind(null, false)}>
+          <ModalBox
+            closeModal={setShowModal.bind(null, false)}
+            positioning="fixed top-12"
+          >
             <>
               <div className="flex">
                 <div className="mx-2 flex flex-col items-center">
@@ -76,13 +77,19 @@ const Reply: React.FC<ReplyProps> = ({ data }) => {
                   />
                 </div>
               </div>
+              <div className="flex justify-between items-center">
+                <TweetFormIcons />
+                <button className="rounded-full bg-twitter-blue py-2 px-4">
+                  Tweet
+                </button>
+              </div>
             </>
-          </ModalTop>
-        </Modal>
+          </ModalBox>
+        </ModalBackdrop>
       )}
       <IconButton
         Icon={ReplyIcon}
-        value={replies}
+        value={value}
         text="Reply"
         handleClick={setShowModal.bind(null, true)}
       />

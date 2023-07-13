@@ -1,21 +1,35 @@
 "use client";
 import IconButton from "@/components/UI/IconButton";
-import Modal from "@/components/UI/Modal";
 import RetweetIcon from "@mui/icons-material/RepeatOutlined";
 import QuoteTweetIcon from "@mui/icons-material/Create";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ProfileIcon from "@/components/SideBar/ProfileIcon";
-import TweetFormIcons from "../../TweetForm/TweetFormIcons";
 import ModalBox from "@/components/UI/ModalBox";
+import ModalBackdrop from "@/components/UI/ModalBackdrop";
+import TweetFormIcons from "../../TweetForm/TweetFormIcons";
+import PublicIcon from "@mui/icons-material/Public";
+import { Media } from "../../tweet-data";
+import TwitterCircleIcon from "@mui/icons-material/People";
 
 type RetweetProps = {
+  data: {
+    account: string;
+    date: Date;
+    displayName: string;
+    body: string | undefined;
+    medias: Media[] | undefined;
+    retweeter: string | undefined;
+    replying: string | number | undefined;
+  };
   value: number;
 };
 
-const Retweet: React.FC<RetweetProps> = ({ value }) => {
-  const [showMenu, setShowMenu] = useState(false);
-  const [showModal, setShowModal] = useState(false);
+const Retweet: React.FC<RetweetProps> = ({ data, value }) => {
+  const [showRetweetMenu, setShowRetweetMenu] = useState(false);
+  const [showQuoteTweetModal, setShowQuoteTweetModal] = useState(false);
   const [isRetweeted, setIsRetweeted] = useState(false);
+  const [audience, setAudience] = useState("Everyone");
+  const [showAudienceMenu, setShowAudienceMenu] = useState(false);
 
   let text_color = "hover:text-[#00BA7C]";
   if (isRetweeted) {
@@ -25,62 +39,88 @@ const Retweet: React.FC<RetweetProps> = ({ value }) => {
 
   const retweetHandler = () => {
     setIsRetweeted((prev) => !prev);
-    setShowMenu(false);
+    setShowRetweetMenu(false);
   };
 
   const quoteTweetHandler = () => {
-    setShowMenu(false);
-    setShowModal(true);
+    setShowRetweetMenu(false);
+    setShowQuoteTweetModal(true);
   };
 
   return (
     <div className="relative">
-      {showMenu && (
-        <>
-          <Modal
-            closeModal={setShowMenu.bind(null, false)}
-            background=""
-            scroll={true}
-          />
-          <div className="bg-black absolute rounded-xl top-0 right-0 shadow-highlight z-10 text-white text-sm font-bold w-max">
-            <button
-              onClick={retweetHandler}
-              className="flex gap-2 m-4 items-center"
-            >
-              <RetweetIcon />
-              Retweet
-            </button>
-            <button
-              onClick={quoteTweetHandler}
-              className="flex gap-2 m-4 items-center"
-            >
-              <QuoteTweetIcon />
-              Quote Tweet
-            </button>
-          </div>
-        </>
+      {showRetweetMenu && (
+        <RetweetMenu
+          closeModal={setShowRetweetMenu.bind(null, false)}
+          retweetHandler={retweetHandler}
+          quoteTweetHandler={quoteTweetHandler}
+        />
       )}
-      {showModal && (
-        <Modal closeModal={setShowModal.bind(null, false)}>
-          <ModalBox closeModal={setShowModal.bind(null, false)}>
-            <div className="p-2 border">
-              <div className="flex pb-8 gap-4 border border-red-500">
-                <div className="border border-green-500">
+      {showQuoteTweetModal && (
+        <ModalBackdrop closeModal={setShowQuoteTweetModal.bind(null, false)}>
+          <ModalBox
+            closeModal={setShowQuoteTweetModal.bind(null, false)}
+            positioning="fixed top-12"
+          >
+            <>
+              <div className="p-2 border flex">
+                <div>
                   <ProfileIcon />
                 </div>
-                <textarea
-                  className="bg-black w-full resize-none outline-none"
-                  placeholder="Tweet your reply!"
-                />
+                <div className="grow">
+                  <div className="border-2 border-green-500">
+                    <button
+                      onClick={setShowAudienceMenu.bind(null, true)}
+                      className="flex justify-center relative border border-blue-500 text-twitter-blue text-xs rounded-full p-1"
+                    >
+                      {audience} ∨
+                      {showAudienceMenu && (
+                        <>
+                        <AudienceMenuBackdrop closeModal={setShowAudienceMenu.bind(null, false)}/>
+                          <div className="bg-black absolute rounded-xl top-7 shadow-highlight z-20 text-white text-sm font-bold w-max">
+                            <div className="border">Choose audience</div>
+                            <button className="flex gap-2 p-4 items-center border">
+                              <PublicIcon fontSize="inherit" />
+                              Retweet
+                            </button>
+                            <button className="flex gap-2 p-4 items-center border">
+                              <TwitterCircleIcon />
+                              Twitter Circle
+                            </button>
+                          </div>
+                        </>
+                      )}
+                    </button>
+                    <textarea
+                      className="border w-full resize-none outline-none bg-black border-purple-500 "
+                      placeholder="Add a comment!"
+                    />
+                  </div>
+                  <div className="border border-orange-500">
+                    Quote tweet goes here
+                  </div>
+                </div>
               </div>
-            </div>
+              <div className="border-b border-color-hover mx-2 py-2 text-sm">
+                <span className="ml-2 text-twitter-blue flex gap-1 items-center">
+                  <PublicIcon fontSize="inherit" />
+                  Everyone can reply
+                </span>
+              </div>
+              <div className="mt-2 flex justify-between items-center mr-1">
+                <TweetFormIcons />
+                <button className="rounded-full bg-twitter-blue py-[6px] px-4">
+                  Tweet
+                </button>
+              </div>
+            </>
           </ModalBox>
-        </Modal>
+        </ModalBackdrop>
       )}
       <IconButton
         Icon={RetweetIcon}
         text="Retweet"
-        handleClick={setShowMenu.bind(null, true)}
+        handleClick={setShowRetweetMenu.bind(null, true)}
         value={value}
         text_color={text_color}
         bgColor="group-hover:bg-[#071A14]"
@@ -89,3 +129,63 @@ const Retweet: React.FC<RetweetProps> = ({ value }) => {
   );
 };
 export default Retweet;
+
+function RetweetMenu({
+  closeModal,
+  retweetHandler,
+  quoteTweetHandler,
+}: {
+  closeModal: () => void;
+  retweetHandler: () => void;
+  quoteTweetHandler: () => void;
+}) {
+  return (
+    <>
+      <ModalBackdrop closeModal={closeModal} background="" scroll={true} />
+      <div className="bg-black absolute rounded-xl top-0 right-0 shadow-highlight z-10 text-white text-sm font-bold w-max">
+        <button
+          onClick={retweetHandler}
+          className="flex gap-2 m-4 items-center"
+        >
+          <RetweetIcon />
+          Retweet
+        </button>
+        <button
+          onClick={quoteTweetHandler}
+          className="flex gap-2 m-4 items-center"
+        >
+          <QuoteTweetIcon />
+          Quote Tweet
+        </button>
+      </div>
+    </>
+  );
+}
+
+function AudienceMenuBackdrop({closeModal} : {closeModal: () => void}) {
+  useEffect(() => {
+    function handleEscapeKey(e: KeyboardEvent) {
+      if (e.code === "Escape") {
+        closeModal();
+      }
+    }
+    if (!scroll) {
+      document.body.style.overflow = "hidden";
+    }
+    document.addEventListener("keydown", handleEscapeKey);
+    return () => {
+      document.body.style.overflow = "visible";
+      document.removeEventListener("keydown", handleEscapeKey);
+    };
+  }, [closeModal]);
+
+  return (
+    <div
+      onClick={(e) => {
+        e.stopPropagation();
+        closeModal();
+      }}
+      className="fixed top-0 left-0 w-screen h-screen"
+    />
+  );
+}

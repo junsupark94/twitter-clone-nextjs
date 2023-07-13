@@ -10,7 +10,7 @@ type TweetFormIconsProps = {};
 
 const TweetFormIcons: React.FC<TweetFormIconsProps> = () => {
   return (
-    <div className="flex text-twitter-blue text-[20px] ">
+    <div className="flex text-twitter-blue text-[20px]">
       <IconButton Icon={MediaIcon} text="Media" />
       <IconButton Icon={GifIcon} text="GIF" />
       <IconButton Icon={PollIcon} text="Poll" />
