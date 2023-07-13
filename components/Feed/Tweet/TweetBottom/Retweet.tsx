@@ -60,7 +60,7 @@ const Retweet: React.FC<RetweetProps> = ({ data, value }) => {
         <ModalBackdrop closeModal={setShowQuoteTweetModal.bind(null, false)}>
           <ModalBox
             closeModal={setShowQuoteTweetModal.bind(null, false)}
-            positioning="fixed top-12"
+            positioning="fixed top-12 text-white"
           >
             <>
               <div className="p-2 border flex">
@@ -76,17 +76,44 @@ const Retweet: React.FC<RetweetProps> = ({ data, value }) => {
                       {audience} ∨
                       {showAudienceMenu && (
                         <>
-                        <AudienceMenuBackdrop closeModal={setShowAudienceMenu.bind(null, false)}/>
-                          <div className="bg-black absolute rounded-xl top-7 shadow-highlight z-20 text-white text-sm font-bold w-max">
-                            <div className="border">Choose audience</div>
-                            <button className="flex gap-2 p-4 items-center border">
-                              <PublicIcon fontSize="inherit" />
-                              Retweet
-                            </button>
-                            <button className="flex gap-2 p-4 items-center border">
-                              <TwitterCircleIcon />
-                              Twitter Circle
-                            </button>
+                          <AudienceMenuBackdrop
+                            closeModal={setShowAudienceMenu.bind(null, false)}
+                          />
+                          <div className="bg-black absolute rounded-xl top-7 shadow-highlight z-20 text-white text-sm font-bold w-56">
+                            <div className="text-lg m-4 text-start">
+                              Choose audience
+                            </div>
+                            <div className="flex gap-2 m-4 items-center">
+                              <div className="bg-twitter-blue rounded-full w-10 h-10 flex items-center justify-center">
+                                <PublicIcon />
+                              </div>
+                              <div className="flex grow justify-between">
+                                <span>Everyone</span>
+                                {audience === "Everyone" && (
+                                  <span className="text-twitter-blue">✓</span>
+                                )}
+                              </div>
+                            </div>
+                            <div className="flex gap-2 m-4 items-center">
+                              <div className="bg-[#00BA7C] rounded-full w-10 h-10 flex items-center justify-center">
+                                <TwitterCircleIcon />
+                              </div>
+                              <div className="flex grow items-center justify-between text-start">
+                                <div >
+                                  <div>Twitter Circle</div>
+                                  <div className="space-x-1">
+                                    <span>
+                                      0{" "}
+                                      <span className="text-gray-500 font-normal">
+                                        People
+                                      </span>
+                                    </span>
+                                    <span className="underline">Edit</span>
+                                  </div>
+                                </div>
+                                {audience === "Circle" && <div className="text-twitter-blue">✓</div>}
+                              </div>
+                            </div>
                           </div>
                         </>
                       )}
@@ -162,7 +189,7 @@ function RetweetMenu({
   );
 }
 
-function AudienceMenuBackdrop({closeModal} : {closeModal: () => void}) {
+function AudienceMenuBackdrop({ closeModal }: { closeModal: () => void }) {
   useEffect(() => {
     function handleEscapeKey(e: KeyboardEvent) {
       if (e.code === "Escape") {

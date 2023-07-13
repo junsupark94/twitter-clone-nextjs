@@ -19,7 +19,7 @@ module.exports = {
         'color-hover': '#181818',
         'default-text': '#E7E9EA',
         "twitter-blue": "#1D9BF0",
-      }
+      },
     },
   },
   plugins: [],
