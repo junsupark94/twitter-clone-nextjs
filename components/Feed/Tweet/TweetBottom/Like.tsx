@@ -14,8 +14,8 @@ const Like: React.FC<LikeProps> = ({value}) => {
         text="Like"
         handleClick={() => console.log("Like!")}
         value={value}
-        hover_bgColor="hover:bg-[#200914]"
-        hover_text_color="hover:text-[#F91880]"
+        bgColor="group-hover:bg-[#200914]"
+        text_color="hover:text-[#F91880]"
       />
     </div>
   );

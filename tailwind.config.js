@@ -12,6 +12,9 @@ module.exports = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      boxShadow: {
+        'highlight': '0 0 10px 2px rgba(255, 255, 255, 0.3)'
+      },
       colors: {
         'color-hover': '#181818',
         'default-text': '#E7E9EA',
