@@ -40,7 +40,7 @@ const Reply: React.FC<ReplyProps> = ({ data, value }) => {
         <ModalBackdrop closeModal={setShowModal.bind(null, false)}>
           <ModalBox
             closeModal={setShowModal.bind(null, false)}
-            positioning="fixed top-12"
+            positioning="fixed top-12 text-white pr-3"
           >
             <>
               <div className="flex">
@@ -79,8 +79,8 @@ const Reply: React.FC<ReplyProps> = ({ data, value }) => {
               </div>
               <div className="flex justify-between items-center">
                 <TweetFormIcons />
-                <button className="rounded-full bg-twitter-blue py-2 px-4">
-                  Tweet
+                <button className="rounded-full bg-twitter-blue py-1 px-4 font-semibold">
+                  Reply
                 </button>
               </div>
             </>

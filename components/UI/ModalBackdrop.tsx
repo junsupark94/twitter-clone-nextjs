@@ -20,7 +20,7 @@ const ModalBackdrop: React.FC<ModalBackdropProps> = ({
         closeModal();
       }
     }
-    if(!scroll) {
+    if (!scroll) {
       document.body.style.overflow = "hidden";
     }
     document.addEventListener("keydown", handleEscapeKey);
@@ -30,17 +30,16 @@ const ModalBackdrop: React.FC<ModalBackdropProps> = ({
     };
   }, [scroll, closeModal]);
 
-  return createPortal(
+  return (
     <div
       onClick={(e) => {
         e.stopPropagation();
         closeModal();
       }}
-      className={`fixed top-0 left-0 w-screen h-screen ${background} flex items-center justify-center`}
+      className={`fixed top-0 left-0 w-screen h-screen ${background} flex items-center justify-center z-10`}
     >
       {children}
-    </div>,
-    document.body
+    </div>
   );
 };
 export default ModalBackdrop;
