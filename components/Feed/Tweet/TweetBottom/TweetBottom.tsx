@@ -3,7 +3,7 @@ import Reply from "./Reply";
 import Views from "./Views";
 import Share from "./Share";
 import Like from "./Like";
-import Retweet from "./Retweet";
+import Retweet from "./Retweet/Retweet";
 import { TweetType } from "../../tweet-data";
 
 type TweetBottomProps = {

@@ -3,7 +3,7 @@ import ModalBox from "@/components/UI/ModalBox";
 import ProfileIcon from "@/components/SideBar/ProfileIcon";
 import AudienceMenu from "./AudienceMenu";
 import PublicIcon from "@mui/icons-material/Public";
-import TweetFormIcons from "../../TweetForm/TweetFormIcons";
+import TweetFormIcons from "../../../TweetForm/TweetFormIcons";
 
 export default function QuoteTweetModal({
   setShowQuoteTweetModal,

@@ -2,7 +2,7 @@
 import IconButton from "@/components/UI/IconButton";
 import RetweetIcon from "@mui/icons-material/RepeatOutlined";
 import { useState } from "react";
-import { Media } from "../../tweet-data";
+import { Media } from "../../../tweet-data";
 import RetweetMenu from "./RetweetMenu";
 import QuoteTweetModal from "./QuoteTweetModal";
 
