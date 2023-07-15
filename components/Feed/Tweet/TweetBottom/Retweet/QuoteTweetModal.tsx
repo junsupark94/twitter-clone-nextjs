@@ -53,7 +53,7 @@ export default function QuoteTweetModal({
                 <div className="border-2 border-green-500">
                   <button
                     onClick={setShowAudienceMenu.bind(null, true)}
-                    className="flex justify-center relative border border-blue-500 text-twitter-blue text-xs rounded-full p-1"
+                    className={`flex justify-center relative border text-xs font-bold rounded-full py-1 px-2 ${audience === "Twitter Circle" ? "text-[#00BA7C] border-[#00BA7C]" : "border-blue-500 text-twitter-blue"}`}
                   >
                     {audience} ∨
                     {showAudienceMenu && (
