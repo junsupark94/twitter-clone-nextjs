@@ -23,8 +23,6 @@ const Retweet: React.FC<RetweetProps> = ({ data, value }) => {
   const [showRetweetMenu, setShowRetweetMenu] = useState(false);
   const [showQuoteTweetModal, setShowQuoteTweetModal] = useState(false);
   const [isRetweeted, setIsRetweeted] = useState(false);
-  const [audience, setAudience] = useState("Everyone");
-  const [showAudienceMenu, setShowAudienceMenu] = useState(false);
 
   let text_color = "hover:text-[#00BA7C]";
   if (isRetweeted) {
@@ -54,10 +52,6 @@ const Retweet: React.FC<RetweetProps> = ({ data, value }) => {
       {showQuoteTweetModal && (
         <QuoteTweetModal
           setShowQuoteTweetModal={setShowQuoteTweetModal}
-          setShowAudienceMenu={setShowAudienceMenu}
-          audience={audience}
-          setAudience={setAudience}
-          showAudienceMenu={showAudienceMenu}
         />
       )}
       <IconButton

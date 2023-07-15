@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useEffect } from "react";
+import { Dispatch, SetStateAction } from "react";
 import PublicIcon from "@mui/icons-material/Public";
 import TwitterCircleIcon from "@mui/icons-material/People";
 
@@ -11,21 +11,6 @@ export default function AudienceMenu({
   audience: string;
   setAudience: Dispatch<SetStateAction<string>>;
 }) {
-  useEffect(() => {
-    function handleEscapeKey(e: KeyboardEvent) {
-      if (e.code === "Escape") {
-        closeModal();
-      }
-    }
-    if (!scroll) {
-      document.body.style.overflow = "hidden";
-    }
-    document.addEventListener("keydown", handleEscapeKey);
-    return () => {
-      document.body.style.overflow = "visible";
-      document.removeEventListener("keydown", handleEscapeKey);
-    };
-  }, [closeModal]);
 
   return (
     <>
