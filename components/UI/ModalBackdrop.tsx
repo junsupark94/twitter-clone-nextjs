@@ -10,7 +10,7 @@ type ModalBackdropProps = {
 
 const ModalBackdrop: React.FC<ModalBackdropProps> = ({
   closeModal,
-  background = "bg-gray-700/50",
+  background = "bg-[#5b708366]",
   scroll = false,
   children,
 }) => {

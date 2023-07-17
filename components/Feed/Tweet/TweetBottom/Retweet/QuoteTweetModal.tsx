@@ -54,7 +54,7 @@ export default function QuoteTweetModal({
           e.stopPropagation();
           setShowQuoteTweetModal(false);
         }}
-        className={`fixed top-0 left-0 w-screen h-screen flex items-center justify-center`}
+        className={`fixed top-0 left-0 w-screen h-screen flex items-center justify-center bg-[#5b708366] z-10`}
       >
         <ModalBox
           closeModal={setShowQuoteTweetModal.bind(null, false)}
