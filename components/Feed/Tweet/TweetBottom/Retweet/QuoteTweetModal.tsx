@@ -29,19 +29,22 @@ export default function QuoteTweetModal({
   const [audience, setAudience] = useState("Everyone");
 
   useEffect(() => {
+    document.body.style.overflow = "hidden"
+    let setter = setShowQuoteTweetModal;
     if (showAudienceMenu) {
-      const closeAudienceMenu = (e: KeyboardEvent) => {
-        if (e.code === "Escape") setShowAudienceMenu(false);
-      };
-      document.addEventListener("keydown", closeAudienceMenu);
-      return () => document.removeEventListener("keydown", closeAudienceMenu);
+      setter = setShowAudienceMenu;
     }
 
-    const closeQuoteTweetModal = (e: KeyboardEvent) => {
-      if (e.code === "Escape") setShowQuoteTweetModal(false);
+    const escListener = (e: KeyboardEvent) => {
+      if (e.code === "Escape") setter(false);
     };
-    document.addEventListener("keydown", closeQuoteTweetModal);
-    return () => document.removeEventListener("keydown", closeQuoteTweetModal);
+    document.addEventListener("keydown", escListener);
+
+    return () => {
+      document.body.style.overflow = "visible";
+      document.removeEventListener("keydown", escListener);
+    }
+
   }, [setShowQuoteTweetModal, showAudienceMenu]);
 
   return (
