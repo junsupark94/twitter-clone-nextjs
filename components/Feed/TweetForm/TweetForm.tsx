@@ -26,7 +26,7 @@ const TweetForm: React.FC<TweetFormProps> = ({placeholder, buttonText}) => {
         />
         <div className="flex justify-between items-center">
           <TweetFormIcons />
-          <button className="rounded-full bg-twitter-blue p-2 px-6">
+          <button className="rounded-full bg-twitter-blue p-2 px-5 font-bold">
             {buttonText}
           </button>
         </div>

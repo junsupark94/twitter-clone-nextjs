@@ -48,7 +48,7 @@ const SideBar: React.FC<SideBarProps> = () => {
         </ul>
       </nav>
       {/* Junsu: todo - add Modal for this button */}
-      <button className="text-default-text bg-twitter-blue rounded-full my-4 px-4 py-3 w-[90%]">
+      <button className="font-bold bg-twitter-blue rounded-full my-4 px-4 py-3 w-[90%]">
         Tweet
       </button>
       <Account />
