@@ -17,10 +17,6 @@ const Tweet: React.FC<TweetProps> = ({ tweet }) => {
     displayName,
     body,
     medias,
-    replies,
-    retweets,
-    likes,
-    views,
     retweeter,
     replying,
   } = tweet;

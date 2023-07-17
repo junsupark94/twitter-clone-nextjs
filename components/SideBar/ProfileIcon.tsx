@@ -1,13 +1,15 @@
-type ProfileIconProps = {};
+type ProfileIconProps = {
+  width?: number;
+};
 
-const ProfileIcon: React.FC<ProfileIconProps> = () => {
+const ProfileIcon: React.FC<ProfileIconProps> = ({width = 40}) => {
   // Todo: replace with profile picture if it exists and crop as circle
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
       fill="currentColor"
-      width={40}
+      width={width}
     >
       <path
         fillRule="evenodd"

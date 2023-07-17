@@ -52,6 +52,7 @@ const Retweet: React.FC<RetweetProps> = ({ data, value }) => {
       {showQuoteTweetModal && (
         <QuoteTweetModal
           setShowQuoteTweetModal={setShowQuoteTweetModal}
+          data={data}
         />
       )}
       <IconButton
