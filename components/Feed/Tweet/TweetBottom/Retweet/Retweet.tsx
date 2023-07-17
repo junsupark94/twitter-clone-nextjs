@@ -64,7 +64,7 @@ const Retweet: React.FC<RetweetProps> = ({ data, value }) => {
       />
       <div
         className={`flex items-center justify-center ${
-          isRetweeted && "text-[#F91880]"
+          isRetweeted && "text-[#00BA7C]"
         }`}
       >
         <div
