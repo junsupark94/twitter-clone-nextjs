@@ -24,10 +24,10 @@ export default function IconButton({
     <div
       key={text}
       onClick={handleClick}
-      className={`group ${text_color} flex items-center relative `}
+      className={`group ${text_color} flex items-center relative transition`}
     >
       <div
-        className={`rounded-full p-[6px] ${bgColor} flex justify-center`}
+        className={`rounded-full p-[6px] ${bgColor} flex justify-center transition`}
       >
         <Icon fontSize="small"/>
         <div className="hidden group-hover:block absolute top-9 p-1 text-[9px] text-[#F7F8F9] bg-[#495a697d]">

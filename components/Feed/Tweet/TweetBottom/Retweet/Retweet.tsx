@@ -24,7 +24,7 @@ const Retweet: React.FC<RetweetProps> = ({ data, value }) => {
   const [showQuoteTweetModal, setShowQuoteTweetModal] = useState(false);
   const [isRetweeted, setIsRetweeted] = useState(false);
 
-  let text_color = "hover:text-[#00BA7C]";
+  let text_color = "group-hover:text-[#00BA7C]";
   if (isRetweeted) {
     text_color = "text-[#00BA7C]";
   }
@@ -40,7 +40,7 @@ const Retweet: React.FC<RetweetProps> = ({ data, value }) => {
   };
 
   return (
-    <div className="relative cursor-pointer gap-2 flex items-center justify-center">
+    <div className="relative cursor-pointer group gap-2 flex items-center justify-center">
       {showRetweetMenu && (
         <RetweetMenu
           closeModal={setShowRetweetMenu.bind(null, false)}
@@ -67,7 +67,7 @@ const Retweet: React.FC<RetweetProps> = ({ data, value }) => {
         }`}
       >
         <div
-          className={`translate-y-0 duration-100 ${isRetweeted && "decrement"}`}
+          className={`translate-y-0 duration-100 group-hover:text-[#00BA7C] ${isRetweeted && "decrement"}`}
         >
           {value}
         </div>

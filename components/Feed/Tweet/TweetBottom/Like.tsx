@@ -33,7 +33,7 @@ const Like: React.FC<LikeProps> = ({ value }) => {
       {/* increment */}
       <div
         className={`flex items-center justify-center ${
-          isClicked && "text-[#F91880]"
+          isClicked && "text-[#F91880] transition"
         }`}
       >
         <div
