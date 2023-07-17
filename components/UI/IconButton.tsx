@@ -24,7 +24,7 @@ export default function IconButton({
     <div
       key={text}
       onClick={handleClick}
-      className={`group ${text_color} flex items-center relative transition`}
+      className={`group cursor-pointer ${text_color} flex items-center relative transition`}
     >
       <div
         className={`rounded-full p-[6px] ${bgColor} flex justify-center transition`}

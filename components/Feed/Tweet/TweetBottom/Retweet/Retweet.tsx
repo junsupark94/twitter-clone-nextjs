@@ -3,8 +3,10 @@ import IconButton from "@/components/UI/IconButton";
 import RetweetIcon from "@mui/icons-material/RepeatOutlined";
 import { useState } from "react";
 import { Media } from "../../../tweet-data";
-import RetweetMenu from "./RetweetMenu";
 import QuoteTweetModal from "./QuoteTweetModal";
+import QuoteTweetIcon from "@mui/icons-material/Create";
+import Menu from "../Menu";
+
 
 type RetweetProps = {
   data: {
@@ -39,14 +41,20 @@ const Retweet: React.FC<RetweetProps> = ({ data, value }) => {
     setShowQuoteTweetModal(true);
   };
 
+  const menuOptions = [
+    {text: "Retweet", Icon: RetweetIcon, clickHandler: retweetHandler},
+    {text: "Quote Tweet", Icon: QuoteTweetIcon, clickHandler: quoteTweetHandler},
+  ]
+
   return (
     <div className="relative cursor-pointer group gap-2 flex items-center justify-center">
       {showRetweetMenu && (
-        <RetweetMenu
-          closeModal={setShowRetweetMenu.bind(null, false)}
-          retweetHandler={retweetHandler}
-          quoteTweetHandler={quoteTweetHandler}
-        />
+        // <RetweetMenu
+        //   closeModal={setShowRetweetMenu.bind(null, false)}
+        //   retweetHandler={retweetHandler}
+        //   quoteTweetHandler={quoteTweetHandler}
+        // />
+        <Menu closeModal={() => setShowRetweetMenu(false)} options={menuOptions}/>
       )}
       {showQuoteTweetModal && (
         <QuoteTweetModal
