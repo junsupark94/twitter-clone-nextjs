@@ -17,9 +17,9 @@ const Like: React.FC<LikeProps> = ({ value }) => {
       className="cursor-pointer relative gap-2 flex items-center justify-center group hover:text-[#F91880]"
     >
       {/* icon */}
-      <div className="relative flex w-5 h-full justify-center items-center">
+      <div className="relative flex justify-center items-center group-hover:bg-[#200914] rounded-full p-4">
         <div
-          className={`absolute flex rounded-full p-[6px] group-hover:bg-[#200914]  ${
+          className={`absolute flex rounded-full p-[6px]  transition ${
             isClicked && "hidden"
           }`}
         >
