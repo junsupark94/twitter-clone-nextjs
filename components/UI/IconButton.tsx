@@ -29,7 +29,7 @@ export default function IconButton({
       <div
         className={`rounded-full p-[6px] ${bgColor} flex justify-center`}
       >
-        <Icon fontSize="inherit" />
+        <Icon fontSize="small"/>
         <div className="hidden group-hover:block absolute top-9 p-1 text-[9px] text-[#F7F8F9] bg-[#495a697d]">
           {text}
         </div>
