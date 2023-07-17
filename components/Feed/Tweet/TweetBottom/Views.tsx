@@ -21,9 +21,9 @@ const Views: React.FC<ViewsProps> = ({ value }) => {
                 <h1 className="font-extrabold text-2xl mb-2 text-white">
                   Views
                 </h1>
-                <p className="mb-8">
+                <p className="mb-8 text-[15px]">
                   Times this Tweet was seen. To learn more, visit the{" "}
-                  <a target="_blank" href="https://help.twitter.com/en/using-twitter/view-counts" className="font-bold underline">Help Center</a>
+                  <a target="_blank" href="https://help.twitter.com/en/using-twitter/view-counts" className="text-white font-bold underline">Help Center</a>
                 </p>
                 <button
                   onClick={setShowModal.bind(null, false)}

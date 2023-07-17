@@ -27,7 +27,6 @@ const Retweet: React.FC<RetweetProps> = ({ data, value }) => {
   let text_color = "hover:text-[#00BA7C]";
   if (isRetweeted) {
     text_color = "text-[#00BA7C]";
-    value++;
   }
 
   const retweetHandler = () => {

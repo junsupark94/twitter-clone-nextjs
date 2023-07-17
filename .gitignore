@@ -35,4 +35,4 @@ yarn-error.log*
 next-env.d.ts
 
 /public/*.mp4
-/components/Feed/Tweet/tweet-data.tx
+components/Feed/tweet-data.ts
