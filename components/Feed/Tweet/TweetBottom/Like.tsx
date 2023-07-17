@@ -1,7 +1,5 @@
-import IconButton from "@/components/UI/IconButton";
 import LikeIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import { useState } from "react";
-import Increment from "./Increment";
 
 type LikeProps = {
   value: number;
@@ -34,7 +32,7 @@ const Like: React.FC<LikeProps> = ({ value }) => {
       </div>
       {/* increment */}
       <div
-        className={`absolutez grow flex items-center justify-center ${
+        className={`flex items-center justify-center ${
           isClicked && "text-[#F91880]"
         }`}
       >

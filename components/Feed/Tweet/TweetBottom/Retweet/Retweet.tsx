@@ -59,7 +59,6 @@ const Retweet: React.FC<RetweetProps> = ({ data, value }) => {
         Icon={RetweetIcon}
         text="Retweet"
         handleClick={setShowRetweetMenu.bind(null, true)}
-        value={value}
         text_color={text_color}
         bgColor="group-hover:bg-[#071A14]"
       />
