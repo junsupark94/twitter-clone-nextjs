@@ -62,6 +62,7 @@ const Retweet: React.FC<RetweetProps> = ({ data, value }) => {
         bgColor="group-hover:bg-[#071A14]"
       />
       <div
+        onClick={setShowRetweetMenu.bind(null, true)}
         className={`flex items-center justify-center ${
           isRetweeted && "text-[#00BA7C]"
         }`}
