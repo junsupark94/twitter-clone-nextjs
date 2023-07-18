@@ -13,9 +13,9 @@ const Account: React.FC<AccountProps> = () => {
         <div>
           <p>Display Name</p>
           <p>@username</p>
-                </div>
-                ...
         </div>
+        ...
+      </div>
     </div>
   );
 };
