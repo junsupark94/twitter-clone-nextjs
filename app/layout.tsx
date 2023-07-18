@@ -1,6 +1,7 @@
 import SideBar from "@/components/SideBar/SideBar";
 import "./globals.css";
 import { Inter } from "next/font/google";
+import Toast from "@/components/UI/Toast";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,6 +23,7 @@ export default function RootLayout({
           <div className="min-h-screen flex-grow border-x-2 border-color-hover">
             {children}
           </div>
+          <Toast />
         </div>
       </body>
     </html>

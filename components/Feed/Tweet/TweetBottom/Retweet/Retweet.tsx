@@ -49,11 +49,6 @@ const Retweet: React.FC<RetweetProps> = ({ data, value }) => {
   return (
     <div className="relative cursor-pointer group gap-2 flex items-center justify-center">
       {showRetweetMenu && (
-        // <RetweetMenu
-        //   closeModal={setShowRetweetMenu.bind(null, false)}
-        //   retweetHandler={retweetHandler}
-        //   quoteTweetHandler={quoteTweetHandler}
-        // />
         <Menu closeModal={() => setShowRetweetMenu(false)} options={menuOptions}/>
       )}
       {showQuoteTweetModal && (
