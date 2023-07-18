@@ -11,7 +11,6 @@ type ShareProps = {};
 
 const Share: React.FC<ShareProps> = () => {
   const [showShareMenu, setShowShareMenu] = useState(false);
-  const [showShareModal, setShowShareModal] = useState(false);
   const [showToast, hideToast]= useToastStore(state => [state.showToast, state.hideToast]);
 
   const menuOptions = useMemo(() => [
@@ -23,7 +22,8 @@ const Share: React.FC<ShareProps> = () => {
     } },
     { text: "Send via Direct Message", Icon: MessageIcon, clickHandler: () => {
       setShowShareMenu(false);
-      setShowShareModal(true);
+      showToast("This would make a DM modal appear")
+      setTimeout(() => hideToast(), 5000);
     } },
     { text: "Bookmark", Icon: BookmarkAddIcon, clickHandler: () => {
       setShowShareMenu(false);

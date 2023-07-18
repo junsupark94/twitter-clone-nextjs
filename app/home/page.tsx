@@ -1,10 +1,11 @@
 import Feed from "@/components/Feed/Feed";
+import RightSideBar from '@/components/RightSideBar/RightSideBar';
 
 export default function HomePage() {
   return (
-    <div className="flex">
-      <Feed />
-      <div className="flex-grow">Right Side</div>
-    </div>
+    <main className="flex">
+      {/* <Feed />
+      <RightSideBar /> */}
+    </main>
   )
 }

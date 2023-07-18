@@ -21,6 +21,23 @@ module.exports = {
         "twitter-blue": "#1D9BF0",
       },
     },
+    container: {
+      center: true,
+      screens: {
+        'sm': '689px',
+        'md': '987px',
+        'lg': '1006px',
+        'xl': '1077px',
+        '2xl': '1264px',
+      },
+    },
+    screens: {
+      '2xl': {'max': '1264px'},
+      'xl': {'max': '1077px'},
+      'lg': {'max': '1006px'},
+      'md': {'max': '987px'},
+      'sm': {'max': '689px'},
+    }
   },
   plugins: [],
 }
