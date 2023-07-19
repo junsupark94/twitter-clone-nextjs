@@ -6,15 +6,15 @@ type AccountProps = {};
 
 const Account: React.FC<AccountProps> = () => {
   return (
-    <div className="flex items-center">
+    <div className="flex items-center p-3 my-3">
       <ProfileIcon />
 
-      <div className="2xl:hidden">
-        <div>
-          <p>Display Name</p>
-          <p>@username</p>
-        </div>
-        ...
+      <div className="mx-3 flex flex-col">
+        <p>Display Name</p>
+        <p>@username</p>
+      </div>
+      <div className="grow flex justify-end">
+        <div>...</div>
       </div>
     </div>
   );

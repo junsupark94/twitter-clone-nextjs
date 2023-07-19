@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className}`}>
-        <div className="container border-4 border-dotted flex">
+        <div className="container border border-dotted flex">
           <SideBar />
           <div className="min-h-screenz grow border-x-2 border border-green-500 h-screen bg-gray-700">
             {children}
