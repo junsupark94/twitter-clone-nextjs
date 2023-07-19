@@ -11,7 +11,6 @@ export default function AudienceMenu({
   audience: string;
   setAudience: Dispatch<SetStateAction<string>>;
 }) {
-
   return (
     <>
       <div
@@ -19,15 +18,15 @@ export default function AudienceMenu({
           e.stopPropagation();
           closeModal();
         }}
-        className="fixed top-0 left-0 w-screen h-screen"
+        className="fixed left-0 top-0 h-screen w-screen"
       />
-      <div className="bg-black absolute rounded-xl top-7 shadow-highlight z-20 text-white text-sm font-bold w-56">
-        <div className="text-lg m-4 text-start">Choose audience</div>
+      <div className="absolute top-7 z-20 w-56 rounded-xl bg-black text-sm font-bold text-white shadow-highlight">
+        <div className="m-4 text-start text-lg">Choose audience</div>
         <div
-          className="flex gap-2 m-4 items-center"
+          className="m-4 flex items-center gap-2"
           onClick={setAudience.bind(null, "Everyone")}
         >
-          <div className="bg-twitter-blue rounded-full w-10 h-10 flex items-center justify-center">
+          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-twitter-blue">
             <PublicIcon />
           </div>
           <div className="flex grow justify-between">
@@ -38,10 +37,10 @@ export default function AudienceMenu({
           </div>
         </div>
         <div
-          className="flex gap-2 m-4 items-center"
+          className="m-4 flex items-center gap-2"
           onClick={setAudience.bind(null, "Twitter Circle")}
         >
-          <div className="bg-[#00BA7C] rounded-full w-10 h-10 flex items-center justify-center">
+          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#00BA7C]">
             <TwitterCircleIcon />
           </div>
           <div className="flex grow items-center justify-between text-start">
@@ -49,7 +48,7 @@ export default function AudienceMenu({
               <div>Twitter Circle</div>
               <div className="space-x-1">
                 <span>
-                  0 <span className="text-gray-500 font-normal">People</span>
+                  0 <span className="font-normal text-gray-500">People</span>
                 </span>
                 <span className="underline">Edit</span>
               </div>

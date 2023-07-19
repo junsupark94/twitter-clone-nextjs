@@ -2,7 +2,7 @@ type ProfileIconProps = {
   width?: number;
 };
 
-const ProfileIcon: React.FC<ProfileIconProps> = ({width = 40}) => {
+const ProfileIcon: React.FC<ProfileIconProps> = ({ width = 40 }) => {
   // Todo: replace with profile picture if it exists and crop as circle
   return (
     <svg

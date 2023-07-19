@@ -29,7 +29,7 @@ export default function QuoteTweetModal({
   const [audience, setAudience] = useState("Everyone");
 
   useEffect(() => {
-    document.body.style.overflow = "hidden"
+    document.body.style.overflow = "hidden";
     let setter = setShowQuoteTweetModal;
     if (showAudienceMenu) {
       setter = setShowAudienceMenu;
@@ -43,8 +43,7 @@ export default function QuoteTweetModal({
     return () => {
       document.body.style.overflow = "visible";
       document.removeEventListener("keydown", escListener);
-    }
-
+    };
   }, [setShowQuoteTweetModal, showAudienceMenu]);
 
   return (
@@ -54,14 +53,14 @@ export default function QuoteTweetModal({
           e.stopPropagation();
           setShowQuoteTweetModal(false);
         }}
-        className={`fixed top-0 left-0 w-screen h-screen flex items-center justify-center bg-[#5b708366] z-10`}
+        className={`fixed left-0 top-0 z-10 flex h-screen w-screen items-center justify-center bg-[#5b708366]`}
       >
         <ModalBox
           closeModal={setShowQuoteTweetModal.bind(null, false)}
           positioning="fixed top-12 text-white"
         >
           <>
-            <div className="p-2 gap-2 flex">
+            <div className="flex gap-2 p-2">
               <div>
                 <ProfileIcon />
               </div>
@@ -69,9 +68,9 @@ export default function QuoteTweetModal({
                 <div>
                   <button
                     onClick={setShowAudienceMenu.bind(null, true)}
-                    className={`flex justify-center relative border text-xs font-bold rounded-full py-1 px-2 mb-4 ${
+                    className={`relative mb-4 flex justify-center rounded-full border px-2 py-1 text-xs font-bold ${
                       audience === "Twitter Circle"
-                        ? "text-[#00BA7C] border-[#00BA7C]"
+                        ? "border-[#00BA7C] text-[#00BA7C]"
                         : "border-blue-500 text-twitter-blue"
                     }`}
                   >
@@ -85,11 +84,11 @@ export default function QuoteTweetModal({
                     )}
                   </button>
                   <textarea
-                    className="w-full resize-none outline-none bg-black "
+                    className="w-full resize-none bg-black outline-none "
                     placeholder="Add a comment!"
                   />
                 </div>
-                <div className="border rounded-2xl border-[#2f3336] text-base">
+                <div className="rounded-2xl border border-[#2f3336] text-base">
                   <div className="flex items-center">
                     <ProfileIcon width={25} />
                     <TweetHeader
@@ -111,7 +110,7 @@ export default function QuoteTweetModal({
                   <div className="my-2">
                     {data.body && <div>{data.body}</div>}
                     {data.medias && data.medias[0].type === "photo" && (
-                      <div className="border border-red-500 relative h-96">
+                      <div className="relative h-96 border border-red-500">
                         <Image
                           src={data.medias[0].src}
                           alt="Image"
@@ -125,9 +124,9 @@ export default function QuoteTweetModal({
                 </div>
               </div>
             </div>
-            <div className="border-b border-color-hover mx-2 py-2 text-base">
+            <div className="mx-2 border-b border-color-hover py-2 text-base">
               <span
-                className={`ml-2 flex gap-1 items-center ${
+                className={`ml-2 flex items-center gap-1 ${
                   audience === "Everyone"
                     ? "text-twitter-blue"
                     : "text-[#1d9cf098]"
@@ -139,9 +138,9 @@ export default function QuoteTweetModal({
                   "🔒 Only your Twitter Circle who follows you can reply"}
               </span>
             </div>
-            <div className="mt-2 flex justify-between items-center mr-1">
+            <div className="mr-1 mt-2 flex items-center justify-between">
               <TweetFormIcons />
-              <button className="rounded-full bg-twitter-blue py-[6px] px-4">
+              <button className="rounded-full bg-twitter-blue px-4 py-[6px]">
                 Tweet
               </button>
             </div>

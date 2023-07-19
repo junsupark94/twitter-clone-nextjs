@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import RepeatOutlinedIcon from "@mui/icons-material/RepeatOutlined";
 import ProfileIcon from "../../SideBar/ProfileIcon";
 import { TweetType } from "../tweet-data";
@@ -11,20 +11,13 @@ type TweetProps = {
 };
 
 const Tweet: React.FC<TweetProps> = ({ tweet }) => {
-  const {
-    account,
-    date,
-    displayName,
-    body,
-    medias,
-    retweeter,
-    replying,
-  } = tweet;
+  const { account, date, displayName, body, medias, retweeter, replying } =
+    tweet;
 
   return (
-    <div className="pt-2 pb-4 px-2 border-b-2 border-color-hover">
+    <div className="border-b-2 border-color-hover px-2 pb-4 pt-2">
       {retweeter && (
-        <div className="left-4 relative text-gray-600">
+        <div className="relative left-4 text-gray-600">
           <RepeatOutlinedIcon />
           {retweeter} retweeted this
         </div>
@@ -34,7 +27,11 @@ const Tweet: React.FC<TweetProps> = ({ tweet }) => {
           <ProfileIcon />
         </div>
         <div className="w-full">
-          <TweetHeader displayName={displayName} account={account} date={date}/>
+          <TweetHeader
+            displayName={displayName}
+            account={account}
+            date={date}
+          />
           <div>
             {replying && (
               <>
@@ -46,15 +43,18 @@ const Tweet: React.FC<TweetProps> = ({ tweet }) => {
           <div className="my-2">
             {body && <div>{body}</div>}
             {medias && medias[0].type === "photo" && (
-              <div className="border border-red-500 relative h-96">
-                <Image src={medias[0].src} alt="Image" fill className="object-cover"/>
+              <div className="relative h-96 border border-red-500">
+                <Image
+                  src={medias[0].src}
+                  alt="Image"
+                  fill
+                  className="object-cover"
+                />
               </div>
             )}
             {/* {medias && <Media medias={medias}/>} */}
           </div>
-          <TweetBottom
-            tweet={tweet}
-          />
+          <TweetBottom tweet={tweet} />
         </div>
       </div>
     </div>

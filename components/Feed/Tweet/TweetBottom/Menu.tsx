@@ -15,13 +15,13 @@ const Menu: React.FC<MenuProps> = ({ closeModal, options }) => {
     <>
       <ModalBackdrop closeModal={closeModal} background="" scroll={true} />
       <div
-        className={`bg-black absolute rounded-xl top-0 right-0 shadow-highlight z-10 text-white text-sm font-bold w-max overflow-hidden transition-[max-height] ${animate}`}
+        className={`absolute right-0 top-0 z-10 w-max overflow-hidden rounded-xl bg-black text-sm font-bold text-white shadow-highlight transition-[max-height] ${animate}`}
       >
-        {options.map(({text, Icon, clickHandler}) => (
+        {options.map(({ text, Icon, clickHandler }) => (
           <div
             key={text}
             onClick={clickHandler}
-            className="flex gap-2 first:pt-4 py-2 last:pb-4 px-4 items-center transition hover:bg-[#0b0b0b]"
+            className="flex items-center gap-2 px-4 py-2 transition first:pt-4 last:pb-4 hover:bg-[#0b0b0b]"
           >
             <Icon />
             {text}

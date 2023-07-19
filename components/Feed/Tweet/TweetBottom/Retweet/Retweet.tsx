@@ -7,7 +7,6 @@ import QuoteTweetModal from "./QuoteTweetModal";
 import QuoteTweetIcon from "@mui/icons-material/Create";
 import Menu from "../Menu";
 
-
 type RetweetProps = {
   data: {
     account: string;
@@ -42,14 +41,21 @@ const Retweet: React.FC<RetweetProps> = ({ data, value }) => {
   };
 
   const menuOptions = [
-    {text: "Retweet", Icon: RetweetIcon, clickHandler: retweetHandler},
-    {text: "Quote Tweet", Icon: QuoteTweetIcon, clickHandler: quoteTweetHandler},
-  ]
+    { text: "Retweet", Icon: RetweetIcon, clickHandler: retweetHandler },
+    {
+      text: "Quote Tweet",
+      Icon: QuoteTweetIcon,
+      clickHandler: quoteTweetHandler,
+    },
+  ];
 
   return (
-    <div className="relative cursor-pointer group gap-2 flex items-center justify-center">
+    <div className="group relative flex cursor-pointer items-center justify-center gap-2">
       {showRetweetMenu && (
-        <Menu closeModal={() => setShowRetweetMenu(false)} options={menuOptions}/>
+        <Menu
+          closeModal={() => setShowRetweetMenu(false)}
+          options={menuOptions}
+        />
       )}
       {showQuoteTweetModal && (
         <QuoteTweetModal
@@ -71,7 +77,9 @@ const Retweet: React.FC<RetweetProps> = ({ data, value }) => {
         }`}
       >
         <div
-          className={`translate-y-0 duration-100 group-hover:text-[#00BA7C] ${isRetweeted && "decrement"}`}
+          className={`translate-y-0 duration-100 group-hover:text-[#00BA7C] ${
+            isRetweeted && "decrement"
+          }`}
         >
           {value}
         </div>

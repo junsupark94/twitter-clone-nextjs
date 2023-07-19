@@ -24,15 +24,8 @@ type ReplyProps = {
 const Reply: React.FC<ReplyProps> = ({ data, value }) => {
   const [showModal, setShowModal] = useState(false);
 
-  const {
-    account,
-    date,
-    displayName,
-    body,
-    medias,
-    retweeter,
-    replying,
-  } = data;
+  const { account, date, displayName, body, medias, retweeter, replying } =
+    data;
 
   return (
     <>
@@ -67,19 +60,19 @@ const Reply: React.FC<ReplyProps> = ({ data, value }) => {
                 </div>
               </div>
               <div className="p-2">
-                <div className="flex pb-8 gap-4">
+                <div className="flex gap-4 pb-8">
                   <div>
                     <ProfileIcon />
                   </div>
                   <textarea
-                    className="bg-black w-full resize-none outline-none"
+                    className="w-full resize-none bg-black outline-none"
                     placeholder="Tweet your reply!"
                   />
                 </div>
               </div>
-              <div className="flex justify-between items-center">
+              <div className="flex items-center justify-between">
                 <TweetFormIcons />
-                <button className="rounded-full bg-twitter-blue py-1 px-4 font-semibold">
+                <button className="rounded-full bg-twitter-blue px-4 py-1 font-semibold">
                   Reply
                 </button>
               </div>

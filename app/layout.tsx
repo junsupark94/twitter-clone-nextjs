@@ -19,7 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.className} overscroll-none`}>
         <div className="flex">
-          <header className="grow shrink-0 flex justify-end w-[275px] 2xl:w-[88px] xs:w-[68px] sm:grow-0">
+          <header className="flex w-[275px] shrink-0 grow justify-end 2xl:w-[88px] sm:grow-0 xs:w-[68px]">
             <SideBar />
           </header>
           <div className="grow lg:grow-[2]">{children}</div>

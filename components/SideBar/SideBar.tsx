@@ -22,25 +22,25 @@ const SideBarItems = [
 type SideBarProps = {};
 const SideBar: React.FC<SideBarProps> = () => {
   return (
-    <div className="fixed 2xl:w-[88px] w-[275px] sm:w-[68px] h-screen 2xl:items-center flex flex-col justify-between px-2">
+    <div className="fixed flex h-screen w-[275px] flex-col justify-between px-2 2xl:w-[88px] 2xl:items-center sm:w-[68px]">
       {/* navbar */}
       <div>
         <nav>
           <Link
             href={"/home"}
-            className={`w-[54px] h-[54px] flex justify-center items-center rounded-full hover:bg-color-hover transition`}
+            className={`flex h-[54px] w-[54px] items-center justify-center rounded-full transition hover:bg-color-hover`}
           >
             <Image src={logo} width={30} alt="Twitter Logo" />
           </Link>
           <ul className="flex flex-col">
             {SideBarItems.map((item) => (
-              <li key={item.type} className="py-1 flex items-start">
+              <li key={item.type} className="flex items-start py-1">
                 <Link
                   href={`/${item.type}`}
-                  className={`flex items-center 2xl:justify-center p-3 hover:bg-color-hover rounded-full transition`}
+                  className={`flex items-center rounded-full p-3 transition hover:bg-color-hover 2xl:justify-center`}
                 >
                   <SideBarIcon type={item.type} size={26.25} />
-                  <span className="text-xl leading-6 mr-4 ml-5 2xl:hidden">
+                  <span className="ml-5 mr-4 text-xl leading-6 2xl:hidden">
                     {item.type}
                   </span>
                 </Link>
@@ -49,9 +49,9 @@ const SideBar: React.FC<SideBarProps> = () => {
           </ul>
         </nav>
         {/* Junsu: todo - add Modal for this button */}
-        <button className="font-bold bg-twitter-blue rounded-full w-[90%] 2xl:w-auto my-4 min-h-[52px] hover:bg-[#1a8cd8] transition">
-          <div className="2xl:hidden px-8 py-3">Tweet</div>
-          <div className="2xl:block hidden p-4">
+        <button className="my-4 min-h-[52px] w-[90%] rounded-full bg-twitter-blue font-bold transition hover:bg-[#1a8cd8] 2xl:w-auto">
+          <div className="px-8 py-3 2xl:hidden">Tweet</div>
+          <div className="hidden p-4 2xl:block">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -73,11 +73,11 @@ const SideBar: React.FC<SideBarProps> = () => {
       </div>
       {/* navbar */}
       {/* account */}
-      <div className="flex items-center p-3 my-3 hover:bg-color-hover rounded-full transition">
+      <div className="my-3 flex items-center rounded-full p-3 transition hover:bg-color-hover">
         <ProfileIcon />
 
-        <div className="2xl:hidden flex grow items-center justify-between">
-          <div className="px-3 flex flex-col text-[15px] leading-5">
+        <div className="flex grow items-center justify-between 2xl:hidden">
+          <div className="flex flex-col px-3 text-[15px] leading-5">
             <p className="font-bold">Display Name</p>
             <p className="font-normal">@username</p>
           </div>

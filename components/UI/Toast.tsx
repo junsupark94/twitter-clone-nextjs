@@ -11,8 +11,8 @@ const Toast: React.FC<ToastProps> = () => {
   ]);
   if (!toastVisible) return null;
   return (
-    <div className="fixed left-0 bottom-4 w-screen flex justify-center">
-      <div className="bg-twitter-blue py-2 px-4">{toastMessage}</div>
+    <div className="fixed bottom-4 left-0 flex w-screen justify-center">
+      <div className="bg-twitter-blue px-4 py-2">{toastMessage}</div>
     </div>
   );
 };

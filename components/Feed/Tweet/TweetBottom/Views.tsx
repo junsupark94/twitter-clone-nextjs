@@ -16,18 +16,24 @@ const Views: React.FC<ViewsProps> = ({ value }) => {
       {showModal && (
         <ModalBackdrop closeModal={setShowModal.bind(null, false)}>
           <ModalBox closeModal={setShowModal.bind(null, false)}>
-            <div className="w-full flex justify-center items-center">
-              <div className="w-[400px] m-8">
-                <h1 className="font-extrabold text-2xl mb-2 text-white">
+            <div className="flex w-full items-center justify-center">
+              <div className="m-8 w-[400px]">
+                <h1 className="mb-2 text-2xl font-extrabold text-white">
                   Views
                 </h1>
                 <p className="mb-8 text-[15px]">
                   Times this Tweet was seen. To learn more, visit the{" "}
-                  <a target="_blank" href="https://help.twitter.com/en/using-twitter/view-counts" className="text-white font-bold underline">Help Center</a>
+                  <a
+                    target="_blank"
+                    href="https://help.twitter.com/en/using-twitter/view-counts"
+                    className="font-bold text-white underline"
+                  >
+                    Help Center
+                  </a>
                 </p>
                 <button
                   onClick={setShowModal.bind(null, false)}
-                  className="rounded-full font-medium bg-[#EFF3F4] text-black w-full p-3"
+                  className="w-full rounded-full bg-[#EFF3F4] p-3 font-medium text-black"
                 >
                   Dismiss
                 </button>
@@ -47,8 +53,8 @@ const Views: React.FC<ViewsProps> = ({ value }) => {
 };
 export default Views;
 
-
-{/* <div
+{
+  /* <div
       onClick={(e) => e.stopPropagation()}
       className="w-[600px] h-fit rounded-xl bg-black pb-12"
     >
@@ -60,4 +66,5 @@ export default Views;
           X
         </button>
         <div className="flex-shrink" />
-      </div> */}
+      </div> */
+}

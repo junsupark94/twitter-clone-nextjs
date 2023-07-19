@@ -11,26 +11,44 @@ type ShareProps = {};
 
 const Share: React.FC<ShareProps> = () => {
   const [showShareMenu, setShowShareMenu] = useState(false);
-  const [showToast, hideToast]= useToastStore(state => [state.showToast, state.hideToast]);
+  const [showToast, hideToast] = useToastStore((state) => [
+    state.showToast,
+    state.hideToast,
+  ]);
 
-  const menuOptions = useMemo(() => [
-    { text: "Copy link to Tweet", Icon: LinkIcon, clickHandler: () => {
-      setShowShareMenu(false);
-      navigator.clipboard.writeText("Something goes here");
-      showToast("Copied to clipboard")
-      setTimeout(() => hideToast(), 5000);
-    } },
-    { text: "Send via Direct Message", Icon: MessageIcon, clickHandler: () => {
-      setShowShareMenu(false);
-      showToast("This would make a DM modal appear")
-      setTimeout(() => hideToast(), 5000);
-    } },
-    { text: "Bookmark", Icon: BookmarkAddIcon, clickHandler: () => {
-      setShowShareMenu(false);
-      showToast("Tweet added to your Bookmarks")
-      setTimeout(() => hideToast(), 5000);
-    } },
-  ], []);
+  const menuOptions = useMemo(
+    () => [
+      {
+        text: "Copy link to Tweet",
+        Icon: LinkIcon,
+        clickHandler: () => {
+          setShowShareMenu(false);
+          navigator.clipboard.writeText("Something goes here");
+          showToast("Copied to clipboard");
+          setTimeout(() => hideToast(), 5000);
+        },
+      },
+      {
+        text: "Send via Direct Message",
+        Icon: MessageIcon,
+        clickHandler: () => {
+          setShowShareMenu(false);
+          showToast("This would make a DM modal appear");
+          setTimeout(() => hideToast(), 5000);
+        },
+      },
+      {
+        text: "Bookmark",
+        Icon: BookmarkAddIcon,
+        clickHandler: () => {
+          setShowShareMenu(false);
+          showToast("Tweet added to your Bookmarks");
+          setTimeout(() => hideToast(), 5000);
+        },
+      },
+    ],
+    [],
+  );
 
   return (
     <div className="relative">

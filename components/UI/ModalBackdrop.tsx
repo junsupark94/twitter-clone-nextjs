@@ -36,7 +36,7 @@ const ModalBackdrop: React.FC<ModalBackdropProps> = ({
         e.stopPropagation();
         closeModal();
       }}
-      className={`fixed top-0 left-0 w-screen h-screen ${background} flex items-center justify-center z-10`}
+      className={`fixed left-0 top-0 h-screen w-screen ${background} z-10 flex items-center justify-center`}
     >
       {children}
     </div>

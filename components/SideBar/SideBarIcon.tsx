@@ -7,7 +7,6 @@ export default function SideBarIcon({
   stroke_color?: string;
   size?: number;
 }) {
-
   switch (type) {
     case "More":
       return (
