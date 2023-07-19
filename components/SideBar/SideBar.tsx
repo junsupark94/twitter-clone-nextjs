@@ -22,7 +22,7 @@ const SideBarItems = [
 type SideBarProps = {};
 const SideBar: React.FC<SideBarProps> = () => {
   return (
-    <header className="w-[275px] 2xl:w-[88px]">
+    <header className="w-[275px] 2xl:w-[88px] shrink-0">
       <div className="fixed w-[275px] 2xl:w-[88px] 2xl:items-center flex flex-col justify-between h-full px-2">
         {/* navbar */}
         <div>

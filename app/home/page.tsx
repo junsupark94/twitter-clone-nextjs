@@ -3,9 +3,9 @@ import RightSideBar from '@/components/RightSideBar/RightSideBar';
 
 export default function HomePage() {
   return (
-    <main className="flex">
-      {/* <Feed />
-      <RightSideBar /> */}
+    <main className="flex justify-between">
+      <Feed />
+      <RightSideBar />
     </main>
   )
 }

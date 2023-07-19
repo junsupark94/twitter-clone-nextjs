@@ -22,7 +22,6 @@ module.exports = {
       },
     },
     container: {
-      center: true,
       screens: {
         'sm': '689px',
         'md': '987px',
