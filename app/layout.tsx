@@ -18,11 +18,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} overscroll-none`}>
-        <div className="container mx-auto flex">
-          <SideBar />
-          <div className="grow border-x-2 border-green-500">
-            {children}
-          </div>
+        <div className="flex">
+          <header className="grow flex justify-end w-[275px]">
+            <SideBar />
+          </header>
+          <div className="grow">{children}</div>
           <Toast />
         </div>
       </body>
