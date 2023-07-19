@@ -22,7 +22,7 @@ const SideBarItems = [
 type SideBarProps = {};
 const SideBar: React.FC<SideBarProps> = () => {
   return (
-    <div className="fixed 2xl:w-[88px] w-[275px] h-screen 2xl:items-center flex flex-col justify-between px-2">
+    <div className="fixed 2xl:w-[88px] w-[275px] sm:w-[68px] h-screen 2xl:items-center flex flex-col justify-between px-2">
       {/* navbar */}
       <div>
         <nav>

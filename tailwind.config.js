@@ -23,6 +23,7 @@ module.exports = {
     },
     container: {
       screens: {
+        'xs': '599px',
         'sm': '689px',
         'md': '987px',
         'lg': '1006px',
@@ -36,6 +37,7 @@ module.exports = {
       'lg': {'max': '1006px'},
       'md': {'max': '987px'},
       'sm': {'max': '689px'},
+      'xs': {'max': '599px'},
     }
   },
   plugins: [],
