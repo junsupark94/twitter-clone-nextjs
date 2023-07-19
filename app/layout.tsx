@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className}`}>
+      <body className={`${inter.className} overscroll-none`}>
         <div className="container mx-auto flex">
           <SideBar />
           <div className="grow border-x-2 border-green-500">

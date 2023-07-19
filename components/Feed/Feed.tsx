@@ -7,7 +7,7 @@ type FeedProps = {};
 
 const Feed: React.FC<FeedProps> = () => {
   return (
-    <div className="w-[598px] border-r-2 border-color-hover">
+    <div className="w-[598px] border-r-2 border-color-hover relative">
       <FeedHeader />
       <div className="border-b-2 border-color-hover">
         <TweetForm placeholder="What is happening?!" buttonText="Tweet" />
