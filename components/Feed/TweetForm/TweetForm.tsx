@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import ProfileIcon from "../../SideBar/ProfileIcon";
 import TweetFormIcons from "./TweetFormIcons";
 
@@ -10,6 +10,20 @@ type TweetFormProps = {
 
 const TweetForm: React.FC<TweetFormProps> = ({ placeholder, buttonText }) => {
   const [isClicked, setIsClicked] = useState(false);
+  const [value, setValue] = useState("");
+  const textAreaRef = useRef<HTMLTextAreaElement>(null);
+
+  useEffect(() => {
+    if (textAreaRef.current) {
+      // We need to reset the height momentarily to get the correct scrollHeight for the textarea
+      textAreaRef.current.style.height = "50px";
+      const scrollHeight = textAreaRef.current.scrollHeight;
+
+      // We then set the height directly, outside of the render loop
+      // Trying to set this with state or a ref will product an incorrect value.
+      textAreaRef.current.style.height = scrollHeight + "px";
+    }
+  }, [textAreaRef, value]);
 
   return (
     <div
@@ -23,6 +37,10 @@ const TweetForm: React.FC<TweetFormProps> = ({ placeholder, buttonText }) => {
         <textarea
           className="w-full resize-none bg-black outline-none"
           placeholder={placeholder}
+          value={value}
+          onChange={e => setValue(e.target.value)}
+          ref={textAreaRef}
+          rows={1}
         />
         <div className="flex items-center justify-between">
           <TweetFormIcons />
