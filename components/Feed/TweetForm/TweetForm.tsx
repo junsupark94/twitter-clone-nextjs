@@ -21,7 +21,7 @@ const TweetForm: React.FC<TweetFormProps> = ({ placeholder, buttonText }) => {
       </div>
       <div className="flex-grow">
         <textarea
-          className="w-full resize-none bg-black"
+          className="w-full resize-none bg-black outline-none"
           placeholder={placeholder}
         />
         <div className="flex items-center justify-between">
