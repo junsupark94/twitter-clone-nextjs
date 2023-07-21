@@ -2,6 +2,7 @@ import SideBar from "@/components/SideBar/SideBar";
 import "./globals.css";
 import { Inter } from "next/font/google";
 import Toast from "@/components/UI/Toast";
+import QuoteTweetModal from "@/components/Feed/Tweet/TweetBottom/Retweet/QuoteTweetModal";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,6 +25,7 @@ export default function RootLayout({
           </header>
           <div className="grow lg:grow-[2]">{children}</div>
           <Toast />
+          <QuoteTweetModal />
         </div>
       </body>
     </html>

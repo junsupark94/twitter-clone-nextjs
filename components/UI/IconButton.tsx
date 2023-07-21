@@ -20,6 +20,15 @@ export default function IconButton({
   text: string;
   handleClick?: () => void;
 }) {
+
+  let number;
+  if (value !== undefined) {
+    number = value.toLocaleString();
+    if (value > 9999) {
+      number = (value/1000).toFixed(1).toLocaleString() + "k"
+    }
+  }
+
   return (
     <div
       key={text}
@@ -34,7 +43,7 @@ export default function IconButton({
           {text}
         </div>
       </div>
-      <div>{value}</div>
+      <div>{number}</div>
     </div>
   );
 }

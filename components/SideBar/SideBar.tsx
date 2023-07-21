@@ -36,7 +36,7 @@ const SideBar: React.FC<SideBarProps> = () => {
             {SideBarItems.map((item) => (
               <li key={item.type} className="flex items-start py-1">
                 <Link
-                  href={`/${item.type}`}
+                  href={`/home`}
                   className={`flex items-center rounded-full p-3 transition hover:bg-color-hover 2xl:justify-center`}
                 >
                   <SideBarIcon type={item.type} size={26.25} />

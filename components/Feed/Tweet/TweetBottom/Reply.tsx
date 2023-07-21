@@ -50,7 +50,7 @@ const Reply: React.FC<ReplyProps> = ({ data, value }) => {
                     account={account}
                     date={date}
                   />
-                  <p className="mb-4">
+                  <p className="mb-4 max-w-[500px] text-sm">
                     {body ? body : medias?.map((media) => media.src).join(" ")}
                   </p>
                   <div className="mb-4">

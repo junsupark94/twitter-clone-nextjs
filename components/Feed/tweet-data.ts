@@ -31,7 +31,7 @@ const DUMMY_TWEETS: TweetType[] = [
     displayName: "J-money",
     id: 1,
     date: new Date("07-01-2023"),
-    body: "Welcome to Junsu Park's fake Twitter clone! I did this project to deepen my frontend skills and learn new tech stacks such as Next.js, Typescript, Tailwind! I also learned about server-side rendering and server components",
+    body: "Welcome to Junsu Park's fake Twitter clone! I did this project to deepen my frontend skills and learn new tech stacks such as Next.js, Typescript, Tailwind! I also learned about server-side rendering and server components.",
     replies: 0,
     retweets: 0,
     likes: 0,
@@ -58,7 +58,7 @@ const DUMMY_TWEETS: TweetType[] = [
     displayName: "J-money",
     id: 4,
     date: new Date("07-04-2023"),
-    body: "I also really enjoyed using Zustand for global state management. The modals that pop up are rendered via changing their visibility status and passing any relevant information along.",
+    body: "Next.js was lovely to use since it took away all the pain of configuring all the tools together. Its opinionated approach is helpful for relatively new developers like me. I also really enjoyed using Zustand for global state management. The modals that pop up are rendered via changing their visibility status and passing any relevant information along.",
     medias: [
       {
         type: "photo",
@@ -75,11 +75,11 @@ const DUMMY_TWEETS: TweetType[] = [
     views: 600,
   },
   {
-    account: "jasonmeza",
-    displayName: "hehJason",
+    account: "notJunsuPark",
+    displayName: "J-rizzle",
     id: 3,
     date: new Date("02-15-2023"),
-    body: "Twitter can embed up to 4 photos or videos in a tweet. Clicking on them will open a new modal to showcase the media in full screen.",
+    body: "I was surprised by Twitter makes everything divs and flexboxes and adds accesbility with ARIA. Then doing this project made me hate the inconsitent behavior of HTML elements and that making them all block or flexitems makes everything so much easier.",
     medias: [{ type: "video", src: "kitty.mp4" }],
     replies: 75,
     retweets: 123,
@@ -92,7 +92,7 @@ const DUMMY_TWEETS: TweetType[] = [
     displayName: "J-money",
     id: 6,
     date: new Date("02-16-2023"),
-    body: "The way the media is displayed changes based on the number.",
+    body: "I thought this project would take me a week but it tooks me 3 weeks. Components I thought would be simple to implement took lots of trial and error switching styles back and forth to understand how width and height changes based on display, position, flex grow, containing block, and stacking context.",
     medias: [
       { type: "video", src: "heart.mp4" },
       { type: "video", src: "heart.mp4" },
@@ -101,14 +101,14 @@ const DUMMY_TWEETS: TweetType[] = [
     retweets: 0,
     likes: 2,
     views: 5,
-    replying: "jasonmeza",
+    replying: "nextjs",
   },
   {
-    account: "jasonmeza",
-    displayName: "hehJason",
+    account: "junsupark",
+    displayName: "J-money",
     id: 5,
     date: new Date("03-15-2023"),
-    body: "My cows",
+    body: "I absolute loved using Tailwind! I hated doing CSS but this streamlined the process so much as well as give me a design system. I can't wait for the next big update! I watched the Tailwind Connect and Oxide and has selector looks amazing!",
     medias: [
       {
         type: "photo",
@@ -127,14 +127,15 @@ const DUMMY_TWEETS: TweetType[] = [
     retweets: 123,
     likes: 8044,
     views: 600,
-    retweeter: "junsupark",
+    replying: "tailwindcss",
+    retweeter: "adamwathan",
   },
   {
     account: 'junsupark',
     displayName: 'J-money',
     id: 7,
     date: new Date("07-20-2023"),
-    body: "See how the media divisions changes depending on how many media is included?",
+    body: "Twitter can embed up to 4 photos or videos in a tweet. Clicking on them will open a new modal to showcase the media in full screen. The way the media is displayed changes based on the number. See how the media divisions changes depending on how many media is included?",
     medias: [
       {type: 'photo', src: 'https://pbs.twimg.com/media/F1Ae67NXsAEBcnH?format=jpg&name=medium'},
       {type: 'photo', src: 'https://pbs.twimg.com/media/F1OJ_l0WAAQ7XoE?format=jpg&name=large'},

@@ -35,8 +35,9 @@ const TweetBottom: React.FC<TweetBottomProps> = ({ tweet }) => {
     replying,
   };
 
+
   return (
-    <div className="flex gap-10 text-[18px] text-gray-600">
+    <div className="flex gap-10 text-[13px] text-gray-600">
       <Reply data={data} value={replies} />
       <Retweet data={data} value={retweets} />
       <Like value={likes} />

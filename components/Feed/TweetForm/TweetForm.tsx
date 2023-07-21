@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import ProfileIcon from "../../SideBar/ProfileIcon";
 import TweetFormIcons from "./TweetFormIcons";
+import AudienceMenu from "../Tweet/TweetBottom/Retweet/AudienceMenu";
 
 type TweetFormProps = {
   placeholder: string;
@@ -10,17 +11,15 @@ type TweetFormProps = {
 
 const TweetForm: React.FC<TweetFormProps> = ({ placeholder, buttonText }) => {
   const [isClicked, setIsClicked] = useState(false);
+  const [showAudienceMenu, setShowAudienceMenu] = useState(false);
+  const [audience, setAudience] = useState("Everyone");
   const [value, setValue] = useState("");
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
     if (textAreaRef.current) {
-      // We need to reset the height momentarily to get the correct scrollHeight for the textarea
       textAreaRef.current.style.height = "50px";
       const scrollHeight = textAreaRef.current.scrollHeight;
-
-      // We then set the height directly, outside of the render loop
-      // Trying to set this with state or a ref will product an incorrect value.
       textAreaRef.current.style.height = scrollHeight + "px";
     }
   }, [textAreaRef, value]);
@@ -34,17 +33,45 @@ const TweetForm: React.FC<TweetFormProps> = ({ placeholder, buttonText }) => {
         <ProfileIcon />
       </div>
       <div className="flex-grow">
+        {isClicked && (
+          <button
+            onClick={setShowAudienceMenu.bind(null, true)}
+            className={`relative mb-4 flex justify-center rounded-full border px-2 py-1 text-xs font-bold ${
+              audience === "Twitter Circle"
+                ? "border-[#00BA7C] text-[#00BA7C]"
+                : "border-blue-500 text-twitter-blue"
+            }`}
+          >
+            {audience} ∨
+            {showAudienceMenu && (
+              <AudienceMenu
+                closeModal={setShowAudienceMenu.bind(null, false)}
+                audience={audience}
+                setAudience={setAudience}
+              />
+            )}
+          </button>
+        )}
         <textarea
           className="w-full resize-none bg-black outline-none"
           placeholder={placeholder}
           value={value}
-          onChange={e => setValue(e.target.value)}
+          onChange={(e) => setValue(e.target.value)}
           ref={textAreaRef}
           rows={1}
         />
+        {isClicked && (
+          <div className="mb-3 border-b border-[#2f3336] pb-2 text-sm font-bold text-twitter-blue">
+            <span className="hover:bg-[#4c9ed526] rounded-full p-1 transition">🌎 Everyone can reply</span>
+          </div>
+        )}
         <div className="flex items-center justify-between">
           <TweetFormIcons />
-          <button className="rounded-full bg-twitter-blue p-2 px-5 font-bold">
+          <button
+            className={`rounded-full ${
+              value === "" ? "bg-[#198bd6]" : "bg-twitter-blue"
+            } p-2 px-5 font-bold`}
+          >
             {buttonText}
           </button>
         </div>

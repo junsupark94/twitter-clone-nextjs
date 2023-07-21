@@ -3,9 +3,9 @@ import IconButton from "@/components/UI/IconButton";
 import RetweetIcon from "@mui/icons-material/RepeatOutlined";
 import { useState } from "react";
 import { Media } from "../../../tweet-data";
-import QuoteTweetModal from "./QuoteTweetModal";
 import QuoteTweetIcon from "@mui/icons-material/Create";
 import Menu from "../Menu";
+import useQuoteTweetStore from "./quote-tweet-store";
 
 type RetweetProps = {
   data: {
@@ -22,8 +22,8 @@ type RetweetProps = {
 
 const Retweet: React.FC<RetweetProps> = ({ data, value }) => {
   const [showRetweetMenu, setShowRetweetMenu] = useState(false);
-  const [showQuoteTweetModal, setShowQuoteTweetModal] = useState(false);
   const [isRetweeted, setIsRetweeted] = useState(false);
+  const [openModal, setData] = useQuoteTweetStore(state => [state.openModal, state.setData]);
 
   let text_color = "group-hover:text-[#00BA7C]";
   if (isRetweeted) {
@@ -37,7 +37,8 @@ const Retweet: React.FC<RetweetProps> = ({ data, value }) => {
 
   const quoteTweetHandler = () => {
     setShowRetweetMenu(false);
-    setShowQuoteTweetModal(true);
+    setData(data);
+    openModal();
   };
 
   const menuOptions = [
@@ -50,17 +51,11 @@ const Retweet: React.FC<RetweetProps> = ({ data, value }) => {
   ];
 
   return (
-    <div className="group relative flex cursor-pointer items-center justify-center gap-2">
+    <div className="group relative flex items-center justify-center gap-2">
       {showRetweetMenu && (
         <Menu
           closeModal={() => setShowRetweetMenu(false)}
           options={menuOptions}
-        />
-      )}
-      {showQuoteTweetModal && (
-        <QuoteTweetModal
-          setShowQuoteTweetModal={setShowQuoteTweetModal}
-          data={data}
         />
       )}
       <IconButton
@@ -68,7 +63,7 @@ const Retweet: React.FC<RetweetProps> = ({ data, value }) => {
         text="Retweet"
         handleClick={setShowRetweetMenu.bind(null, true)}
         text_color={text_color}
-        bgColor="group-hover:bg-[#071A14]"
+        bgColor="group-hover:bg-[#0e382b]"
       />
       <div
         onClick={setShowRetweetMenu.bind(null, true)}
@@ -77,7 +72,7 @@ const Retweet: React.FC<RetweetProps> = ({ data, value }) => {
         }`}
       >
         <div
-          className={`translate-y-0 duration-100 group-hover:text-[#00BA7C] ${
+          className={`translate-y-0 duration-100 group-hover:text-[#00ba7c] ${
             isRetweeted && "decrement"
           }`}
         >

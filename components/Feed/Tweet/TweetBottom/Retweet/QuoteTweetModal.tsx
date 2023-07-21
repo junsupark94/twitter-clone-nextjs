@@ -1,36 +1,23 @@
-import ModalBackdrop from "@/components/UI/ModalBackdrop";
+'use client'
 import ModalBox from "@/components/UI/ModalBox";
 import ProfileIcon from "@/components/SideBar/ProfileIcon";
 import AudienceMenu from "./AudienceMenu";
-import PublicIcon from "@mui/icons-material/Public";
-import TweetFormIcons from "../../../TweetForm/TweetFormIcons";
-import TwitterCircleIcon from "@mui/icons-material/People";
 import { useEffect, useState } from "react";
 import TweetHeader from "../../TweetHeader";
-import { Media } from "@/components/Feed/tweet-data";
 import Image from "next/image";
+import TweetFormIcons from "@/components/Feed/TweetForm/TweetFormIcons";
+import useQuoteTweetStore from "./quote-tweet-store";
 
-export default function QuoteTweetModal({
-  setShowQuoteTweetModal,
-  data,
-}: {
-  setShowQuoteTweetModal: any;
-  data: {
-    account: string;
-    date: Date;
-    displayName: string;
-    body?: string | undefined;
-    medias?: Media[] | undefined;
-    retweeter: string | undefined;
-    replying: string | number | undefined;
-  };
-}) {
+export default function QuoteTweetModal() {
   const [showAudienceMenu, setShowAudienceMenu] = useState(false);
   const [audience, setAudience] = useState("Everyone");
+  const {isVisible, closeModal, data} = useQuoteTweetStore()
+
 
   useEffect(() => {
+    if (!isVisible) return;
     document.body.style.overflow = "hidden";
-    let setter = setShowQuoteTweetModal;
+    let setter = closeModal;
     if (showAudienceMenu) {
       setter = setShowAudienceMenu;
     }
@@ -44,19 +31,21 @@ export default function QuoteTweetModal({
       document.body.style.overflow = "visible";
       document.removeEventListener("keydown", escListener);
     };
-  }, [setShowQuoteTweetModal, showAudienceMenu]);
+  }, [isVisible, closeModal, showAudienceMenu]);
+
+  if (!isVisible) return null;
 
   return (
     <>
       <div
         onClick={(e) => {
           e.stopPropagation();
-          setShowQuoteTweetModal(false);
+          closeModal();
         }}
         className={`fixed left-0 top-0 z-10 flex h-screen w-screen items-center justify-center bg-[#5b708366]`}
       >
         <ModalBox
-          closeModal={setShowQuoteTweetModal.bind(null, false)}
+          closeModal={closeModal}
           positioning="fixed top-12 text-white"
         >
           <>
@@ -107,8 +96,8 @@ export default function QuoteTweetModal({
                       </>
                     )}
                   </div>
-                  <div className="my-2">
-                    {data.body && <div>{data.body}</div>}
+                  <div className="my-2 max-w-[500px]">
+                    {data.body && <div className="text-sm">{data.body}</div>}
                     {data.medias && data.medias[0].type === "photo" && (
                       <div className="relative h-96 border border-red-500">
                         <Image

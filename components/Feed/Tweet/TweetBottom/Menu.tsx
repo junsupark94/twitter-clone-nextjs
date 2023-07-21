@@ -21,7 +21,7 @@ const Menu: React.FC<MenuProps> = ({ closeModal, options }) => {
           <div
             key={text}
             onClick={clickHandler}
-            className="flex items-center gap-2 px-4 py-2 transition first:pt-4 last:pb-4 hover:bg-[#0b0b0b]"
+            className="flex cursor-pointer items-center gap-2 px-4 py-2 transition first:pt-4 last:pb-4 hover:bg-[#0b0b0b]"
           >
             <Icon />
             {text}
