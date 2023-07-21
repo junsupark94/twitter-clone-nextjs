@@ -5,7 +5,7 @@ import { useState } from "react";
 import { Media } from "../../../tweet-data";
 import QuoteTweetIcon from "@mui/icons-material/Create";
 import Menu from "../Menu";
-import useQuoteTweetStore from "./quote-tweet-store";
+import useQuoteTweetStore from "../../../../../app/store/quote-tweet-store";
 
 type RetweetProps = {
   data: {

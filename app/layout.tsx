@@ -3,6 +3,7 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import Toast from "@/components/UI/Toast";
 import QuoteTweetModal from "@/components/Feed/Tweet/TweetBottom/Retweet/QuoteTweetModal";
+import ReplyModal from "@/components/Feed/Tweet/TweetBottom/ReplyModal";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,6 +27,7 @@ export default function RootLayout({
           <div className="grow lg:grow-[2]">{children}</div>
           <Toast />
           <QuoteTweetModal />
+          <ReplyModal />
         </div>
       </body>
     </html>

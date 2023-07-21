@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import TweetHeader from "../../TweetHeader";
 import Image from "next/image";
 import TweetFormIcons from "@/components/Feed/TweetForm/TweetFormIcons";
-import useQuoteTweetStore from "./quote-tweet-store";
+import useQuoteTweetStore from "../../../../../app/store/quote-tweet-store";
 
 export default function QuoteTweetModal() {
   const [showAudienceMenu, setShowAudienceMenu] = useState(false);
