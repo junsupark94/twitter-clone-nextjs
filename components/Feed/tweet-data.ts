@@ -144,8 +144,8 @@ const DUMMY_TWEETS: TweetType[] = [
     ],
     replies: 10324,
     retweets: 55903,
-    likes: 3494535,
-    views: 93055532,
+    likes: 34935,
+    views: 930532,
   }
 ];
 

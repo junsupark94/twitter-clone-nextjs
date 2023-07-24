@@ -23,7 +23,10 @@ type RetweetProps = {
 const Retweet: React.FC<RetweetProps> = ({ data, value }) => {
   const [showRetweetMenu, setShowRetweetMenu] = useState(false);
   const [isRetweeted, setIsRetweeted] = useState(false);
-  const [openModal, setData] = useQuoteTweetStore(state => [state.openModal, state.setData]);
+  const [openModal, setData] = useQuoteTweetStore((state) => [
+    state.openModal,
+    state.setData,
+  ]);
 
   let text_color = "group-hover:text-[#00BA7C]";
   if (isRetweeted) {
@@ -50,6 +53,11 @@ const Retweet: React.FC<RetweetProps> = ({ data, value }) => {
     },
   ];
 
+  let number = value.toLocaleString();
+  if (value > 9999) {
+    number = (value / 1000).toFixed(1).toLocaleString() + "k";
+  }
+
   return (
     <div className="group relative flex items-center justify-center gap-2">
       {showRetweetMenu && (
@@ -71,20 +79,25 @@ const Retweet: React.FC<RetweetProps> = ({ data, value }) => {
           isRetweeted && "text-[#00BA7C]"
         }`}
       >
-        <div
-          className={`translate-y-0 duration-100 group-hover:text-[#00ba7c] ${
-            isRetweeted && "decrement"
-          }`}
-        >
-          {value}
-        </div>
-        <div
-          className={`absolute translate-y-6 opacity-0 duration-100 ${
-            isRetweeted && "increment"
-          }`}
-        >
-          {value + 1}
-        </div>
+        {value < 10000 && (
+          <>
+            <div
+              className={`translate-y-0 duration-100 group-hover:text-[#00ba7c] ${
+                isRetweeted && "decrement"
+              }`}
+            >
+              {value}
+            </div>
+            <div
+              className={`absolute translate-y-6 opacity-0 duration-100 ${
+                isRetweeted && "increment"
+              }`}
+            >
+              {value + 1}
+            </div>
+          </>
+        )}
+        {value > 9999 && <div>{number}</div>}
       </div>
     </div>
   );

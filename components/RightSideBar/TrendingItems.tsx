@@ -5,9 +5,9 @@ type TrendingItemsProps = {};
 
 const trends = [
   {
-    type: "Entertainment",
+    type: "Frameworks",
     location: "United States",
-    topic: "#Barbie",
+    topic: "Remix",
     tweets: 123223,
   },
   { type: "Databases", topic: "Supabase", tweets: 13213, cotrend: "#firebase" },

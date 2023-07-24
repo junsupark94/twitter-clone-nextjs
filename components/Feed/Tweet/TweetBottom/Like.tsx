@@ -9,6 +9,11 @@ const Like: React.FC<LikeProps> = ({ value }) => {
   // todo: this requires an animation that fills up the heart with sparkles at the end, set the text red, and increments the value
   const [isClicked, setIsClicked] = useState(false);
 
+  let number = value.toLocaleString();
+  if (value > 9999) {
+    number = (value/1000).toFixed(1).toLocaleString() + "k"
+  }
+
   return (
     <div
       onClick={() => {
@@ -31,7 +36,7 @@ const Like: React.FC<LikeProps> = ({ value }) => {
         Like
       </div>
       {/* increment */}
-      <div
+      {value < 10000 && <div
         className={`flex items-center justify-center ${
           isClicked && "text-[#F91880] transition"
         }`}
@@ -48,7 +53,8 @@ const Like: React.FC<LikeProps> = ({ value }) => {
         >
           {value + 1}
         </div>
-      </div>
+      </div>}
+      {value > 9999 && <div>{number}</div>}
     </div>
   );
 };
