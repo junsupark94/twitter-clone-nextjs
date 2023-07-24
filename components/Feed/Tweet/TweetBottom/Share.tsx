@@ -47,7 +47,7 @@ const Share: React.FC<ShareProps> = () => {
         },
       },
     ],
-    [],
+    [hideToast, showToast],
   );
 
   return (

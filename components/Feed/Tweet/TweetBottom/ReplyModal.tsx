@@ -6,7 +6,6 @@ import TweetHeader from '../TweetHeader';
 import ProfileIcon from '@/components/SideBar/ProfileIcon';
 import TweetFormIcons from '../../TweetForm/TweetFormIcons';
 import useReplyStore from './reply-store';
-import { useRouter } from 'next/navigation';
 
 type ReplyModalProps = {
 
@@ -14,13 +13,11 @@ type ReplyModalProps = {
 
 const ReplyModal:React.FC<ReplyModalProps> = () => {
   const [isVisible, closeModal, data] = useReplyStore(state => [state.isVisible, state.closeModal, state.data]);
-  const router = useRouter();
   const {displayName, account, date, body, medias} = data;
 
   if (!isVisible) return null;
 
   const closeModalHandler = () => {
-    router.push('/home');
     closeModal();
   }
 
@@ -45,7 +42,7 @@ const ReplyModal:React.FC<ReplyModalProps> = () => {
             date={date}
           />
           <p className="mb-4 max-w-[500px] text-sm">
-            {body ? body : medias?.map((media) => media.src).join(" ")}
+            {body ? body : medias?.map((media : any) => media.src).join(" ")}
           </p>
           <div className="mb-4">
             <span className="text-gray-500">Replying to </span>
