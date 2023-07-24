@@ -10,7 +10,7 @@ const trends = [
     topic: "#Barbie",
     tweets: 123223,
   },
-  { type: "Music", topic: "Taylor Swift", tweets: 13213, cotrend: "#erastour" },
+  { type: "Databases", topic: "Supabase", tweets: 13213, cotrend: "#firebase" },
   {
     topic: "Zustand",
     location: "San Francisco",
