@@ -16,8 +16,8 @@ const Feed: React.FC<FeedProps> = () => {
         Show 4 Tweets
       </div>
       <div>
-        {DUMMY_TWEETS.map((tweet) => (
-          <Tweet key={tweet.id} tweet={tweet} />
+        {DUMMY_TWEETS.map((tweet, index) => (
+          <Tweet key={tweet.id} tweet={tweet}/>
         ))}
       </div>
     </div>

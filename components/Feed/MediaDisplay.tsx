@@ -16,6 +16,7 @@ const mediaType = ({ type, src }: Media) => {
         src={src}
         alt="Image"
         fill={true}
+        sizes="(max-width: 400px)"
         className="border border-green-500 object-cover"
       />
     );

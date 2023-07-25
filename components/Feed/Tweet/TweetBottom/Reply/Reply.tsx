@@ -1,13 +1,9 @@
 import React, { useState } from "react";
 import ReplyIcon from "@mui/icons-material/ChatBubbleOutlineOutlined";
-import ProfileIcon from "@/components/SideBar/ProfileIcon";
-import { Media } from "../../tweet-data";
-import TweetHeader from "../TweetHeader";
+import { Media } from "@/components/Feed/tweet-data";
 import IconButton from "@/components/UI/IconButton";
-import ModalBox from "@/components/UI/ModalBox";
-import ModalBackdrop from "@/components/UI/ModalBackdrop";
-import TweetFormIcons from "../../TweetForm/TweetFormIcons";
 import useReplyStore from "./reply-store";
+
 
 type ReplyProps = {
   data: {

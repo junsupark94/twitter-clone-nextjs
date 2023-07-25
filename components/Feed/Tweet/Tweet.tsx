@@ -48,6 +48,7 @@ const Tweet: React.FC<TweetProps> = ({ tweet }) => {
                   src={medias[0].src}
                   alt="Image"
                   fill
+                  sizes="(max-width: 400px)"
                   className="object-cover"
                 />
               </div>
