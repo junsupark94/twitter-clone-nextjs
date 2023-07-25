@@ -1,3 +1,4 @@
+import truncateNumber from "@/utils/truncateNumber";
 import { SvgIconTypeMap } from "@mui/material";
 import { OverridableComponent } from "@mui/material/OverridableComponent";
 
@@ -23,10 +24,7 @@ export default function IconButton({
 
   let number;
   if (value !== undefined) {
-    number = value.toLocaleString();
-    if (value > 9999) {
-      number = (value/1000).toFixed(1).toLocaleString() + "k"
-    }
+    number = truncateNumber(value);
   }
 
   return (

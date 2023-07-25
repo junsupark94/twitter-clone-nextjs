@@ -15,8 +15,8 @@ const TweetHeader: React.FC<TweetHeaderProps> = ({
   return (
     <div>
       <span>{displayName} </span>
-      <span className="text-gray-600">@{account} · </span>
-      <span>{timeSince(date)} ago</span>
+      <span className="text-gray-500">@{account} · </span>
+      <span className="text-gray-500">{timeSince(date)}</span>
     </div>
   );
 };

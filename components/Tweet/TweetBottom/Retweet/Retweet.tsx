@@ -6,6 +6,7 @@ import QuoteTweetIcon from "@mui/icons-material/Create";
 import useQuoteTweetStore from "@/app/store/quote-tweet-store";
 import { Media } from "@/components/tweet-data";
 import Menu from "@/components/UI/Menu";
+import truncateNumber from "@/utils/truncateNumber";
 
 type RetweetProps = {
   data: {
@@ -51,10 +52,7 @@ const Retweet: React.FC<RetweetProps> = ({ data, value }) => {
     },
   ];
 
-  let number = value.toLocaleString();
-  if (value > 9999) {
-    number = (value / 1000).toFixed(1).toLocaleString() + "k";
-  }
+  const number = truncateNumber(value);
 
   return (
     <div className="group relative flex items-center justify-center gap-2">

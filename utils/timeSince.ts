@@ -5,23 +5,29 @@ export default function timeSince(date : Date) {
   var interval = seconds / 31536000;
 
   if (interval > 1) {
-    return Math.floor(interval) + " years";
+    return date.toLocaleString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
   }
-  interval = seconds / 2592000;
-  if (interval > 1) {
-    return Math.floor(interval) + " months";
-  }
+  // interval = seconds / 2592000;
+  // if (interval > 1) {
+  //   return date.toLocaleString('en-US', { month: 'short', day: 'numeric' });
+  // }
   interval = seconds / 86400;
-  if (interval > 1) {
-    return Math.floor(interval) + " days";
+  if (interval > 7) {
+    return date.toLocaleString('en-US', { month: 'short', day: 'numeric' });
+  }
+  if (interval > 1 && interval < 7) {
+    return Math.floor(interval) + " days ago";
   }
   interval = seconds / 3600;
   if (interval > 1) {
-    return Math.floor(interval) + " hours";
+    return Math.floor(interval) + " hours ago";
   }
   interval = seconds / 60;
   if (interval > 1) {
-    return Math.floor(interval) + " minutes";
+    return Math.floor(interval) + " minutes ago";
   }
-  return Math.floor(seconds) + " seconds";
+  return Math.floor(seconds) + " seconds ago";
+
+
+
 }

@@ -1,3 +1,4 @@
+import truncateNumber from "@/utils/truncateNumber";
 import LikeIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import { useState } from "react";
 
@@ -8,12 +9,7 @@ type LikeProps = {
 const Like: React.FC<LikeProps> = ({ value }) => {
   // todo: this requires an animation that fills up the heart with sparkles at the end, set the text red, and increments the value
   const [isClicked, setIsClicked] = useState(false);
-
-  let number = value.toLocaleString();
-  if (value > 9999) {
-    number = (value/1000).toFixed(1).toLocaleString() + "k"
-  }
-
+  const number = truncateNumber(value);
   return (
     <div
       onClick={() => {

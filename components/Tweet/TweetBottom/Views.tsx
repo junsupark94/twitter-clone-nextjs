@@ -52,19 +52,3 @@ const Views: React.FC<ViewsProps> = ({ value }) => {
   );
 };
 export default Views;
-
-{
-  /* <div
-      onClick={(e) => e.stopPropagation()}
-      className="w-[600px] h-fit rounded-xl bg-black pb-12"
-    >
-      <div className="h-[53px] w-full max-w-[1000px] flex items-center px-4 mx-auto">
-        <button
-          onClick={setShowModal.bind(null, false)}
-          className="rounded-full hover:bg-color-hover min-w-[36px] min-h-[36px] align-center"
-        >
-          X
-        </button>
-        <div className="flex-shrink" />
-      </div> */
-}
