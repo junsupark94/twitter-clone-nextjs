@@ -1,11 +1,11 @@
 import FeedHeader from "./FeedHeader";
-import Tweet from "../Tweet/Tweet";
 import TweetForm from "../TweetForm/TweetForm";
-import DUMMY_TWEETS from "../tweet-data";
+import Tweets from "./Tweets";
 
 type FeedProps = {};
 
 const Feed: React.FC<FeedProps> = () => {
+
   return (
     <div className="relative w-[600px] border-x-2 border-color-hover sm:w-auto">
       <FeedHeader />
@@ -15,11 +15,7 @@ const Feed: React.FC<FeedProps> = () => {
       <div className="border-b-2 border-color-hover py-4 text-center text-twitter-blue hover:bg-color-hover">
         Show 4 Tweets
       </div>
-      <div>
-        {DUMMY_TWEETS.map((tweet, index) => (
-          <Tweet key={tweet.id} tweet={tweet}/>
-        ))}
-      </div>
+      <Tweets />
     </div>
   );
 };

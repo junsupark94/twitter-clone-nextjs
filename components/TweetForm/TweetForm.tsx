@@ -5,6 +5,7 @@ import AudienceMenu from "../AudienceMenu";
 import WhoCanReplyMenu from "./WhoCanReplyMenu";
 import ProfileIcon from "../SideBar/ProfileIcon";
 import useAutoSizeTextArea from "../UI/useAutoSizeTextArea";
+import useTweetsStore from "@/app/store/tweets-store";
 
 type TweetFormProps = {
   placeholder: string;
@@ -15,7 +16,8 @@ const TweetForm: React.FC<TweetFormProps> = ({ placeholder, buttonText }) => {
   const [isClicked, setIsClicked] = useState(false);
   const [showAudienceMenu, setShowAudienceMenu] = useState(false);
   const [audience, setAudience] = useState("Everyone");
-  const [AutoSizeTextArea, value] = useAutoSizeTextArea(placeholder);
+  const {AutoSizeTextArea, value, setValue} = useAutoSizeTextArea(placeholder);
+  const addTweet = useTweetsStore(state => state.addTweet);
 
   useEffect(() => {
     if (!showAudienceMenu) return;
@@ -29,6 +31,22 @@ const TweetForm: React.FC<TweetFormProps> = ({ placeholder, buttonText }) => {
       document.removeEventListener("keydown", escListener);
     };
   });
+
+  const submitTweetHandler = () => {
+    addTweet({
+      body: value,
+      account: "junsupark",
+      displayName: "J-money",
+      likes: 0,
+      retweets: 0,
+      replies: 0,
+      views: 0,
+      date: new Date(),
+      id: 0,
+    })
+    setValue('');
+    setIsClicked(false);
+  }
 
   return (
     <div
@@ -66,6 +84,7 @@ const TweetForm: React.FC<TweetFormProps> = ({ placeholder, buttonText }) => {
             className={`rounded-full ${
               value === "" ? "bg-[#198bd6]" : "bg-twitter-blue"
             } p-2 px-5 font-bold`}
+            onClick={submitTweetHandler}
           >
             {buttonText}
           </button>

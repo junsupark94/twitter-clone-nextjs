@@ -67,10 +67,10 @@ const EditTwitterCircleModal: React.FC<EditTwitterCircleModalProps> = () => {
                 </div>
                 <div className="flex w-[400px] flex-col gap-2 text-left">
                   <span className="text-4xl">
-                    There isn't anyone in your Twitter Circle — yet
+                    {`There isn't anyone in your Twitter Circle — yet`}
                   </span>
                   <span className="font-normal text-gray-500">
-                    When you add people, they'll show up here.
+                    {`When you add people, they'll show up here.`}
                   </span>
                 </div>
               </>

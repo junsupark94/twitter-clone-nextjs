@@ -23,6 +23,6 @@ const useAutoSizeTextArea = (placeholder : string) => {
     />
   );
 
-  return [ AutoSizeTextArea, value];
+  return { AutoSizeTextArea, value, setValue };
 };
 export default useAutoSizeTextArea;

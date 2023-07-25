@@ -11,7 +11,7 @@ import useAutoSizeTextArea from "@/components/UI/useAutoSizeTextArea";
 type ReplyModalProps = {};
 
 const ReplyModal: React.FC<ReplyModalProps> = () => {
-  const [AutoSizeTextArea ] = useAutoSizeTextArea("Tweet your reply!");
+  const {AutoSizeTextArea } = useAutoSizeTextArea("Tweet your reply!");
   const [isVisible, closeModal, data] = useReplyStore((state) => [
     state.isVisible,
     state.closeModal,
