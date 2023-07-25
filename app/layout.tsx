@@ -3,7 +3,7 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import Toast from "@/components/UI/Toast";
 import QuoteTweetModal from "@/components/Feed/Tweet/TweetBottom/Retweet/QuoteTweetModal";
-import ReplyModal from "@/components/Feed/Tweet/TweetBottom/ReplyModal";
+import ReplyModal from "@/components/Feed/Tweet/TweetBottom/Reply/ReplyModal";
 
 const inter = Inter({ subsets: ["latin"] });
 

@@ -1,5 +1,5 @@
 "use client";
-import Reply from "./Reply";
+import Reply from "./Reply/Reply";
 import Views from "./Views";
 import Share from "./Share";
 import Like from "./Like";

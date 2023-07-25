@@ -4,6 +4,7 @@ import ProfileIcon from "../../SideBar/ProfileIcon";
 import TweetFormIcons from "./TweetFormIcons";
 import AudienceMenu from "../Tweet/TweetBottom/Retweet/AudienceMenu";
 import WhoCanReplyMenu from "./WhoCanReplyMenu";
+import AutoSizeTextArea from "@/components/UI/AutoSizeTextArea";
 
 type TweetFormProps = {
   placeholder: string;
@@ -24,9 +25,6 @@ const TweetForm: React.FC<TweetFormProps> = ({ placeholder, buttonText }) => {
       textAreaRef.current.style.height = scrollHeight + "px";
     }
   }, [textAreaRef, value]);
-
-
-
 
   return (
     <div
@@ -56,14 +54,7 @@ const TweetForm: React.FC<TweetFormProps> = ({ placeholder, buttonText }) => {
             )}
           </button>
         )}
-        <textarea
-          className="w-full resize-none bg-black outline-none"
-          placeholder={placeholder}
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
-          ref={textAreaRef}
-          rows={1}
-        />
+        <AutoSizeTextArea placeholder={placeholder} />
         {isClicked && <WhoCanReplyMenu />}
         <div className="flex items-center justify-between">
           <TweetFormIcons />

@@ -23,20 +23,23 @@ type ReplyProps = {
 };
 
 const Reply: React.FC<ReplyProps> = ({ data, value }) => {
-  const [openModal, setData] = useReplyStore(state => [state.openModal, state.setData])
+  const [openModal, setData] = useReplyStore((state) => [
+    state.openModal,
+    state.setData,
+  ]);
 
   const handleClick = () => {
     setData(data);
     openModal();
-  }
+  };
 
   return (
-      <IconButton
-        Icon={ReplyIcon}
-        value={value}
-        text="Reply"
-        handleClick={handleClick}
-      />
+    <IconButton
+      Icon={ReplyIcon}
+      value={value}
+      text="Reply"
+      handleClick={handleClick}
+    />
   );
 };
 export default Reply;
