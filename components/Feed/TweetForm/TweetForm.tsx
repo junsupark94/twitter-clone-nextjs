@@ -83,14 +83,13 @@ const TweetForm: React.FC<TweetFormProps> = ({ placeholder, buttonText }) => {
                 options={menuOptions}
                 position="-left-10 top-7"
                 icon_style="bg-twitter-blue rounded-full w-[40px] h-[40px] p-2 mr-1"
+                selectable
               >
-                <>
-                  <div className="px-4 pt-3">Who can reply?</div>
-                  <div className="w-[300px] text-clip px-4 pb-3 font-normal text-gray-500">
-                    Choose who can reply to this Tweet. Anyone mentioned can
-                    always reply.
-                  </div>
-                </>
+                <div className="px-4 pt-3">Who can reply?</div>
+                <div className="w-[300px] text-clip px-4 pb-3 font-normal text-gray-500">
+                  Choose who can reply to this Tweet. Anyone mentioned can
+                  always reply.
+                </div>
               </Menu>
             )}
             <div
