@@ -1,12 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 
-type AutoSizeTextAreaProps = {
-  placeholder: string;
-};
-
-const AutoSizeTextArea: React.FC<AutoSizeTextAreaProps> = ({
-  placeholder,
-}) => {
+const useAutoSizeTextArea = (placeholder : string) => {
   const [value, setValue] = useState("");
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
   useEffect(() => {
@@ -17,7 +11,8 @@ const AutoSizeTextArea: React.FC<AutoSizeTextAreaProps> = ({
     }
   }, [textAreaRef, value]);
 
-  return (
+  //Tinker: turn this into a JSX element by converting it into a function that returns the textarea element, see if state is still connected
+  const AutoSizeTextArea = (
     <textarea
       className="w-full resize-none bg-black outline-none"
       placeholder={placeholder}
@@ -27,5 +22,7 @@ const AutoSizeTextArea: React.FC<AutoSizeTextAreaProps> = ({
       rows={1}
     />
   );
+
+  return [ AutoSizeTextArea, value];
 };
-export default AutoSizeTextArea;
+export default useAutoSizeTextArea;

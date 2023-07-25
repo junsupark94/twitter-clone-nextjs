@@ -1,10 +1,10 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import TweetFormIcons from "./TweetFormIcons";
-import AudienceMenu from "../Tweet/TweetBottom/Retweet/AudienceMenu";
+import AudienceMenu from "../AudienceMenu";
 import WhoCanReplyMenu from "./WhoCanReplyMenu";
-import AutoSizeTextArea from "@/components/UI/AutoSizeTextArea";
 import ProfileIcon from "../SideBar/ProfileIcon";
+import useAutoSizeTextArea from "../UI/useAutoSizeTextArea";
 
 type TweetFormProps = {
   placeholder: string;
@@ -15,20 +15,24 @@ const TweetForm: React.FC<TweetFormProps> = ({ placeholder, buttonText }) => {
   const [isClicked, setIsClicked] = useState(false);
   const [showAudienceMenu, setShowAudienceMenu] = useState(false);
   const [audience, setAudience] = useState("Everyone");
-  const [value, setValue] = useState("");
-  const textAreaRef = useRef<HTMLTextAreaElement>(null);
+  const [AutoSizeTextArea, value] = useAutoSizeTextArea(placeholder);
 
   useEffect(() => {
-    if (textAreaRef.current) {
-      textAreaRef.current.style.height = "50px";
-      const scrollHeight = textAreaRef.current.scrollHeight;
-      textAreaRef.current.style.height = scrollHeight + "px";
-    }
-  }, [textAreaRef, value]);
+    if (!showAudienceMenu) return;
+
+    const escListener = (e: KeyboardEvent) => {
+      if (e.code === "Escape") setShowAudienceMenu(false);
+    };
+    document.addEventListener("keydown", escListener);
+
+    return () => {
+      document.removeEventListener("keydown", escListener);
+    };
+  });
 
   return (
     <div
-      className="flex gap-4 px-2 py-2"
+      className="flex gap-4 px-2 pb-2 pt-4"
       onClick={setIsClicked.bind(null, true)}
     >
       <div>
@@ -54,7 +58,7 @@ const TweetForm: React.FC<TweetFormProps> = ({ placeholder, buttonText }) => {
             )}
           </button>
         )}
-        <AutoSizeTextArea placeholder={placeholder} />
+        {AutoSizeTextArea}
         {isClicked && <WhoCanReplyMenu />}
         <div className="flex items-center justify-between">
           <TweetFormIcons />

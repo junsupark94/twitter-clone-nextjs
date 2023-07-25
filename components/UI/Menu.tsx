@@ -46,7 +46,7 @@ const Menu: React.FC<MenuProps> = ({
               closeModal();
               clickHandler();
             }}
-            className="flex cursor-pointer items-center justify-between gap-2 px-4 py-2 transition first:pt-4 last:pb-4 hover:bg-[#0b0b0b]"
+            className="flex cursor-pointerz items-center justify-between gap-2 px-4 py-2 transition first:pt-4 last:pb-4 hover:bg-[#0b0b0b]"
           >
             <div className="flex items-center gap-2">
               <Icon className={icon_style} />

@@ -1,7 +1,7 @@
 import FeedHeader from "./FeedHeader";
 import Tweet from "../Tweet/Tweet";
 import TweetForm from "../TweetForm/TweetForm";
-import DUMMY_TWEETS from "./tweet-data";
+import DUMMY_TWEETS from "../tweet-data";
 
 type FeedProps = {};
 

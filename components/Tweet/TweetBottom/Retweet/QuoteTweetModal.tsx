@@ -1,12 +1,12 @@
 'use client'
 import ModalBox from "@/components/UI/ModalBox";
-import ProfileIcon from "@/components/SideBar/ProfileIcon";
-import AudienceMenu from "./AudienceMenu";
+import AudienceMenu from "../../../AudienceMenu";
 import { useEffect, useState } from "react";
 import TweetHeader from "../../TweetHeader";
 import Image from "next/image";
 import TweetFormIcons from "@/components/TweetForm/TweetFormIcons";
 import useQuoteTweetStore from "@/app/store/quote-tweet-store";
+import ProfileIcon from "@/components/SideBar/ProfileIcon";
 
 export default function QuoteTweetModal() {
   const [showAudienceMenu, setShowAudienceMenu] = useState(false);

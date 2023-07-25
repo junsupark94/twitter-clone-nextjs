@@ -1,5 +1,5 @@
 import React from "react";
-import { Media } from "./tweet-data";
+import { Media } from "../tweet-data";
 import Image from "next/image";
 
 type MediaDisplayProps = {

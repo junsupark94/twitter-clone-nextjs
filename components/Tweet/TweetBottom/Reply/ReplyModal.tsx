@@ -3,14 +3,15 @@ import ModalBackdrop from "@/components/UI/ModalBackdrop";
 import ModalBox from "@/components/UI/ModalBox";
 import React from "react";
 import TweetHeader from "../../TweetHeader";
-import ProfileIcon from "@/components/SideBar/ProfileIcon";
-import TweetFormIcons from "../../../TweetForm/TweetFormIcons";
 import useReplyStore from "./reply-store";
-import AutoSizeTextArea from "@/components/UI/AutoSizeTextArea";
+import ProfileIcon from "@/components/SideBar/ProfileIcon";
+import TweetFormIcons from "@/components/TweetForm/TweetFormIcons";
+import useAutoSizeTextArea from "@/components/UI/useAutoSizeTextArea";
 
 type ReplyModalProps = {};
 
 const ReplyModal: React.FC<ReplyModalProps> = () => {
+  const [AutoSizeTextArea ] = useAutoSizeTextArea("Tweet your reply!");
   const [isVisible, closeModal, data] = useReplyStore((state) => [
     state.isVisible,
     state.closeModal,
@@ -59,7 +60,7 @@ const ReplyModal: React.FC<ReplyModalProps> = () => {
               <div>
                 <ProfileIcon />
               </div>
-              <AutoSizeTextArea placeholder="Tweet your reply!" />
+              {AutoSizeTextArea}
             </div>
           </div>
           <div className="flex items-center justify-between">
