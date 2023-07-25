@@ -10,7 +10,7 @@ export type MenuProps = {
   position?: string;
   children?: React.ReactNode;
   icon_style?: string;
-  selectable?: boolean;
+  selected?: number;
 };
 
 export type MenuOptions = {
@@ -25,12 +25,11 @@ const Menu: React.FC<MenuProps> = ({
   closeModal,
   options,
   position = "right-0 top-0",
-  selectable,
+  selected,
 }) => {
   const [animate, setAnimate] = useState("max-h-0");
-  const [selected, setSelected] = useState(0);
   useEffect(() => {
-    setAnimate("max-h-100");
+    setAnimate("max-h-[300px]");
   }, []);
 
   return (
@@ -44,18 +43,16 @@ const Menu: React.FC<MenuProps> = ({
           <div
             key={text}
             onClick={() => {
-              setSelected(index);
+              closeModal();
               clickHandler();
             }}
-            className="flex cursor-pointer justify-between items-center gap-2 px-4 py-2 transition first:pt-4 last:pb-4 hover:bg-[#0b0b0b]"
+            className="flex cursor-pointer items-center justify-between gap-2 px-4 py-2 transition first:pt-4 last:pb-4 hover:bg-[#0b0b0b]"
           >
             <div className="flex items-center gap-2">
               <Icon className={icon_style} />
               {text}
             </div>
-            {selectable && selected === index && (
-              <CheckIcon className="text-twitter-blue" />
-            )}
+            {selected === index && <CheckIcon className="text-twitter-blue" />}
           </div>
         ))}
       </div>

@@ -35,11 +35,9 @@ const Retweet: React.FC<RetweetProps> = ({ data, value }) => {
 
   const retweetHandler = () => {
     setIsRetweeted((prev) => !prev);
-    setShowRetweetMenu(false);
   };
 
   const quoteTweetHandler = () => {
-    setShowRetweetMenu(false);
     setData(data);
     openModal();
   };

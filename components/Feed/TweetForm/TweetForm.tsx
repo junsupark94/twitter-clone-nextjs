@@ -3,10 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import ProfileIcon from "../../SideBar/ProfileIcon";
 import TweetFormIcons from "./TweetFormIcons";
 import AudienceMenu from "../Tweet/TweetBottom/Retweet/AudienceMenu";
-import Menu, { MenuOptions } from "@/components/UI/Menu";
-import PublicIcon from "@mui/icons-material/Public";
-import FollowingIcon from "@mui/icons-material/PeopleOutline";
-import MentionIcon from "@mui/icons-material/AlternateEmail";
+import WhoCanReplyMenu from "./WhoCanReplyMenu";
 
 type TweetFormProps = {
   placeholder: string;
@@ -19,7 +16,6 @@ const TweetForm: React.FC<TweetFormProps> = ({ placeholder, buttonText }) => {
   const [audience, setAudience] = useState("Everyone");
   const [value, setValue] = useState("");
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
-  const [showMenu, setShowMenu] = useState(false);
 
   useEffect(() => {
     if (textAreaRef.current) {
@@ -29,15 +25,8 @@ const TweetForm: React.FC<TweetFormProps> = ({ placeholder, buttonText }) => {
     }
   }, [textAreaRef, value]);
 
-  const menuOptions: MenuOptions[] = [
-    { text: "Everyone", Icon: PublicIcon, clickHandler: () => {} },
-    { text: "People you follow", Icon: FollowingIcon, clickHandler: () => {} },
-    {
-      text: "Only people you mention",
-      Icon: MentionIcon,
-      clickHandler: () => {},
-    },
-  ];
+
+
 
   return (
     <div
@@ -75,33 +64,7 @@ const TweetForm: React.FC<TweetFormProps> = ({ placeholder, buttonText }) => {
           ref={textAreaRef}
           rows={1}
         />
-        {isClicked && (
-          <div className="relative">
-            {showMenu && (
-              <Menu
-                closeModal={() => setShowMenu(false)}
-                options={menuOptions}
-                position="-left-10 top-7"
-                icon_style="bg-twitter-blue rounded-full w-[40px] h-[40px] p-2 mr-1"
-                selectable
-              >
-                <div className="px-4 pt-3">Who can reply?</div>
-                <div className="w-[300px] text-clip px-4 pb-3 font-normal text-gray-500">
-                  Choose who can reply to this Tweet. Anyone mentioned can
-                  always reply.
-                </div>
-              </Menu>
-            )}
-            <div
-              className="mb-3 border-b border-[#2f3336] pb-2 text-sm font-bold text-twitter-blue"
-              onClick={() => setShowMenu(true)}
-            >
-              <span className="inline-flex items-center gap-1 rounded-full p-1 transition hover:bg-[#4c9ed526]">
-                <PublicIcon fontSize="inherit" /> Everyone can reply
-              </span>
-            </div>
-          </div>
-        )}
+        {isClicked && <WhoCanReplyMenu />}
         <div className="flex items-center justify-between">
           <TweetFormIcons />
           <button
