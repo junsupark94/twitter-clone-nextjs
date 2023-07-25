@@ -163,9 +163,12 @@ const DUMMY_TWEETS: TweetType[] = [
   },
 ];
 
-const QUEUED_TWEETS : TweetType[] = [
-
-]
+const QUEUED_TWEETS: TweetType[] = [
+  { account: "junsupark", displayName: "J-money", id: 8, date: new Date(), body: "Copy needed", replies: 0, retweets: 0, likes: 0, views: 0},
+  { account: "junsupark", displayName: "J-money", id: 9, date: new Date(), body: "Copy needed", replies: 0, retweets: 0, likes: 0, views: 0},
+  { account: "junsupark", displayName: "J-money", id: 10, date: new Date(), body: "Copy needed", replies: 0, retweets: 0, likes: 0, views: 0},
+  { account: "junsupark", displayName: "J-money", id: 11, date: new Date(), body: "Copy needed", replies: 0, retweets: 0, likes: 0, views: 0},
+];
 
 interface TweetsStore {
   tweets: TweetType[];
@@ -178,7 +181,7 @@ interface TweetsStore {
 const useTweetsStore = create<TweetsStore>((set) => ({
   tweets: DUMMY_TWEETS,
   queuedTweets: QUEUED_TWEETS,
-  id: 8,
+  id: 12,
   addTweet: (tweet: TweetType) =>
     set((state) => {
       return {
@@ -186,9 +189,10 @@ const useTweetsStore = create<TweetsStore>((set) => ({
         id: state.id + 1,
       };
     }),
-  refreshTweets: () => set((state) => {
-    return {tweets: [...state.queuedTweets, ...state.tweets]}
-  })
+  refreshTweets: () =>
+    set((state) => {
+      return { tweets: [...state.queuedTweets, ...state.tweets], queuedTweets: [] };
+    }),
 }));
 
 export default useTweetsStore;

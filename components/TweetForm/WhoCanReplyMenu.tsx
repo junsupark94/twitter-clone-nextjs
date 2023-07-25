@@ -2,13 +2,28 @@ import Menu, { MenuOptions } from "@/components/UI/Menu";
 import PublicIcon from "@mui/icons-material/Public";
 import FollowingIcon from "@mui/icons-material/PeopleOutline";
 import MentionIcon from "@mui/icons-material/AlternateEmail";
+import TwitterCircleIcon from "@mui/icons-material/Lock";
 import React, { useState } from "react";
 
-type WhoCanReplyMenuProps = {};
+type WhoCanReplyMenuProps = {
+  circle: boolean;
+};
 
-const WhoCanReplyMenu: React.FC<WhoCanReplyMenuProps> = () => {
+const WhoCanReplyMenu: React.FC<WhoCanReplyMenuProps> = ({ circle }) => {
   const [showMenu, setShowMenu] = useState(false);
   const [selected, setSelected] = useState(0);
+
+  if (circle)
+    return (
+      <div
+        className="mb-3 border-b border-[#2f3336] pb-2 text-sm font-bold text-twitter-blue/50"
+      >
+        <span className="inline-flex items-center gap-1 rounded-full p-1">
+          <TwitterCircleIcon fontSize="inherit" /> Only your Twitter Circle who
+          follows you can reply
+        </span>
+      </div>
+    );
 
   const menuOptions: MenuOptions[] = [
     {
