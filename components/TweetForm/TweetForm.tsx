@@ -51,7 +51,7 @@ const TweetForm: React.FC<TweetFormProps> = ({ placeholder, buttonText }) => {
             {audience} ∨
             {showAudienceMenu && (
               <AudienceMenu
-                closeModal={setShowAudienceMenu.bind(null, false)}
+                closeModal={() => setShowAudienceMenu(false)}
                 audience={audience}
                 setAudience={setAudience}
               />

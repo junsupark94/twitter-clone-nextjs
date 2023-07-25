@@ -1,9 +1,10 @@
-import SideBar from "@/components/SideBar/SideBar";
 import "./globals.css";
 import { Inter } from "next/font/google";
 import Toast from "@/components/UI/Toast";
 import QuoteTweetModal from "@/components/Tweet/TweetBottom/Retweet/QuoteTweetModal";
 import ReplyModal from "@/components/Tweet/TweetBottom/Reply/ReplyModal";
+import EditTwitterCircleModal from "@/components/EditTwitterCircleModal";
+import SideBar from "@/components/SideBar/SideBar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,6 +29,7 @@ export default function RootLayout({
           <Toast />
           <QuoteTweetModal />
           <ReplyModal />
+          <EditTwitterCircleModal />
         </div>
       </body>
     </html>
