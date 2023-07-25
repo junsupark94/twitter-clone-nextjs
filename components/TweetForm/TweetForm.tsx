@@ -1,10 +1,10 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import ProfileIcon from "../../SideBar/ProfileIcon";
 import TweetFormIcons from "./TweetFormIcons";
 import AudienceMenu from "../Tweet/TweetBottom/Retweet/AudienceMenu";
 import WhoCanReplyMenu from "./WhoCanReplyMenu";
 import AutoSizeTextArea from "@/components/UI/AutoSizeTextArea";
+import ProfileIcon from "../SideBar/ProfileIcon";
 
 type TweetFormProps = {
   placeholder: string;

@@ -2,8 +2,8 @@ import SideBar from "@/components/SideBar/SideBar";
 import "./globals.css";
 import { Inter } from "next/font/google";
 import Toast from "@/components/UI/Toast";
-import QuoteTweetModal from "@/components/Feed/Tweet/TweetBottom/Retweet/QuoteTweetModal";
-import ReplyModal from "@/components/Feed/Tweet/TweetBottom/Reply/ReplyModal";
+import QuoteTweetModal from "@/components/Tweet/TweetBottom/Retweet/QuoteTweetModal";
+import ReplyModal from "@/components/Tweet/TweetBottom/Reply/ReplyModal";
 
 const inter = Inter({ subsets: ["latin"] });
 

@@ -1,7 +1,7 @@
 "use client";
 import RepeatOutlinedIcon from "@mui/icons-material/RepeatOutlined";
-import ProfileIcon from "../../SideBar/ProfileIcon";
-import { TweetType } from "../tweet-data";
+import ProfileIcon from "../SideBar/ProfileIcon";
+import { TweetType } from "../Feed/tweet-data";
 import Image from "next/image";
 import TweetHeader from "./TweetHeader";
 import TweetBottom from "./TweetBottom/TweetBottom";

@@ -2,10 +2,10 @@
 import IconButton from "@/components/UI/IconButton";
 import RetweetIcon from "@mui/icons-material/RepeatOutlined";
 import { useState } from "react";
-import { Media } from "../../../tweet-data";
 import QuoteTweetIcon from "@mui/icons-material/Create";
-import Menu from "../../../../UI/Menu";
-import useQuoteTweetStore from "../../../../../app/store/quote-tweet-store";
+import useQuoteTweetStore from "@/app/store/quote-tweet-store";
+import { Media } from "@/components/Feed/tweet-data";
+import Menu from "@/components/UI/Menu";
 
 type RetweetProps = {
   data: {
