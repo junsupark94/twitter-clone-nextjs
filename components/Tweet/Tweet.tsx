@@ -1,10 +1,11 @@
 "use client";
 import RepeatOutlinedIcon from "@mui/icons-material/RepeatOutlined";
-import ProfileIcon from "../SideBar/ProfileIcon";
 import { TweetType } from "../tweet-data";
 import Image from "next/image";
 import TweetHeader from "./TweetHeader";
 import TweetBottom from "./TweetBottom/TweetBottom";
+import ProfileIcon from "../SideBar/ProfileIcon";
+import { useEffect, useState } from "react";
 
 type TweetProps = {
   tweet: TweetType;
@@ -13,9 +14,15 @@ type TweetProps = {
 const Tweet: React.FC<TweetProps> = ({ tweet }) => {
   const { account, date, displayName, body, medias, retweeter, replying } =
     tweet;
+  const [opacity, setOpacity] = useState("");
+
+
+  useEffect(() => {
+    setOpacity("opacity-100")
+  }, [])
 
   return (
-    <div className="border-b-2 border-color-hover px-2 pb-4 pt-2">
+    <div className={`border-b-2 border-color-hover px-2 pb-4 pt-2 transition-opacity duratin-300 opacity-0 ${opacity}`}>
       {retweeter && (
         <div className="relative left-4 text-gray-600">
           <RepeatOutlinedIcon />
