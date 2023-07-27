@@ -3,9 +3,9 @@ import { useEffect, useRef, useState } from "react";
 import TweetFormIcons from "./TweetFormIcons";
 import AudienceMenu from "../AudienceMenu";
 import WhoCanReplyMenu from "./WhoCanReplyMenu";
-import ProfileIcon from "../SideBar/ProfileIcon";
 import useAutoSizeTextArea from "../UI/useAutoSizeTextArea";
 import useTweetsStore from "@/app/store/tweets-store";
+import ProfileIcon from "../ProfileIcon";
 
 type TweetFormProps = {
   placeholder: string;

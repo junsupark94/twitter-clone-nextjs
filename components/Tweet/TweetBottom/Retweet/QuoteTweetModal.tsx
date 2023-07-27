@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import ModalBox from "@/components/UI/ModalBox";
 import AudienceMenu from "../../../AudienceMenu";
 import { useEffect, useState } from "react";
@@ -6,13 +6,13 @@ import TweetHeader from "../../TweetHeader";
 import Image from "next/image";
 import TweetFormIcons from "@/components/TweetForm/TweetFormIcons";
 import useQuoteTweetStore from "@/app/store/quote-tweet-store";
-import ProfileIcon from "@/components/SideBar/ProfileIcon";
+import ProfileIcon from "@/components/ProfileIcon";
+import WhoCanReplyMenu from "@/components/TweetForm/WhoCanReplyMenu";
 
 export default function QuoteTweetModal() {
   const [showAudienceMenu, setShowAudienceMenu] = useState(false);
   const [audience, setAudience] = useState("Everyone");
-  const {isVisible, closeModal, data} = useQuoteTweetStore()
-
+  const { isVisible, closeModal, data } = useQuoteTweetStore();
 
   useEffect(() => {
     if (!isVisible) return;
@@ -44,10 +44,7 @@ export default function QuoteTweetModal() {
         }}
         className={`fixed left-0 top-0 z-10 flex h-screen w-screen items-center justify-center bg-[#5b708366]`}
       >
-        <ModalBox
-          closeModal={closeModal}
-          positioning="fixed top-12 text-white"
-        >
+        <ModalBox closeModal={closeModal} positioning="fixed top-12 text-white">
           <>
             <div className="flex gap-2 p-2">
               <div>
@@ -114,19 +111,8 @@ export default function QuoteTweetModal() {
                 </div>
               </div>
             </div>
-            <div className="mx-2 border-b border-color-hover py-2 text-base">
-              <span
-                className={`ml-2 flex items-center gap-1 ${
-                  audience === "Everyone"
-                    ? "text-twitter-blue"
-                    : "text-[#1d9cf098]"
-                }`}
-              >
-                {/* <PublicIcon fontSize="inherit" /> */}
-                {audience === "Everyone" && "🌎 Everyone can reply"}
-                {audience === "Twitter Circle" &&
-                  "🔒 Only your Twitter Circle who follows you can reply"}
-              </span>
+            <div className="mx-2">
+              <WhoCanReplyMenu circle={audience === "Twitter Circle"} />
             </div>
             <div className="mr-1 mt-2 flex items-center justify-between">
               <TweetFormIcons />

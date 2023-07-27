@@ -4,7 +4,7 @@ import { TweetType } from "../tweet-data";
 import Image from "next/image";
 import TweetHeader from "./TweetHeader";
 import TweetBottom from "./TweetBottom/TweetBottom";
-import ProfileIcon from "../SideBar/ProfileIcon";
+import ProfileIcon from "../ProfileIcon";
 import { useEffect, useState } from "react";
 
 type TweetProps = {

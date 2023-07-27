@@ -164,10 +164,50 @@ const DUMMY_TWEETS: TweetType[] = [
 ];
 
 const QUEUED_TWEETS: TweetType[] = [
-  { account: "junsupark", displayName: "J-money", id: 8, date: new Date(), body: "Copy needed", replies: 0, retweets: 0, likes: 0, views: 0},
-  { account: "junsupark", displayName: "J-money", id: 9, date: new Date(), body: "Copy needed", replies: 0, retweets: 0, likes: 0, views: 0},
-  { account: "junsupark", displayName: "J-money", id: 10, date: new Date(), body: "Copy needed", replies: 0, retweets: 0, likes: 0, views: 0},
-  { account: "junsupark", displayName: "J-money", id: 11, date: new Date(), body: "Copy needed", replies: 0, retweets: 0, likes: 0, views: 0},
+  {
+    account: "junsupark",
+    displayName: "J-money",
+    id: 8,
+    date: new Date(),
+    body: "Copy needed",
+    replies: 0,
+    retweets: 0,
+    likes: 0,
+    views: 0,
+  },
+  {
+    account: "junsupark",
+    displayName: "J-money",
+    id: 9,
+    date: new Date(),
+    body: "Copy needed",
+    replies: 0,
+    retweets: 0,
+    likes: 0,
+    views: 0,
+  },
+  {
+    account: "junsupark",
+    displayName: "J-money",
+    id: 10,
+    date: new Date(),
+    body: "Copy needed",
+    replies: 0,
+    retweets: 0,
+    likes: 0,
+    views: 0,
+  },
+  {
+    account: "junsupark",
+    displayName: "J-money",
+    id: 11,
+    date: new Date(),
+    body: "Copy needed",
+    replies: 0,
+    retweets: 0,
+    likes: 0,
+    views: 0,
+  },
 ];
 
 interface TweetsStore {
@@ -176,6 +216,9 @@ interface TweetsStore {
   addTweet: (tweet: TweetType) => void;
   id: number;
   refreshTweets: () => void;
+  isModalVisible: boolean;
+  openModal: () => void;
+  closeModal: () => void;
 }
 
 const useTweetsStore = create<TweetsStore>((set) => ({
@@ -191,8 +234,14 @@ const useTweetsStore = create<TweetsStore>((set) => ({
     }),
   refreshTweets: () =>
     set((state) => {
-      return { tweets: [...state.queuedTweets, ...state.tweets], queuedTweets: [] };
+      return {
+        tweets: [...state.queuedTweets, ...state.tweets],
+        queuedTweets: [],
+      };
     }),
+  isModalVisible: false,
+  openModal: () => set(() => ({ isModalVisible: true })),
+  closeModal: () => set(() => ({ isModalVisible: false })),
 }));
 
 export default useTweetsStore;

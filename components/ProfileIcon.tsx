@@ -1,9 +1,24 @@
+import Image from "next/image";
+import Link from "next/link";
+
 type ProfileIconProps = {
   width?: number;
 };
 
 const ProfileIcon: React.FC<ProfileIconProps> = ({ width = 40 }) => {
   // Todo: replace with profile picture if it exists and crop as circle
+  return (
+    <Link href="https://www.linkedin.com/in/junsupark-swe" target="_blank">
+      <Image
+        className="rounded-full"
+        src="/junsu park.jpeg"
+        alt="Junsu Park profile pic"
+        width={40}
+        height={40}
+      />
+    </Link>
+  );
+
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

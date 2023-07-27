@@ -5,6 +5,7 @@ import QuoteTweetModal from "@/components/Tweet/TweetBottom/Retweet/QuoteTweetMo
 import ReplyModal from "@/components/Tweet/TweetBottom/Reply/ReplyModal";
 import EditTwitterCircleModal from "@/components/EditTwitterCircleModal";
 import SideBar from "@/components/SideBar/SideBar";
+import TweetModal from "@/components/SideBar/TweetModal";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -30,6 +31,7 @@ export default function RootLayout({
           <QuoteTweetModal />
           <ReplyModal />
           <EditTwitterCircleModal />
+          <TweetModal />
         </div>
       </body>
     </html>
