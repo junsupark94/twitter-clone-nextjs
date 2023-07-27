@@ -1,20 +1,19 @@
 import React, { useEffect, useRef, useState } from "react";
 
-const useAutoSizeTextArea = (placeholder : string) => {
+const useAutoSizeTextArea = (placeholder: string, height: number = 50) => {
   const [value, setValue] = useState("");
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
   useEffect(() => {
     if (textAreaRef.current) {
-      textAreaRef.current.style.height = "50px";
+      textAreaRef.current.style.height = `${height}px`;
       const scrollHeight = textAreaRef.current.scrollHeight;
       textAreaRef.current.style.height = scrollHeight + "px";
     }
-  }, [textAreaRef, value]);
+  }, [textAreaRef, value, height]);
 
-  //Tinker: turn this into a JSX element by converting it into a function that returns the textarea element, see if state is still connected
   const AutoSizeTextArea = (
     <textarea
-      className="w-full resize-none bg-black outline-none"
+      className="w-full resize-none bg-black outline-none text-[20px]"
       placeholder={placeholder}
       value={value}
       onChange={(e) => setValue(e.target.value)}

@@ -8,11 +8,13 @@ import TweetFormIcons from "@/components/TweetForm/TweetFormIcons";
 import useQuoteTweetStore from "@/app/store/quote-tweet-store";
 import ProfileIcon from "@/components/ProfileIcon";
 import WhoCanReplyMenu from "@/components/TweetForm/WhoCanReplyMenu";
+import useAutoSizeTextArea from "@/components/UI/useAutoSizeTextArea";
 
 export default function QuoteTweetModal() {
   const [showAudienceMenu, setShowAudienceMenu] = useState(false);
   const [audience, setAudience] = useState("Everyone");
   const { isVisible, closeModal, data } = useQuoteTweetStore();
+  const {AutoSizeTextArea} = useAutoSizeTextArea("Add a comment!");
 
   useEffect(() => {
     if (!isVisible) return;
@@ -51,7 +53,7 @@ export default function QuoteTweetModal() {
                 <ProfileIcon />
               </div>
               <div className="grow">
-                <div>
+                <div className="mb-2">
                   <button
                     onClick={setShowAudienceMenu.bind(null, true)}
                     className={`relative mb-4 flex justify-center rounded-full border px-2 py-1 text-xs font-bold ${
@@ -69,10 +71,7 @@ export default function QuoteTweetModal() {
                       />
                     )}
                   </button>
-                  <textarea
-                    className="w-full resize-none bg-black outline-none "
-                    placeholder="Add a comment!"
-                  />
+                  {AutoSizeTextArea}
                 </div>
                 <div className="rounded-2xl border border-[#2f3336] text-base">
                   <div className="flex items-center">
