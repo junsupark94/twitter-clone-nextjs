@@ -6,14 +6,14 @@ import TwitterCircleIcon from "@mui/icons-material/Lock";
 import React, { useState } from "react";
 
 type WhoCanReplyMenuProps = {
-  circle: boolean;
+  audience: string;
 };
 
-const WhoCanReplyMenu: React.FC<WhoCanReplyMenuProps> = ({ circle }) => {
+const WhoCanReplyMenu: React.FC<WhoCanReplyMenuProps> = ({ audience }) => {
   const [showMenu, setShowMenu] = useState(false);
   const [selected, setSelected] = useState(0);
 
-  if (circle)
+  if (audience === "Twitter Circle")
     return (
       <div
         className="mb-3 border-b border-[#2f3336] pb-2 text-sm font-bold text-twitter-blue/50"
@@ -51,7 +51,7 @@ const WhoCanReplyMenu: React.FC<WhoCanReplyMenuProps> = ({ circle }) => {
   const Icon = menuOptions[selected].Icon;
 
   return (
-    <div className="relative">
+    <div className="relative text-lg">
       {showMenu && (
         <Menu
           closeModal={() => setShowMenu(false)}

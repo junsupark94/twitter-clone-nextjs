@@ -14,6 +14,7 @@ const useAutoSizeTextArea = (placeholder: string, height: number = 50) => {
   const AutoSizeTextArea = (
     <textarea
       className="w-full resize-none bg-black outline-none text-[20px]"
+      style={{height: `${height}px`}}
       placeholder={placeholder}
       value={value}
       onChange={(e) => setValue(e.target.value)}

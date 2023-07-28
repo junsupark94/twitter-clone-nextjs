@@ -8,25 +8,35 @@ import TweetFormIcons from "../TweetForm/TweetFormIcons";
 import ProfileIcon from "../ProfileIcon";
 import AudienceMenu from "../AudienceMenu";
 import useAutoSizeTextArea from "../UI/useAutoSizeTextArea";
+import useDiscardModalStore from "@/app/store/discard-modal-store";
 
 type TweetModalProps = {};
 
 const TweetModal: React.FC<TweetModalProps> = () => {
-  const { isModalVisible, closeModal } = useTweetsStore((state) => ({
-    isModalVisible: state.isModalVisible,
+  const { isTweetModalVisible, closeModal } = useTweetsStore((state) => ({
+    isTweetModalVisible: state.isVisible,
     closeModal: state.closeModal,
   }));
+  const openDiscardModal = useDiscardModalStore(state => state.openModal);
   const [audience, setAudience] = useState("Everyone");
   const [showAudienceMenu, setShowAudienceMenu] = useState(false);
   const { AutoSizeTextArea, value } = useAutoSizeTextArea(
     "What is happening?!", 100
   );
 
-  if (!isModalVisible) return null;
+  if (!isTweetModalVisible) return null;
+
+  const closeModalHandler = () => {
+    if (value !== '') {
+      openDiscardModal();
+    } else {
+      closeModal();
+    }
+  }
 
   return (
-    <ModalBackdrop closeModal={closeModal}>
-      <ModalBox closeModal={closeModal} positioning="fixed top-12">
+    <ModalBackdrop closeModal={closeModalHandler}>
+      <ModalBox closeModal={closeModalHandler} positioning="fixed top-12">
         <>
           <div className="flex gap-3 p-2">
             <div>
@@ -58,13 +68,10 @@ const TweetModal: React.FC<TweetModalProps> = () => {
           </div>
 
           <div className="mx-2">
-            <WhoCanReplyMenu circle={audience === "Twitter Circle"} />
+            <WhoCanReplyMenu audience={audience} />
           </div>
           <div className="mr-1 mt-2 flex items-center justify-between">
             <TweetFormIcons />
-            {/* <button className="rounded-full bg-twitter-blue px-4 py-[6px] ">
-              Tweet
-            </button> */}
             <button
               className={`rounded-full bg-twitter-blue ${
                 value === "" && "brightness-50"

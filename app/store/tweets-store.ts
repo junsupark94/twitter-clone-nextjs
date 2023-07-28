@@ -216,7 +216,7 @@ interface TweetsStore {
   addTweet: (tweet: TweetType) => void;
   id: number;
   refreshTweets: () => void;
-  isModalVisible: boolean;
+  isVisible: boolean;
   openModal: () => void;
   closeModal: () => void;
 }
@@ -239,9 +239,9 @@ const useTweetsStore = create<TweetsStore>((set) => ({
         queuedTweets: [],
       };
     }),
-  isModalVisible: false,
-  openModal: () => set(() => ({ isModalVisible: true })),
-  closeModal: () => set(() => ({ isModalVisible: false })),
+  isVisible: false,
+  openModal: () => set(() => ({ isVisible: true })),
+  closeModal: () => set(() => ({ isVisible: false })),
 }));
 
 export default useTweetsStore;

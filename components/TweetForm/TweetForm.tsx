@@ -7,15 +7,15 @@ import useAutoSizeTextArea from "../UI/useAutoSizeTextArea";
 import useTweetsStore from "@/app/store/tweets-store";
 import ProfileIcon from "../ProfileIcon";
 
-type TweetFormProps = {
-};
+type TweetFormProps = {};
 
 const TweetForm: React.FC<TweetFormProps> = () => {
   const [isClicked, setIsClicked] = useState(false);
   const [showAudienceMenu, setShowAudienceMenu] = useState(false);
   const [audience, setAudience] = useState("Everyone");
-  const { AutoSizeTextArea, value, setValue } =
-    useAutoSizeTextArea("What is happening?!");
+  const { AutoSizeTextArea, value, setValue } = useAutoSizeTextArea(
+    "What is happening?!",
+  );
   const [isSubmitting, setIsSubmitting] = useState(false);
   const formRef = useRef<HTMLDivElement>(null);
   const addTweet = useTweetsStore((state) => state.addTweet);
@@ -62,8 +62,8 @@ const TweetForm: React.FC<TweetFormProps> = () => {
         }`}
       />
       <div
-        className={`flex gap-4 overflow-hidden px-2 pb-2 pt-4 transition-[max-height] ${
-          isSubmitting && "brightness-50"
+        className={`flex gap-4 px-2 pb-2 pt-4 transition-[max-height] ${
+          isSubmitting && "brightness-50 overflow-hidden"
         }`}
         style={{ maxHeight: isSubmitting ? "70px" : "300px" }}
         onClick={() => {
@@ -97,12 +97,12 @@ const TweetForm: React.FC<TweetFormProps> = () => {
           )}
           {AutoSizeTextArea}
           {isClicked && (
-            <WhoCanReplyMenu circle={audience === "Twitter Circle"} />
+            <WhoCanReplyMenu audience={audience} />
           )}
           <div className="flex items-center justify-between">
             <TweetFormIcons />
             <button
-              className={`bg-twitter-blue rounded-full ${
+              className={`rounded-full bg-twitter-blue ${
                 value === "" && "brightness-50"
               } p-2 px-5 font-bold`}
               onClick={submitTweetHandler}

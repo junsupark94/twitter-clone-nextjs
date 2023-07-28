@@ -5,12 +5,14 @@ type ModalBoxProps = {
   children: JSX.Element;
   positioning?: string;
   addButton?: boolean;
+  width?: string;
 };
 
 const ModalBox: React.FC<ModalBoxProps> = ({
   closeModal,
   children,
   positioning,
+  width = "w-[600px]",
   addButton = true,
 }) => {
   const button = (
@@ -24,7 +26,7 @@ const ModalBox: React.FC<ModalBoxProps> = ({
   return (
     <div
       onClick={(e) => e.stopPropagation()}
-      className={`${positioning} min-w-[600px] rounded-2xl bg-black p-1 pb-4`}
+      className={`${positioning} ${width} rounded-2xl bg-black p-1 pb-4`}
     >
       {addButton && button}
       {children}
