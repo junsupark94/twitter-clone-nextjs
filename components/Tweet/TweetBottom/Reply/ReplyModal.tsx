@@ -7,22 +7,34 @@ import useReplyStore from "./reply-store";
 import ProfileIcon from "@/components/ProfileIcon";
 import TweetFormIcons from "@/components/TweetForm/TweetFormIcons";
 import useAutoSizeTextArea from "@/components/UI/useAutoSizeTextArea";
+import useDiscardModalStore from "@/app/store/discard-modal-store";
 
 type ReplyModalProps = {};
 
 const ReplyModal: React.FC<ReplyModalProps> = () => {
-  const {AutoSizeTextArea } = useAutoSizeTextArea("Tweet your reply!");
+  const { AutoSizeTextArea, value, setValue } =
+    useAutoSizeTextArea("Tweet your reply!");
   const [isVisible, closeModal, data] = useReplyStore((state) => [
     state.isVisible,
     state.closeModal,
     state.data,
   ]);
   const { displayName, account, date, body, medias } = data;
+  const [openDiscardModal, setSourceModal] = useDiscardModalStore((state) => [
+    state.openModal,
+    state.setSourceModal,
+  ]);
 
   if (!isVisible) return null;
 
   const closeModalHandler = () => {
-    closeModal();
+    if (value.trim() !== "") {
+      setSourceModal(() => {
+        setValue("");
+        closeModal();
+      });
+      openDiscardModal();
+    } else closeModal();
   };
 
   return (

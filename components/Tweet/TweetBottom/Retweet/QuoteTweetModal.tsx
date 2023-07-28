@@ -9,12 +9,19 @@ import useQuoteTweetStore from "@/app/store/quote-tweet-store";
 import ProfileIcon from "@/components/ProfileIcon";
 import WhoCanReplyMenu from "@/components/TweetForm/WhoCanReplyMenu";
 import useAutoSizeTextArea from "@/components/UI/useAutoSizeTextArea";
+import useDiscardModalStore from "@/app/store/discard-modal-store";
 
 export default function QuoteTweetModal() {
   const [showAudienceMenu, setShowAudienceMenu] = useState(false);
   const [audience, setAudience] = useState("Everyone");
   const { isVisible, closeModal, data } = useQuoteTweetStore();
-  const {AutoSizeTextArea} = useAutoSizeTextArea("Add a comment!");
+  const { AutoSizeTextArea, value, setValue } =
+    useAutoSizeTextArea("Add a comment!");
+
+  const [openDiscardModal, setSourceModal] = useDiscardModalStore((state) => [
+    state.openModal,
+    state.setSourceModal,
+  ]);
 
   useEffect(() => {
     if (!isVisible) return;
@@ -37,16 +44,26 @@ export default function QuoteTweetModal() {
 
   if (!isVisible) return null;
 
+  const closeModalHandler = () => {
+    if (value.trim() !== "") {
+      setSourceModal(() => {
+        setValue("");
+        closeModal();
+      });
+      openDiscardModal();
+    } else closeModal();
+  };
+
   return (
     <>
       <div
         onClick={(e) => {
           e.stopPropagation();
-          closeModal();
+          closeModalHandler();
         }}
         className={`fixed left-0 top-0 z-10 flex h-screen w-screen items-center justify-center bg-[#5b708366]`}
       >
-        <ModalBox closeModal={closeModal} positioning="fixed top-12 text-white">
+        <ModalBox closeModal={closeModalHandler} positioning="fixed top-12 text-white">
           <>
             <div className="flex gap-2 p-2">
               <div>

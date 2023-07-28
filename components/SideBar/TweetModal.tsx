@@ -13,26 +13,34 @@ import useDiscardModalStore from "@/app/store/discard-modal-store";
 type TweetModalProps = {};
 
 const TweetModal: React.FC<TweetModalProps> = () => {
-  const { isTweetModalVisible, closeModal } = useTweetsStore((state) => ({
-    isTweetModalVisible: state.isVisible,
-    closeModal: state.closeModal,
-  }));
-  const openDiscardModal = useDiscardModalStore(state => state.openModal);
+  const [isTweetModalVisible, closeModal] = useTweetsStore((state) => [
+    state.isVisible,
+    state.closeModal,
+  ]);
+  const [openDiscardModal, setSourceModal] = useDiscardModalStore((state) => [
+    state.openModal,
+    state.setSourceModal,
+  ]);
   const [audience, setAudience] = useState("Everyone");
   const [showAudienceMenu, setShowAudienceMenu] = useState(false);
-  const { AutoSizeTextArea, value } = useAutoSizeTextArea(
-    "What is happening?!", 100
+  const { AutoSizeTextArea, value, setValue } = useAutoSizeTextArea(
+    "What is happening?!",
+    100,
   );
 
   if (!isTweetModalVisible) return null;
 
   const closeModalHandler = () => {
-    if (value !== '') {
+    if (value.trim() !== "") {
+      setSourceModal(() => {
+        setValue('');
+        closeModal();
+      });
       openDiscardModal();
     } else {
       closeModal();
     }
-  }
+  };
 
   return (
     <ModalBackdrop closeModal={closeModalHandler}>
