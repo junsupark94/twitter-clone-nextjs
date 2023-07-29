@@ -18,7 +18,10 @@ const ModalBox: React.FC<ModalBoxProps> = ({
   addButton = true,
   showDraft = false,
 }) => {
-  const drafts = useDraftsModalStore(state => state.drafts);
+  const [drafts, openModal] = useDraftsModalStore((state) => [
+    state.drafts,
+    state.openModal,
+  ]);
   if (drafts.length === 0) {
     showDraft = false;
   }
@@ -36,10 +39,13 @@ const ModalBox: React.FC<ModalBoxProps> = ({
       onClick={(e) => e.stopPropagation()}
       className={`${positioning} ${width} rounded-2xl bg-black p-1 pb-4`}
     >
-      <div className="flex justify-between items-center">
+      <div className="flex items-center justify-between">
         {addButton && button}
         {showDraft && (
-          <button className="min-h-[32px] mr-2 px-4 min-w-[32px] rounded-full text-[14px] font-bold text-twitter-blue transition hover:bg-[#1d9bf01a]">
+          <button
+            onClick={openModal}
+            className="mr-2 min-h-[32px] min-w-[32px] rounded-full px-4 text-[14px] font-bold text-twitter-blue transition hover:bg-[#1d9bf01a]"
+          >
             Drafts
           </button>
         )}
