@@ -1,8 +1,9 @@
 import { create } from "zustand";
+import { Draft } from "./drafts-modal-store";
 
 interface DiscardModalStore {
   isVisible: boolean;
-  openModal: (draft: any) => void;
+  openModal: (draft: Draft) => void;
   closeModal: () => void;
   setSourceModal: any;
   closeSourceModal: any;

@@ -50,7 +50,14 @@ export default function QuoteTweetModal() {
         setValue("");
         closeModal();
       });
-      openDiscardModal();
+      openDiscardModal({
+        body: value,
+        id: 0,
+        quoteTweetUrl: "https://twitter.com",
+        date: data!.date,
+        quoteTweetbody: data?.body,
+        quoteTweetMedia: data?.medias,
+      });
     } else closeModal();
   };
 

@@ -13,10 +13,10 @@ type RetweetProps = {
     account: string;
     date: Date;
     displayName: string;
-    body: string | undefined;
-    medias: Media[] | undefined;
-    retweeter: string | undefined;
-    replying: string | number | undefined;
+    body?: string;
+    medias?: Media[];
+    retweeter?: string;
+    replying?: string | number;
   };
   value: number;
 };

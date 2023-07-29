@@ -33,7 +33,13 @@ const ReplyModal: React.FC<ReplyModalProps> = () => {
         setValue("");
         closeModal();
       });
-      openDiscardModal();
+      openDiscardModal({
+        body: value,
+        replying: account,
+        date: date,
+        replyBody: body,
+        replyMedia: medias
+      });
     } else closeModal();
   };
 

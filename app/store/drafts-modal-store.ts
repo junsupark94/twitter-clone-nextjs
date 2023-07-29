@@ -12,11 +12,13 @@ interface DraftBasic {
 }
 interface QuoteTweetDraft extends DraftBasic {
   quoteTweetUrl: string;
+  date: Date;
   quoteTweetbody?: string;
   quoteTweetMedia?: Media[];
 }
 interface ReplyDraft extends DraftBasic {
   replying: string;
+  date: Date;
   replyBody?: string;
   replyMedia?: string;
 }
@@ -46,12 +48,14 @@ const useDraftsModalStore = create<DraftsModalStore>((set) => ({
       replying: "junsupark",
       id: 1,
       replyBody: "Reply body",
+      date: new Date("07-28-2023")
     },
     {
       body: "Test draft 2",
       id: 2,
       quoteTweetbody: "Quote Tweet Body",
       quoteTweetUrl: "https://twitter.com/username/status/tweetid",
+      date: new Date("07-29-2023")
     },
     { body: "Test", id: 3 },
   ],
