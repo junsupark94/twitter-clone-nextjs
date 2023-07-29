@@ -38,7 +38,8 @@ const ReplyModal: React.FC<ReplyModalProps> = () => {
         replying: account,
         date: date,
         replyBody: body,
-        replyMedia: medias
+        replyMedia: medias,
+        id: 0
       });
     } else closeModal();
   };

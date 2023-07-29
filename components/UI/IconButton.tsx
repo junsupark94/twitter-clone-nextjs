@@ -13,6 +13,7 @@ export default function IconButton({
   value,
   text,
   handleClick,
+  cursor
 }: {
   Icon: icon;
   text_color?: string;
@@ -20,6 +21,7 @@ export default function IconButton({
   value?: number;
   text: string;
   handleClick?: () => void;
+  cursor?: boolean
 }) {
 
   let number;
@@ -31,7 +33,7 @@ export default function IconButton({
     <div
       key={text}
       onClick={handleClick}
-      className={`group cursor-pointer ${text_color} relative flex items-center transition`}
+      className={`group ${cursor && "cursor-pointer"} ${text_color} relative flex items-center transition`}
     >
       <div
         className={`rounded-full p-[6px] ${bgColor} flex justify-center transition`}

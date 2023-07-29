@@ -48,7 +48,7 @@ const Tweet: React.FC<TweetProps> = ({ tweet }) => {
             )}
           </div>
           <div className="my-2">
-            {body && <div className="text-sm">{body}</div>}
+            {body && <div className="text-sm whitespace-pre-wrap">{body}</div>}
             {medias && medias[0].type === "photo" && (
               <div className="relative h-96 border border-red-500">
                 <Image

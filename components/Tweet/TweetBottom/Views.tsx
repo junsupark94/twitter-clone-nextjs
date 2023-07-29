@@ -46,6 +46,7 @@ const Views: React.FC<ViewsProps> = ({ value }) => {
         Icon={ViewsIcon}
         value={value}
         text="Views"
+        cursor
         handleClick={setShowModal.bind(null, true)}
       />
     </>

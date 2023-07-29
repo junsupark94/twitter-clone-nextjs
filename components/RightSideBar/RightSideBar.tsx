@@ -8,7 +8,7 @@ type RightSideBarProps = {};
 
 const RightSideBar: React.FC<RightSideBarProps> = () => {
   const searchRef = useRef<HTMLDivElement>(null);
-  const [topOff, setTopOff] = useState("10px")
+  const [topOff, setTopOff] = useState("0px")
   useEffect(() => {
     setTopOff(`${searchRef.current?.scrollHeight}px`)
   }, [setTopOff])

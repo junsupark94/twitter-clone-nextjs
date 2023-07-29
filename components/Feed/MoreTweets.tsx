@@ -13,7 +13,7 @@ const MoreTweets: React.FC<MoreTweetsProps> = () => {
   if (queuedTweets.length == 0) return null;
 
   return (
-    <div onClick={refreshTweets} className="border-b-2 border-color-hover py-4 text-center text-twitter-blue hover:bg-color-hover">
+    <div onClick={refreshTweets} className="cursor-pointer border-b-2 border-color-hover py-4 text-center text-twitter-blue hover:bg-color-hover">
       Show {queuedTweets.length} Tweets
     </div>
   );

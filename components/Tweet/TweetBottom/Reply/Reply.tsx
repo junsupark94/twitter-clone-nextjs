@@ -35,6 +35,7 @@ const Reply: React.FC<ReplyProps> = ({ data, value }) => {
       value={value}
       text="Reply"
       handleClick={handleClick}
+      cursor
     />
   );
 };

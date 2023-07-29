@@ -67,6 +67,7 @@ const Retweet: React.FC<RetweetProps> = ({ data, value }) => {
         text="Retweet"
         handleClick={setShowRetweetMenu.bind(null, true)}
         text_color={text_color}
+        cursor
         bgColor="group-hover:bg-[#0e382b]"
       />
       <div

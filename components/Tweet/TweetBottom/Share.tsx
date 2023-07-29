@@ -59,6 +59,7 @@ const Share: React.FC<ShareProps> = () => {
         Icon={ShareIcon}
         text="Share"
         handleClick={() => setShowShareMenu(true)}
+        cursor
       />
     </div>
   );
