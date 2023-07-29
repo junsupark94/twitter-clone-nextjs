@@ -1,8 +1,8 @@
 import { Dispatch, SetStateAction, useState } from "react";
 import PublicIcon from "@mui/icons-material/Public";
 import TwitterCircleIcon from "@mui/icons-material/People";
-import ModalBackdrop from "./UI/ModalBackdrop";
-import ModalBox from "./UI/ModalBox";
+import ModalBackdrop from "../UI/ModalBackdrop";
+import ModalBox from "../UI/ModalBox";
 import useCircleModal from "@/app/store/circle-modal-store";
 
 export default function AudienceMenu({

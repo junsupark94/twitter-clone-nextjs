@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import DUMMY_TWEETS, { QUEUED_TWEETS } from "@/components/tweet-data";
+import DUMMY_TWEETS, { QUEUED_TWEETS } from "@/components/Misc/tweet-data";
 
 export type Media = {
   type: "photo" | "video";

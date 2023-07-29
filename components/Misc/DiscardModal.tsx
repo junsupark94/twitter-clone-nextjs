@@ -1,8 +1,8 @@
 "use client";
 import useDiscardModalStore from "@/app/store/discard-modal-store";
 import React from "react";
-import ModalBackdrop from "./UI/ModalBackdrop";
-import ModalBox from "./UI/ModalBox";
+import ModalBackdrop from "../UI/ModalBackdrop";
+import ModalBox from "../UI/ModalBox";
 import useToastStore from "@/app/store/toast-store";
 import useDraftsModalStore from "@/app/store/drafts-modal-store";
 

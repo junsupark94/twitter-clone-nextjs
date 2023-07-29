@@ -2,7 +2,7 @@ import Image from "next/image";
 import logo from "@/public/twitter.svg";
 import SideBarIcon from "./SideBarIcon";
 import Link from "next/link";
-import ProfileIcon from "../ProfileIcon";
+import ProfileIcon from "../Misc/ProfileIcon";
 import TweetButton from "./TweetButton";
 
 //add property for modifying icon size

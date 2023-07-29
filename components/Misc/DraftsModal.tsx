@@ -1,10 +1,10 @@
 "use client";
 import React, { ChangeEventHandler, useState } from "react";
-import ModalBackdrop from "./UI/ModalBackdrop";
+import ModalBackdrop from "../UI/ModalBackdrop";
 import useDraftsModalStore from "@/app/store/drafts-modal-store";
-import ModalBox from "./UI/ModalBox";
+import ModalBox from "../UI/ModalBox";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import useModalHeader from "./UI/useModalHeader";
+import useModalHeader from "../UI/useModalHeader";
 import ReplyIcon from "@mui/icons-material/ModeComment";
 import Image from "next/image";
 import scheduled from "@/public/scheduled.png";

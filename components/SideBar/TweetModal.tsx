@@ -5,8 +5,8 @@ import useTweetsStore from "@/app/store/tweets-store";
 import ModalBox from "../UI/ModalBox";
 import WhoCanReplyMenu from "../TweetForm/WhoCanReplyMenu";
 import TweetFormIcons from "../TweetForm/TweetFormIcons";
-import ProfileIcon from "../ProfileIcon";
-import AudienceMenu from "../AudienceMenu";
+import ProfileIcon from "../Misc/ProfileIcon";
+import AudienceMenu from "../Misc/AudienceMenu";
 import useAutoSizeTextArea from "../UI/useAutoSizeTextArea";
 import useDiscardModalStore from "@/app/store/discard-modal-store";
 

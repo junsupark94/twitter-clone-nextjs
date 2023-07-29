@@ -1,10 +1,10 @@
 "use client";
 import RepeatOutlinedIcon from "@mui/icons-material/RepeatOutlined";
-import { TweetType } from "../tweet-data";
+import { TweetType } from "../Misc/tweet-data";
 import Image from "next/image";
 import TweetHeader from "./TweetHeader";
 import TweetBottom from "./TweetBottom/TweetBottom";
-import ProfileIcon from "../ProfileIcon";
+import ProfileIcon from "../Misc/ProfileIcon";
 import { useEffect, useState } from "react";
 
 type TweetProps = {

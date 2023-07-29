@@ -4,7 +4,7 @@ import ModalBox from "@/components/UI/ModalBox";
 import React from "react";
 import TweetHeader from "../../TweetHeader";
 import useReplyStore from "./reply-store";
-import ProfileIcon from "@/components/ProfileIcon";
+import ProfileIcon from "@/components/Misc/ProfileIcon";
 import TweetFormIcons from "@/components/TweetForm/TweetFormIcons";
 import useAutoSizeTextArea from "@/components/UI/useAutoSizeTextArea";
 import useDiscardModalStore from "@/app/store/discard-modal-store";

@@ -1,9 +1,9 @@
 "use client";
 import React, { useState } from "react";
-import ModalBackdrop from "./UI/ModalBackdrop";
-import ModalBox from "./UI/ModalBox";
+import ModalBackdrop from "../UI/ModalBackdrop";
+import ModalBox from "../UI/ModalBox";
 import useCircleModal from "@/app/store/circle-modal-store";
-import useModalHeader from "./UI/useModalHeader";
+import useModalHeader from "../UI/useModalHeader";
 import SearchIcon from "@mui/icons-material/Search";
 
 type EditTwitterCircleModalProps = {};

@@ -7,7 +7,6 @@ type ProfileIconProps = {
 };
 
 const ProfileIcon: React.FC<ProfileIconProps> = ({ width = 40 }) => {
-  // Todo: replace with profile picture if it exists and crop as circle
   return (
     <Link href="https://www.linkedin.com/in/junsupark-swe" target="_blank">
       <Image

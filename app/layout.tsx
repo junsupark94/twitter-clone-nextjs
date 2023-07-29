@@ -3,11 +3,11 @@ import { Inter } from "next/font/google";
 import Toast from "@/components/UI/Toast";
 import QuoteTweetModal from "@/components/Tweet/TweetBottom/Retweet/QuoteTweetModal";
 import ReplyModal from "@/components/Tweet/TweetBottom/Reply/ReplyModal";
-import EditTwitterCircleModal from "@/components/EditTwitterCircleModal";
+import EditTwitterCircleModal from "@/components/Misc/EditTwitterCircleModal";
 import SideBar from "@/components/SideBar/SideBar";
 import TweetModal from "@/components/SideBar/TweetModal";
-import DiscardModal from "@/components/DiscardModal";
-import DraftsModal from "@/components/DraftsModal";
+import DiscardModal from "@/components/Misc/DiscardModal";
+import DraftsModal from "@/components/Misc/DraftsModal";
 
 const inter = Inter({ subsets: ["latin"] });
 
