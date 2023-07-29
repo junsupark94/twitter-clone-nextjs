@@ -3,7 +3,6 @@ import logo from "@/public/twitter.svg";
 import SideBarIcon from "./SideBarIcon";
 import Link from "next/link";
 import ProfileIcon from "../ProfileIcon";
-import useTweetsStore from "@/app/store/tweets-store";
 import TweetButton from "./TweetButton";
 
 //add property for modifying icon size

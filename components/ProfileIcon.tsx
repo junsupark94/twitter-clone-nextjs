@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import junsu from "@/public/junsu park.jpeg"
 
 type ProfileIconProps = {
   width?: number;
@@ -11,7 +12,7 @@ const ProfileIcon: React.FC<ProfileIconProps> = ({ width = 40 }) => {
     <Link href="https://www.linkedin.com/in/junsupark-swe" target="_blank">
       <Image
         className="rounded-full"
-        src="/junsu park.jpeg"
+        src={junsu}
         alt="Junsu Park profile pic"
         width={40}
         height={40}

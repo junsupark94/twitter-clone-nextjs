@@ -25,11 +25,15 @@ export default function AudienceMenu({
         }}
         className="fixed left-0 top-0 z-10 h-screen w-screen cursor-default"
       />
-      <div className="absolute top-7 z-20 w-56 cursor-default rounded-xl bg-black text-sm font-bold text-white shadow-highlight">
+      <div className="absolute -left-5 top-7 z-20 min-w-[260px] max-w-[360px] cursor-default rounded-xl bg-black text-sm font-bold text-white shadow-highlight">
         <div className="m-4 text-start text-lg">Choose audience</div>
         <div
-          className="my-4 flex cursor-pointer items-center gap-2 px-4"
-          onClick={setAudience.bind(null, "Everyone")}
+          className="flex cursor-pointer items-center gap-2 px-4 py-3 transition hover:bg-[#16181c]"
+          onClick={(e) => {
+            e.stopPropagation();
+            setAudience("Everyone");
+            closeModal();
+          }}
         >
           <div className="flex h-10 w-10 items-center justify-center rounded-full bg-twitter-blue">
             <PublicIcon />
@@ -42,8 +46,12 @@ export default function AudienceMenu({
           </div>
         </div>
         <div
-          className="my-4 flex cursor-pointer items-center gap-2 px-4"
-          onClick={setAudience.bind(null, "Twitter Circle")}
+          className="flex cursor-pointer items-center gap-2 px-4 py-3 transition hover:bg-[#16181c]"
+          onClick={(e) => {
+            e.stopPropagation();
+            setAudience("Twitter Circle");
+            closeModal();
+          }}
         >
           <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#00BA7C]">
             <TwitterCircleIcon />
@@ -51,12 +59,12 @@ export default function AudienceMenu({
           <div className="flex grow items-center justify-between text-start">
             <div>
               <div>Twitter Circle</div>
-              <div className="space-x-1">
+              <div>
                 <span>
                   0 <span className="font-normal text-gray-500">People</span>
                 </span>
                 <span
-                  className="underline transition hover:bg-color-hover"
+                  className="ml-1 inline-block min-h-[24px] min-w-[24px] rounded-full px-3 underline transition hover:bg-[#eff3f41a]"
                   onClick={(e) => {
                     e.stopPropagation();
                     closeModal();

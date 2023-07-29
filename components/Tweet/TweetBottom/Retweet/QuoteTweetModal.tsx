@@ -101,27 +101,27 @@ export default function QuoteTweetModal() {
                   <div className="flex items-center">
                     <ProfileIcon width={25} />
                     <TweetHeader
-                      displayName={data.displayName}
-                      account={data.account}
-                      date={data.date}
+                      displayName={data!.displayName}
+                      account={data!.account}
+                      date={data!.date}
                     />
                   </div>
                   <div>
-                    {data.replying && (
+                    {data!.replying && (
                       <>
                         <span className="text-gray-600">Replying to </span>
                         <span className="text-twitter-blue">
-                          @{data.replying}
+                          @{data!.replying}
                         </span>
                       </>
                     )}
                   </div>
                   <div className="my-2 max-w-[500px]">
-                    {data.body && <div className="text-sm">{data.body}</div>}
-                    {data.medias && data.medias[0].type === "photo" && (
+                    {data!.body && <div className="text-sm">{data!.body}</div>}
+                    {data!.medias && data!.medias[0].type === "photo" && (
                       <div className="relative h-96 border border-red-500">
                         <Image
-                          src={data.medias[0].src}
+                          src={data!.medias[0].src}
                           alt="Image"
                           fill
                           sizes="(max-width: 400px)"
