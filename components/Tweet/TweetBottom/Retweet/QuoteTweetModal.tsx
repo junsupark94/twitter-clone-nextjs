@@ -63,7 +63,7 @@ export default function QuoteTweetModal() {
         }}
         className={`fixed left-0 top-0 z-10 flex h-screen w-screen items-center justify-center bg-[#5b708366]`}
       >
-        <ModalBox closeModal={closeModalHandler} positioning="fixed top-12 text-white">
+        <ModalBox showDraft closeModal={closeModalHandler} positioning="fixed top-12 text-white">
           <>
             <div className="flex gap-2 p-2">
               <div>

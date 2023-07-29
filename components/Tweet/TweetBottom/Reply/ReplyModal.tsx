@@ -40,6 +40,7 @@ const ReplyModal: React.FC<ReplyModalProps> = () => {
   return (
     <ModalBackdrop closeModal={closeModalHandler}>
       <ModalBox
+        showDraft
         closeModal={closeModalHandler}
         positioning="fixed top-12 text-white pr-3"
       >

@@ -44,7 +44,7 @@ const TweetModal: React.FC<TweetModalProps> = () => {
 
   return (
     <ModalBackdrop closeModal={closeModalHandler}>
-      <ModalBox closeModal={closeModalHandler} positioning="fixed top-12">
+      <ModalBox showDraft closeModal={closeModalHandler} positioning="fixed top-12">
         <>
           <div className="flex gap-3 p-2">
             <div>
