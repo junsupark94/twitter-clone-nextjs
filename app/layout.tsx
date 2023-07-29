@@ -7,6 +7,7 @@ import EditTwitterCircleModal from "@/components/EditTwitterCircleModal";
 import SideBar from "@/components/SideBar/SideBar";
 import TweetModal from "@/components/SideBar/TweetModal";
 import DiscardModal from "@/components/DiscardModal";
+import DraftsModal from "@/components/DraftsModal";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -34,6 +35,7 @@ export default function RootLayout({
           <EditTwitterCircleModal />
           <TweetModal />
           <DiscardModal />
+          <DraftsModal />
         </div>
       </body>
     </html>

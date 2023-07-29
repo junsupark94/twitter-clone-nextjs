@@ -128,7 +128,7 @@ export default function QuoteTweetModal() {
               </div>
             </div>
             <div className="mx-2">
-              <WhoCanReplyMenu circle={audience === "Twitter Circle"} />
+              <WhoCanReplyMenu audience={audience} />
             </div>
             <div className="mr-1 mt-2 flex items-center justify-between">
               <TweetFormIcons />

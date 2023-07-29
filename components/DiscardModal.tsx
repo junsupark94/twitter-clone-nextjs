@@ -1,32 +1,73 @@
-'use client'
+"use client";
 import useDiscardModalStore from "@/app/store/discard-modal-store";
 import React from "react";
 import ModalBackdrop from "./UI/ModalBackdrop";
 import ModalBox from "./UI/ModalBox";
+import useToastStore from "@/app/store/toast-store";
 
 type DiscardModalProps = {};
 
 const DiscardModal: React.FC<DiscardModalProps> = () => {
-  const [isVisible, closeModal, closeSourceModal, setSourceModal] = useDiscardModalStore((state) => [state.isModalVisible, state.closeModal, state.closeSourceModal, state.setSourceModal])
+  const [isVisible, closeModal, closeSourceModal, setSourceModal] =
+    useDiscardModalStore((state) => [
+      state.isVisible,
+      state.closeModal,
+      state.closeSourceModal,
+      state.setSourceModal,
+    ]);
+  let [showToast, hideToast, setDraftToast] = useToastStore((state) => [
+    state.showToast,
+    state.hideToast,
+    state.setDraftToast,
+  ]);
 
   if (!isVisible) return null;
+
+  const saveHandler = () => {
+    setDraftToast(true);
+    showToast("Your draft was saved.");
+    closeModal();
+    closeSourceModal();
+    setTimeout(() => {
+      // setDraftToast(false);
+      // hideToast();
+    }, 5000);
+  };
 
   const discardHandler = () => {
     closeModal();
     closeSourceModal();
-    setSourceModal(null)
-  }
+    setSourceModal(null);
+  };
 
-
-  return <ModalBackdrop closeModal={closeModal} >
-    <ModalBox closeModal={closeModal} addButton={false} width="w-[320px]" positioning="h-[260px] p-8">
-      <>
-      <div className="font-bold text-[20px]">Save Tweet?</div>
-      <div className="text-[15px] text-gray-500">You can save this to send later from your drafts.</div>
-      <button className="block w-full min-h-[44px] min-w-[44px] rounded-full mb-3 mt-6 px-6 bg-[#eff3f4] text-black font-bold">Save</button>
-      <button className="block w-full min-h-[44px] min-w-[44px] rounded-full px-6 border border-[#536471] font-bold" onClick={discardHandler}>Discard</button>
-      </>
-    </ModalBox>
-  </ModalBackdrop>
+  return (
+    <ModalBackdrop closeModal={closeModal}>
+      <ModalBox
+        closeModal={closeModal}
+        addButton={false}
+        width="w-[320px]"
+        positioning="h-[260px] p-8"
+      >
+        <>
+          <div className="text-[20px] font-bold">Save Tweet?</div>
+          <div className="text-[15px] text-gray-500">
+            You can save this to send later from your drafts.
+          </div>
+          <button
+            className="mb-3 mt-6 block min-h-[44px] w-full min-w-[44px] rounded-full bg-[#eff3f4] px-6 font-bold text-black"
+            onClick={saveHandler}
+          >
+            Save
+          </button>
+          <button
+            className="block min-h-[44px] w-full min-w-[44px] rounded-full border border-[#536471] px-6 font-bold"
+            onClick={discardHandler}
+          >
+            Discard
+          </button>
+        </>
+      </ModalBox>
+    </ModalBackdrop>
+  );
 };
 export default DiscardModal;

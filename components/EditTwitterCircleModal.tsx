@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import ModalBackdrop from "./UI/ModalBackdrop";
 import ModalBox from "./UI/ModalBox";
 import useCircleModal from "@/app/store/circle-modal-store";
+import useModalHeader from "./UI/useModalHeader";
 
 type EditTwitterCircleModalProps = {};
 
@@ -11,7 +12,8 @@ const EditTwitterCircleModal: React.FC<EditTwitterCircleModalProps> = () => {
     state.isVisible,
     state.closeModal,
   ]);
-  const [selected, setSelected] = useState("circle");
+  const options = ["Twitter Circle", "Recommended"];
+  const { selected, header } = useModalHeader(options);
 
   if (!isVisible) return null;
 
@@ -28,54 +30,30 @@ const EditTwitterCircleModal: React.FC<EditTwitterCircleModalProps> = () => {
             </button>
             <div className="text-xl ">Edit your Twitter Circle</div>
           </div>
-          <div className="mb-2 flex border-b border-gray-500">
-            <div
-              className={`flex grow justify-center pt-2 text-base transition hover:bg-color-hover`}
-              onClick={() => setSelected("circle")}
-            >
-              <div
-                className={`py-2 ${
-                  selected === "circle" && "border-b-4 border-twitter-blue"
-                }`}
-              >
-                Twitter Circle
+          {header}
+          <div className="max-w-[600px]">
+            <div className={`flex-col items-center ${selected === options[0] ? "flex" : "hidden"}`}>
+              <div className="p-4 px-9 text-sm font-normal text-gray-500">
+                People won’t be notified when you edit your Twitter Circle.
+                Anyone you add will be able to see your previous Twitter Circle
+                Tweets.
+                <span className="font-bold text-white underline">
+                  How it works
+                </span>
+              </div>
+              <div className="flex w-[400px] flex-col gap-2 text-left">
+                <span className="text-4xl">
+                  {`There isn't anyone in your Twitter Circle — yet`}
+                </span>
+                <span className="font-normal text-gray-500">
+                  {`When you add people, they'll show up here.`}
+                </span>
               </div>
             </div>
-            <div
-              className="flex grow justify-center pt-2 text-base transition hover:bg-color-hover"
-              onClick={() => setSelected("recommended")}
-            >
-              <div
-                className={`py-2 ${
-                  selected === "recommended" && "border-b-4 border-twitter-blue"
-                }`}
-              >
-                Recommended
-              </div>
+
+            <div className={`${selected === options[1] ? "flex" : "hidden"}`}>
+              Test
             </div>
-          </div>
-          <div className="flex max-w-[600px] flex-col items-center">
-            {selected == "circle" && (
-              <>
-                <div className="p-4 px-9 text-sm font-normal text-gray-500">
-                  People won’t be notified when you edit your Twitter Circle.
-                  Anyone you add will be able to see your previous Twitter
-                  Circle Tweets.
-                  <span className="font-bold text-white underline">
-                    How it works
-                  </span>
-                </div>
-                <div className="flex w-[400px] flex-col gap-2 text-left">
-                  <span className="text-4xl">
-                    {`There isn't anyone in your Twitter Circle — yet`}
-                  </span>
-                  <span className="font-normal text-gray-500">
-                    {`When you add people, they'll show up here.`}
-                  </span>
-                </div>
-              </>
-            )}
-            {selected == "recommended" && <div>Test</div>}
           </div>
         </div>
       </ModalBox>
