@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Checkmark from "./Checkmark";
+import Link from "next/link";
 
 type FollowItemProps = {
   imgSrc: string;
@@ -10,6 +11,7 @@ type FollowItemProps = {
   account: string;
   teamLogo?: string;
   rounded?: boolean;
+  url: string;
 };
 
 const FollowItem: React.FC<FollowItemProps> = ({
@@ -19,11 +21,16 @@ const FollowItem: React.FC<FollowItemProps> = ({
   account,
   teamLogo,
   rounded,
+  url,
 }) => {
   const [isFollowing, setIsFollowing] = useState(false);
 
   return (
-    <div className="flex items-center justify-between gap-2 p-3 transition hover:bg-[#1e2025]">
+    <Link
+      href={url}
+      target="_blank"
+      className="flex items-center justify-between gap-2 p-3 transition hover:bg-[#1e2025]"
+    >
       <div>
         <Image
           alt="Logo"
@@ -51,8 +58,11 @@ const FollowItem: React.FC<FollowItemProps> = ({
           <div className="text-sm text-gray-500">@{account}</div>
         </div>
         <button
-          className="text-sm font-bold group"
-          onClick={() => setIsFollowing(prev => !prev)}
+          className="group text-sm font-bold"
+          onClick={(e) => {
+            e.preventDefault();
+            setIsFollowing((prev) => !prev);
+          }}
         >
           {!isFollowing && (
             <span
@@ -69,7 +79,7 @@ const FollowItem: React.FC<FollowItemProps> = ({
           )}
         </button>
       </div>
-    </div>
+    </Link>
   );
 };
 export default FollowItem;

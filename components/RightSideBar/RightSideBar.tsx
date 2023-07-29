@@ -23,7 +23,7 @@ const RightSideBar: React.FC<RightSideBarProps> = () => {
         <div className="text-base font-bold">
           Subscribe to unlock new features
         </div>
-        <button className="w-fit rounded-3xl bg-twitter-blue px-4 py-2 font-bold hover:bg-[#198bd6]">
+        <button className="cursor-default w-fit rounded-3xl bg-twitter-blue px-4 py-2 font-bold hover:bg-[#198bd6]">
           Get Verified
         </button>
       </div>

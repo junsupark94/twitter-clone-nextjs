@@ -12,6 +12,7 @@ const followSuggestions = [
       "https://pbs.twimg.com/profile_images/1565710214019444737/if82cpbS_400x400.jpg",
     teamLogo:
       "https://pbs.twimg.com/profile_images/1652878800311427073/j0-3owJd_bigger.jpg",
+      url: "https://nextjs.org/"
   },
   {
     displayName: "TypeScript",
@@ -19,6 +20,7 @@ const followSuggestions = [
     imgSrc:
       "https://pbs.twimg.com/profile_images/1648471227416346625/v84A9gXA_400x400.png",
     rounded: true,
+    url: "https://www.typescriptlang.org/"
   },
   {
     displayName: "Tailwind CSS",
@@ -26,6 +28,7 @@ const followSuggestions = [
     imgSrc:
       "https://pbs.twimg.com/profile_images/1468993891584073729/a_op8KnL_400x400.jpg",
     rounded: true,
+    url: "https://tailwindcss.com/"
   },
 ];
 

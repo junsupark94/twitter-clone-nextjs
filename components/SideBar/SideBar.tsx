@@ -36,15 +36,14 @@ const SideBar: React.FC<SideBarProps> = () => {
           <ul className="flex flex-col">
             {SideBarItems.map((item) => (
               <li key={item.type} className="flex items-start py-1">
-                <Link
-                  href={`/home`}
+                <div
                   className={`flex items-center rounded-full p-3 transition hover:bg-color-hover 2xl:justify-center`}
                 >
                   <SideBarIcon type={item.type} size={26.25} />
                   <span className="ml-5 mr-4 text-xl leading-6 2xl:hidden">
                     {item.type}
                   </span>
-                </Link>
+                </div>
               </li>
             ))}
           </ul>
