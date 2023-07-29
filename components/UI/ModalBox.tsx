@@ -14,7 +14,7 @@ const ModalBox: React.FC<ModalBoxProps> = ({
   closeModal,
   children,
   positioning,
-  width = "w-[600px]",
+  width = "min-w-[600px]",
   addButton = true,
   showDraft = false,
 }) => {
