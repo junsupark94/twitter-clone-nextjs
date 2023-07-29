@@ -4,22 +4,25 @@ import React from "react";
 import ModalBackdrop from "./UI/ModalBackdrop";
 import ModalBox from "./UI/ModalBox";
 import useToastStore from "@/app/store/toast-store";
+import useDraftsModalStore from "@/app/store/drafts-modal-store";
 
 type DiscardModalProps = {};
 
 const DiscardModal: React.FC<DiscardModalProps> = () => {
-  const [isVisible, closeModal, closeSourceModal, setSourceModal] =
+  const [isVisible, closeModal, closeSourceModal, setSourceModal, draft] =
     useDiscardModalStore((state) => [
       state.isVisible,
       state.closeModal,
       state.closeSourceModal,
       state.setSourceModal,
+      state.draft
     ]);
-  let [showToast, hideToast, setDraftToast] = useToastStore((state) => [
+  const [showToast, hideToast, setDraftToast] = useToastStore((state) => [
     state.showToast,
     state.hideToast,
     state.setDraftToast,
   ]);
+  const saveDraft = useDraftsModalStore(state => state.saveDraft)
 
   if (!isVisible) return null;
 
@@ -28,9 +31,10 @@ const DiscardModal: React.FC<DiscardModalProps> = () => {
     showToast("Your draft was saved.");
     closeModal();
     closeSourceModal();
+    saveDraft(draft);
     setTimeout(() => {
-      // setDraftToast(false);
-      // hideToast();
+      setDraftToast(false);
+      hideToast();
     }, 5000);
   };
 

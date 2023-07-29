@@ -23,7 +23,7 @@ const DraftsModal: React.FC<DraftsModalProps> = () => {
     ],
   );
   const [isEditting, setIsEditting] = useState(false);
-  const [draftsSelected, setDraftsSelected] = useState<string[]>([]);
+  const [draftsSelected, setDraftsSelected] = useState<number[]>([]);
   const [showToast, hideToast] = useToastStore((state) => [
     state.showToast,
     state.hideToast,

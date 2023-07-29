@@ -36,7 +36,7 @@ const TweetModal: React.FC<TweetModalProps> = () => {
         setValue('');
         closeModal();
       });
-      openDiscardModal();
+      openDiscardModal({body: value});
     } else {
       closeModal();
     }

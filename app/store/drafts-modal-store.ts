@@ -2,11 +2,13 @@ import { create } from "zustand";
 import { Media } from "./tweets-store";
 
 type Without<T, U> = { [P in Exclude<keyof T, keyof U>]?: never };
-type XOR<T, U> = (T | U) extends object ? (Without<T, U> & U) | (Without<U, T> & T) : T | U;
+type XOR<T, U> = T | U extends object
+  ? (Without<T, U> & U) | (Without<U, T> & T)
+  : T | U;
 
 interface DraftBasic {
   body: string;
-  id: string;
+  id: number;
 }
 interface QuoteTweetDraft extends DraftBasic {
   quoteTweetUrl: string;
@@ -18,8 +20,7 @@ interface ReplyDraft extends DraftBasic {
   replyBody?: string;
   replyMedia?: string;
 }
-type Draft = XOR<DraftBasic, XOR<QuoteTweetDraft, ReplyDraft>>;
-
+export type Draft = XOR<DraftBasic, XOR<QuoteTweetDraft, ReplyDraft>>;
 
 interface DraftsModalStore {
   isVisible: boolean;
@@ -28,8 +29,9 @@ interface DraftsModalStore {
   setSourceModal: any;
   closeSourceModal: any;
   drafts: Draft[];
-  deleteDrafts: (ids: string[]) => void;
+  deleteDrafts: (ids: number[]) => void;
   saveDraft: (draft: Draft) => void;
+  id: number;
 }
 
 const useDraftsModalStore = create<DraftsModalStore>((set) => ({
@@ -42,22 +44,30 @@ const useDraftsModalStore = create<DraftsModalStore>((set) => ({
     {
       body: "Test draft",
       replying: "junsupark",
-      id: "d1",
+      id: 1,
       replyBody: "Reply body",
     },
     {
       body: "Test draft 2",
-      id: "d2",
+      id: 2,
       quoteTweetbody: "Quote Tweet Body",
       quoteTweetUrl: "https://twitter.com/username/status/tweetid",
     },
-    { body: "Test", id: "d3" },
+    { body: "Test", id: 3 },
   ],
-  deleteDrafts: (ids) => set((state) => {
-    const filteredDrafts = state.drafts.filter(draft => !ids.includes(draft.id))
-    return {drafts: filteredDrafts}
-  }),
-  saveDraft: (draft) => set((state) => ({drafts: [...state.drafts, draft]}))
+  deleteDrafts: (ids) =>
+    set((state) => {
+      const filteredDrafts = state.drafts.filter(
+        (draft) => !ids.includes(draft.id),
+      );
+      return { drafts: filteredDrafts };
+    }),
+  saveDraft: (draft) =>
+    set((state) => ({
+      drafts: [...state.drafts, { ...draft, id: state.id }],
+      id: state.id + 1,
+    })),
+  id: 4,
 }));
 
 export default useDraftsModalStore;
