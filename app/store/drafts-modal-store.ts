@@ -9,13 +9,11 @@ interface DraftBasic {
   id: string;
 }
 interface QuoteTweetDraft extends DraftBasic {
-  replying?: never;
   quoteTweetUrl: string;
   quoteTweetbody?: string;
   quoteTweetMedia?: Media[];
 }
 interface ReplyDraft extends DraftBasic {
-  quoteTweetUrl?: never;
   replying: string;
   replyBody?: string;
   replyMedia?: string;
@@ -30,6 +28,8 @@ interface DraftsModalStore {
   setSourceModal: any;
   closeSourceModal: any;
   drafts: Draft[];
+  deleteDrafts: (ids: string[]) => void;
+  saveDraft: (draft: Draft) => void;
 }
 
 const useDraftsModalStore = create<DraftsModalStore>((set) => ({
@@ -53,6 +53,11 @@ const useDraftsModalStore = create<DraftsModalStore>((set) => ({
     },
     { body: "Test", id: "d3" },
   ],
+  deleteDrafts: (ids) => set((state) => {
+    const filteredDrafts = state.drafts.filter(draft => !ids.includes(draft.id))
+    return {drafts: filteredDrafts}
+  }),
+  saveDraft: (draft) => set((state) => ({drafts: [...state.drafts, draft]}))
 }));
 
 export default useDraftsModalStore;

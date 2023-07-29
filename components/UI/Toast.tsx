@@ -25,7 +25,7 @@ const Toast: React.FC<ToastProps> = () => {
 
   const viewDraftsButton = <button onClick={viewDraftsHandler} className=" ml-2 font-bold hover:underline">View</button>
   return (
-    <div className="fixed bottom-4 left-0 flex w-screen justify-center">
+    <div className="fixed bottom-4 left-0 flex w-screen justify-center z-30">
       <div className="bg-twitter-blue px-4 py-2">{toastMessage}{draftToast && viewDraftsButton}</div>
     </div>
   );

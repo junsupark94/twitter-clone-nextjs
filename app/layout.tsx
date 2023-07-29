@@ -29,13 +29,13 @@ export default function RootLayout({
             <SideBar />
           </header>
           <div className="grow lg:grow-[2]">{children}</div>
-          <Toast />
           <QuoteTweetModal />
           <ReplyModal />
           <EditTwitterCircleModal />
           <TweetModal />
           <DiscardModal />
           <DraftsModal />
+          <Toast />
         </div>
       </body>
     </html>
