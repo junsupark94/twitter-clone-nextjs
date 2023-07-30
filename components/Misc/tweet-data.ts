@@ -26,28 +26,28 @@ export type TweetType = {
 );
 
 const DUMMY_TWEETS: TweetType[] = [
-  // {
-  //   account: "junsupark",
-  //   displayName: "Junsu Park",
-  //   id: 1,
-  //   date: new Date("07-01-2023"),
-  //   body: "Welcome to my fake Twitter clone! I was bored of the very basic Twitter clone projects on Youtube. I wanted to create a high fidelity copy of Twitter's UI to develop my frontend skills and this project really challenged me.",
-  //   replies: 0,
-  //   retweets: 0,
-  //   likes: 0,
-  //   views: 1,
-  // },
-  // {
-  //   account: "junsupark",
-  //   displayName: "Junsu Park",
-  //   id: 0,
-  //   date: new Date("07-02-2023"),
-  //   body: `I appreciated subtle responsive designs Twitter has such as short transition on changing background color on hover. Text popups. Pressing ESC to close Modals. \nThings that are interactable will have pointer cursor when you hover over it. Feel free to click around, resize the window, and even compose a Tweet!`,
-  //   replies: 4,
-  //   retweets: 1,
-  //   likes: 6,
-  //   views: 12,
-  // },
+  {
+    account: "junsupark",
+    displayName: "Junsu Park",
+    id: 1,
+    date: new Date("07-01-2023"),
+    body: "Welcome to my fake Twitter clone! I was bored of the very basic Twitter clone projects on Youtube. I wanted to create a high fidelity copy of Twitter's UI to develop my frontend skills and this project really challenged me. Do links becomes links? https://www.linkedin.com/in/junsupark-swe/",
+    replies: 0,
+    retweets: 0,
+    likes: 0,
+    views: 1,
+  },
+  {
+    account: "junsupark",
+    displayName: "Junsu Park",
+    id: 0,
+    date: new Date("07-02-2023"),
+    body: `I appreciated subtle responsive designs Twitter has such as short transition on changing background color on hover. Text popups. Pressing ESC to close Modals. \nThings that are interactable will have pointer cursor when you hover over it. Feel free to click around, resize the window, and even compose a Tweet!`,
+    replies: 4,
+    retweets: 1,
+    likes: 6,
+    views: 12,
+  },
   {
     account: "junsupark",
     displayName: "Junsu Park",
@@ -77,13 +77,11 @@ const DUMMY_TWEETS: TweetType[] = [
     medias: [
       {
         type: "photo",
-        // src: "https://pbs.twimg.com/media/F1Q8HY-XwAYATsY?format=jpg&name=small",
-        src: "/wide.png"
+        src: "/nextjs13.png",
       },
       {
         type: 'photo',
-        // src: 'https://pbs.twimg.com/media/F1Q8HY-XsAYqdx5?format=jpg&name=small'
-        src: "/tall.png"
+        src: '/vercel.jpeg'
       },
     ],
     replies: 10,
@@ -97,7 +95,7 @@ const DUMMY_TWEETS: TweetType[] = [
     id: 3,
     date: new Date("02-15-2023"),
     body: "Zustand is a very intuitive global state management library, much easier to use than Redux. The modals that pop up are rendered via changing their visibility status and passing any relevant information along.",
-    // medias: [{ type: "video", src: "big.mp4" }],
+    medias: [{ type: "video", src: "/zustand.mp4" }],
     replies: 75,
     retweets: 123,
     likes: 8044,
@@ -111,9 +109,7 @@ const DUMMY_TWEETS: TweetType[] = [
     date: new Date("02-16-2023"),
     body: "I was surprised by Twitter makes everything divs and flexboxes and adds accesbility with ARIA. Then doing this project made me hate the inconsitent styling of HTML elements and that making them all block or flex items makes everything so much easier.",
     medias: [
-      {type: 'photo', src: '/wide.png'}
-      // { type: "video", src: "dark.webm" },
-      // { type: "video", src: "light.mp4" },
+      { type: "photo", src: "https://media.tenor.com/xmh8S5090-gAAAAC/oh-no-future.gif" },
   ],
     replies: 0,
     retweets: 0,
@@ -125,19 +121,19 @@ const DUMMY_TWEETS: TweetType[] = [
     displayName: "Junsu Park",
     id: 5,
     date: new Date("03-15-2023"),
-    body: "Tall",
+    body: "",
     medias: [
       {
         type: "photo",
-        src: "https://pbs.twimg.com/media/F2QrqH1aAAAwY7L?format=jpg&name=medium",
+        src: "https://pbs.twimg.com/media/F1U4xumaYAM5FXq?format=jpg&name=medium",
       },
       {
         type: "photo",
-        src: "https://pbs.twimg.com/media/F2QrqH2bsAA2Byj?format=png&name=small",
+        src: "https://pbs.twimg.com/media/F1Y3bjcXoAA2RFw?format=jpg&name=large",
       },
       {
         type: "photo",
-        src: "https://pbs.twimg.com/media/F2QrqHzaEAAD6MP?format=jpg&name=medium",
+        src: "https://pbs.twimg.com/media/F1ARJC8WcAUvDaK?format=jpg&name=medium",
       },
     ],
     replies: 75,
@@ -152,10 +148,10 @@ const DUMMY_TWEETS: TweetType[] = [
     date: new Date("07-20-2023"),
     body: "Twitter can embed up to 4 photos or videos in a tweet. Clicking on them will open a new modal to showcase the media in full screen. The way the media is displayed changes based on the number. See how the media divisions changes depending on how many media is included?",
     medias: [
-      {type: 'photo', src: 'https://pbs.twimg.com/media/F2OofR7bYAAPRKt?format=jpg&name=small'},
-      {type: 'photo', src: 'https://pbs.twimg.com/media/F2OofjTbsAACXZQ?format=jpg&name=small'},
-      {type: 'photo', src: 'https://pbs.twimg.com/media/F2OofyzbEAAl49p?format=jpg&name=small'},
-      {type: 'photo', src: 'https://pbs.twimg.com/media/F2OogEZagAArSb5?format=jpg&name=small'},
+      {type: 'photo', src: 'https://pbs.twimg.com/media/F1Ae67NXsAEBcnH?format=jpg&name=medium'},
+      {type: 'photo', src: 'https://pbs.twimg.com/media/F1OJ_l0WAAQ7XoE?format=jpg&name=large'},
+      {type: 'photo', src: 'https://pbs.twimg.com/media/Fzd4PWjXsAAyFGk?format=jpg&name=medium'},
+      {type: 'photo', src: 'https://pbs.twimg.com/media/F0Y62LhWwAEYetY?format=jpg&name=medium'},
     ],
     replies: 10324,
     retweets: 55903,

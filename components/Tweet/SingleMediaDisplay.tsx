@@ -35,7 +35,7 @@ const SingleMediaDisplay: React.FC<SingleMediaDisplayProps> = ({ medias }) => {
         <Image
           src={medias[0].src}
           alt="Image"
-          className="rounded-2xl object-cover shadow-sm shadow-white"
+          className="rounded-2xl object-cover border border-gray-600"
           width={512}
           height={512}
           ref={ref}
@@ -46,8 +46,7 @@ const SingleMediaDisplay: React.FC<SingleMediaDisplayProps> = ({ medias }) => {
           key={medias[0].src}
           src={medias[0].src}
           controls
-          className="h-full"
-          ref={ref}
+          className="w-[512px] h-[512px] rounded-2xl border border-gray-600"
         />
       )}
     </div>

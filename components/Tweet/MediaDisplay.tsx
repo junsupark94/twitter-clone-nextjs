@@ -5,25 +5,6 @@ type MediaDisplayProps = {
   medias: Media[];
 };
 
-const mediaType = ({ type, src }: Media) => {
-  if (type === "photo") {
-    return (
-      <Image
-        key={src}
-        src={src}
-        alt="Image"
-        width={255}
-        height={288}
-        className="h-[288px] w-[255px] object-cover"
-      />
-    );
-  } else {
-    return (
-      <video key={src} src={src} controls className="h-auto max-w-[50%]" />
-    );
-  }
-};
-
 const MediaDisplay: React.FC<MediaDisplayProps> = ({ medias }) => {
   if (medias.length === 2 || medias.length === 4) {
     let height = 288;
@@ -33,7 +14,7 @@ const MediaDisplay: React.FC<MediaDisplayProps> = ({ medias }) => {
       heightPx = "h-[143px]";
     }
     return (
-      <div className="grid h-[288px] w-[512px] grid-cols-2 overflow-hidden rounded-2xl shadow-sm shadow-white">
+      <div className="grid h-[288px] w-[512px] grid-cols-2 overflow-hidden rounded-2xl border border-gray-600">
         {medias.map((media) => {
           if (media.type === "photo") {
             return (
@@ -47,11 +28,11 @@ const MediaDisplay: React.FC<MediaDisplayProps> = ({ medias }) => {
               />
             );
           } else {
-            <video
+            return <video
               key={media.src}
               src={media.src}
               controls
-              className="h-auto max-w-[50%]"
+              className={`w-[255px] object-contain ${heightPx}`}
             />;
           }
         })}
@@ -59,29 +40,31 @@ const MediaDisplay: React.FC<MediaDisplayProps> = ({ medias }) => {
     );
   }
   return (
-    <div className="grid h-[288px] w-[512px] grid-cols-2 overflow-hidden rounded-2xl shadow-sm shadow-white">
-        {medias.map((media, index) => {
-          if (media.type === "photo") {
-            return (
-              <Image
-                key={media.src}
-                src={media.src}
-                alt="Image"
-                width={255}
-                height={288}
-                className={`w-[255px] object-cover ${index === 0 ? "h-[288px]" : "h-[143px]"} ${index === 0 && "row-span-2"}`}
-              />
-            );
-          } else {
-            <video
+    <div className="grid h-[288px] w-[512px] grid-cols-2 overflow-hidden rounded-2xl border border-gray-600">
+      {medias.map((media, index) => {
+        if (media.type === "photo") {
+          return (
+            <Image
               key={media.src}
               src={media.src}
-              controls
-              className="h-auto max-w-[50%]"
-            />;
-          }
-        })}
-      </div>
-  )
+              alt="Image"
+              width={255}
+              height={288}
+              className={`w-[255px] object-cover ${
+                index === 0 ? "h-[288px]" : "h-[143px]"
+              } ${index === 0 && "row-span-2"}`}
+            />
+          );
+        } else {
+          <video
+            key={media.src}
+            src={media.src}
+            controls
+            className="h-auto max-w-[50%]"
+          />;
+        }
+      })}
+    </div>
+  );
 };
 export default MediaDisplay;
