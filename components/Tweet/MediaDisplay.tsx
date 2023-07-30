@@ -1,4 +1,5 @@
-import React from "react";
+'use client'
+import React, { useEffect, useRef, useState } from "react";
 import { Media } from "../Misc/tweet-data";
 import Image from "next/image";
 
@@ -15,35 +16,29 @@ const mediaType = ({ type, src }: Media) => {
         key={src}
         src={src}
         alt="Image"
-        fill={true}
-        sizes="(max-width: 400px)"
-        className="border border-green-500 object-cover"
+        fill
+        sizes="(max-width: 600px) 600px, (min-width:600px) 100vw"
+        className="border border-green-500 object-cover "
       />
     );
   } else {
-    return <video key={src} src={src} controls width="100" />;
+    return (
+      <video key={src} src={src} controls className="h-auto max-w-[50%]" />
+    );
   }
 };
 
 const MediaDisplay: React.FC<MediaDisplayProps> = ({ medias }) => {
-  let mediaBlocks = null;
-  if (medias.length === 1) {
-    return (
-      <div className="relative h-[290px] border border-red-500">
-        {mediaType(medias[0])}
-      </div>
-    );
-  }
   if (medias.length === 2 || medias.length === 4) {
     return (
-      <div className="relative flex h-[290px] border border-red-500">
+      <div className="relative flex h-[290px]">
         {medias.map((media) => mediaType(media))}
       </div>
     );
   }
   if (medias.length === 3) {
     return (
-      <div className="relative flex h-[290px] border border-red-500">
+      <div className="relative flex h-[290px]">
         <div className="relative grow">{mediaType(medias[0])}</div>
         <div className="relative flex grow">
           <div className="grow border border-purple-500">

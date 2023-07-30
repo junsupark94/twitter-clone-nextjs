@@ -6,6 +6,8 @@ import TweetHeader from "./TweetHeader";
 import TweetBottom from "./TweetBottom/TweetBottom";
 import ProfileIcon from "../Misc/ProfileIcon";
 import { useEffect, useState } from "react";
+import MediaDisplay from "./MediaDisplay";
+import SingleMediaDisplay from "./SingleMediaDisplay";
 
 type TweetProps = {
   tweet: TweetType;
@@ -24,7 +26,7 @@ const Tweet: React.FC<TweetProps> = ({ tweet }) => {
   return (
     <div className={`border-b-2 border-color-hover px-2 pb-4 pt-2 transition-opacity duratin-300 opacity-0 ${opacity}`}>
       {retweeter && (
-        <div className="relative left-4 text-gray-600">
+        <div className="ml-3 text-gray-600 flex gap-2">
           <RepeatOutlinedIcon />
           {retweeter} retweeted this
         </div>
@@ -48,19 +50,8 @@ const Tweet: React.FC<TweetProps> = ({ tweet }) => {
             )}
           </div>
           <div className="my-2">
-            {body && <div className="text-sm whitespace-pre-wrap">{body}</div>}
-            {medias && medias[0].type === "photo" && (
-              <div className="relative h-96 border border-red-500">
-                <Image
-                  src={medias[0].src}
-                  alt="Image"
-                  fill
-                  sizes="(max-width: 400px)"
-                  className="object-cover"
-                />
-              </div>
-            )}
-            {/* {medias && <Media medias={medias}/>} */}
+            {body && <div className="text-sm whitespace-pre-wrap mb-2">{body}</div>}
+            {medias && medias.length === 1 && <SingleMediaDisplay medias={medias}/>}
           </div>
           <TweetBottom tweet={tweet} />
         </div>

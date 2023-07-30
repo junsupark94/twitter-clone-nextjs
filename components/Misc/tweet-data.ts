@@ -26,28 +26,28 @@ export type TweetType = {
 );
 
 const DUMMY_TWEETS: TweetType[] = [
-  {
-    account: "junsupark",
-    displayName: "Junsu Park",
-    id: 1,
-    date: new Date("07-01-2023"),
-    body: "Welcome to my fake Twitter clone! I was bored of the very basic Twitter clone projects on Youtube. I wanted to create a high fidelity copy of Twitter's UI to develop my frontend skills and this project really challenged me.",
-    replies: 0,
-    retweets: 0,
-    likes: 0,
-    views: 1,
-  },
-  {
-    account: "junsupark",
-    displayName: "Junsu Park",
-    id: 0,
-    date: new Date("07-02-2023"),
-    body: `I appreciated subtle responsive designs Twitter has such as short transition on changing background color on hover. Text popups. Pressing ESC to close Modals. \nThings that are interactable will have pointer cursor when you hover over it. Feel free to click around and even compose a Tweet!`,
-    replies: 4,
-    retweets: 1,
-    likes: 6,
-    views: 12,
-  },
+  // {
+  //   account: "junsupark",
+  //   displayName: "Junsu Park",
+  //   id: 1,
+  //   date: new Date("07-01-2023"),
+  //   body: "Welcome to my fake Twitter clone! I was bored of the very basic Twitter clone projects on Youtube. I wanted to create a high fidelity copy of Twitter's UI to develop my frontend skills and this project really challenged me.",
+  //   replies: 0,
+  //   retweets: 0,
+  //   likes: 0,
+  //   views: 1,
+  // },
+  // {
+  //   account: "junsupark",
+  //   displayName: "Junsu Park",
+  //   id: 0,
+  //   date: new Date("07-02-2023"),
+  //   body: `I appreciated subtle responsive designs Twitter has such as short transition on changing background color on hover. Text popups. Pressing ESC to close Modals. \nThings that are interactable will have pointer cursor when you hover over it. Feel free to click around, resize the window, and even compose a Tweet!`,
+  //   replies: 4,
+  //   retweets: 1,
+  //   likes: 6,
+  //   views: 12,
+  // },
   {
     account: "junsupark",
     displayName: "Junsu Park",
@@ -59,7 +59,8 @@ const DUMMY_TWEETS: TweetType[] = [
     medias: [
       {
         type: "photo",
-        src: "https://pbs.twimg.com/media/F1XXnfaaEAAMO1C?format=jpg&name=900x900",
+        // src: "/tailwindcss.jpg",
+        src: "https://pbs.twimg.com/media/F2IFINLXwAAp34x?format=webp&name=small"
       },
     ],
     replies: 2,
@@ -75,13 +76,17 @@ const DUMMY_TWEETS: TweetType[] = [
     replying: "nextjs",
     body: "Next.js took away all the pain of configuring all the tools together. Opinionated frameworks are also great for learning new technologies and best practices. There's still lot of things I need to learn about Next.js.",
     medias: [
-      {
-        type: "photo",
-        src: "https://pbs.twimg.com/media/F1Q8HY-XwAYATsY?format=jpg&name=small",
-      },
+      // {
+      //   type: "photo",
+      //   src: "https://pbs.twimg.com/media/F1Q8HY-XwAYATsY?format=jpg&name=small",
+      // },
+      // {
+      //   type: 'photo',
+      //   src: 'https://pbs.twimg.com/media/F1Q8HY-XsAYqdx5?format=jpg&name=small'
+      // },
       {
         type: 'photo',
-        src: 'https://pbs.twimg.com/media/F1Q8HY-XsAYqdx5?format=jpg&name=small'
+        src: 'https://pbs.twimg.com/media/F2NvUYXX0AE-NlY?format=jpg&name=large'
       }
     ],
     replies: 10,
@@ -94,8 +99,8 @@ const DUMMY_TWEETS: TweetType[] = [
     displayName: "Junsu Park",
     id: 3,
     date: new Date("02-15-2023"),
-    body: "I also really enjoyed using Zustand for global state management. Very intuitive, much easier to use than Redux. The modals that pop up are rendered via changing their visibility status and passing any relevant information along.",
-    medias: [{ type: "video", src: "kitty.mp4" }],
+    body: "Zustand is a very intuitive global state management library, much easier to use than Redux. The modals that pop up are rendered via changing their visibility status and passing any relevant information along.",
+    // medias: [{ type: "video", src: "big.mp4" }],
     replies: 75,
     retweets: 123,
     likes: 8044,
@@ -109,8 +114,9 @@ const DUMMY_TWEETS: TweetType[] = [
     date: new Date("02-16-2023"),
     body: "I was surprised by Twitter makes everything divs and flexboxes and adds accesbility with ARIA. Then doing this project made me hate the inconsitent styling of HTML elements and that making them all block or flex items makes everything so much easier.",
     medias: [
-      { type: "video", src: "heart.mp4" },
-      { type: "video", src: "heart.mp4" },
+      {type: 'photo', src: '/wide.png'}
+      // { type: "video", src: "dark.webm" },
+      // { type: "video", src: "light.mp4" },
   ],
     replies: 0,
     retweets: 0,
@@ -122,20 +128,20 @@ const DUMMY_TWEETS: TweetType[] = [
     displayName: "Junsu Park",
     id: 5,
     date: new Date("03-15-2023"),
-    body: "",
+    body: "Tall",
     medias: [
       {
         type: "photo",
-        src: "https://pbs.twimg.com/media/F1U4xumaYAM5FXq?format=jpg&name=medium",
+        src: "/tall.png",
       },
-      {
-        type: "photo",
-        src: "https://pbs.twimg.com/media/F1Y3bjcXoAA2RFw?format=jpg&name=large",
-      },
-      {
-        type: "photo",
-        src: "https://pbs.twimg.com/media/F1ARJC8WcAUvDaK?format=jpg&name=medium",
-      },
+      // {
+      //   type: "photo",
+      //   src: "https://pbs.twimg.com/media/F1Y3bjcXoAA2RFw?format=jpg&name=large",
+      // },
+      // {
+      //   type: "photo",
+      //   src: "https://pbs.twimg.com/media/F1ARJC8WcAUvDaK?format=jpg&name=medium",
+      // },
     ],
     replies: 75,
     retweets: 123,
@@ -149,10 +155,10 @@ const DUMMY_TWEETS: TweetType[] = [
     date: new Date("07-20-2023"),
     body: "Twitter can embed up to 4 photos or videos in a tweet. Clicking on them will open a new modal to showcase the media in full screen. The way the media is displayed changes based on the number. See how the media divisions changes depending on how many media is included?",
     medias: [
-      {type: 'photo', src: 'https://pbs.twimg.com/media/F1Ae67NXsAEBcnH?format=jpg&name=medium'},
-      {type: 'photo', src: 'https://pbs.twimg.com/media/F1OJ_l0WAAQ7XoE?format=jpg&name=large'},
-      {type: 'photo', src: 'https://pbs.twimg.com/media/Fzd4PWjXsAAyFGk?format=jpg&name=medium'},
-      {type: 'photo', src: 'https://pbs.twimg.com/media/F0Y62LhWwAEYetY?format=jpg&name=medium'},
+      {type: 'photo', src: '/square.png'},
+      // {type: 'photo', src: 'https://pbs.twimg.com/media/F1OJ_l0WAAQ7XoE?format=jpg&name=large'},
+      // {type: 'photo', src: 'https://pbs.twimg.com/media/Fzd4PWjXsAAyFGk?format=jpg&name=medium'},
+      // {type: 'photo', src: 'https://pbs.twimg.com/media/F0Y62LhWwAEYetY?format=jpg&name=medium'},
     ],
     replies: 10324,
     retweets: 55903,
