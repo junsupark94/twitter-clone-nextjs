@@ -1,7 +1,6 @@
 "use client";
 import RepeatOutlinedIcon from "@mui/icons-material/RepeatOutlined";
 import { TweetType } from "../Misc/tweet-data";
-import Image from "next/image";
 import TweetHeader from "./TweetHeader";
 import TweetBottom from "./TweetBottom/TweetBottom";
 import ProfileIcon from "../Misc/ProfileIcon";
@@ -24,7 +23,7 @@ const Tweet: React.FC<TweetProps> = ({ tweet }) => {
   }, [])
 
   return (
-    <div className={`border-b-2 border-color-hover px-2 pb-4 pt-2 transition-opacity duratin-300 opacity-0 ${opacity}`}>
+    <div className={`border-b-2 border-color-hover px-2 pb-4 pt-2 hover:bg-[#090909] transition duration-300 opacity-0 ${opacity}`}>
       {retweeter && (
         <div className="ml-3 text-gray-600 flex gap-2">
           <RepeatOutlinedIcon />
@@ -52,6 +51,7 @@ const Tweet: React.FC<TweetProps> = ({ tweet }) => {
           <div className="my-2">
             {body && <div className="text-sm whitespace-pre-wrap mb-2">{body}</div>}
             {medias && medias.length === 1 && <SingleMediaDisplay medias={medias}/>}
+            {medias && medias.length > 1 && <MediaDisplay medias={medias} />}
           </div>
           <TweetBottom tweet={tweet} />
         </div>

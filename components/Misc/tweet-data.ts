@@ -59,8 +59,7 @@ const DUMMY_TWEETS: TweetType[] = [
     medias: [
       {
         type: "photo",
-        // src: "/tailwindcss.jpg",
-        src: "https://pbs.twimg.com/media/F2IFINLXwAAp34x?format=webp&name=small"
+        src: "/tailwindcss.jpg",
       },
     ],
     replies: 2,
@@ -76,18 +75,16 @@ const DUMMY_TWEETS: TweetType[] = [
     replying: "nextjs",
     body: "Next.js took away all the pain of configuring all the tools together. Opinionated frameworks are also great for learning new technologies and best practices. There's still lot of things I need to learn about Next.js.",
     medias: [
-      // {
-      //   type: "photo",
-      //   src: "https://pbs.twimg.com/media/F1Q8HY-XwAYATsY?format=jpg&name=small",
-      // },
-      // {
-      //   type: 'photo',
-      //   src: 'https://pbs.twimg.com/media/F1Q8HY-XsAYqdx5?format=jpg&name=small'
-      // },
+      {
+        type: "photo",
+        // src: "https://pbs.twimg.com/media/F1Q8HY-XwAYATsY?format=jpg&name=small",
+        src: "/wide.png"
+      },
       {
         type: 'photo',
-        src: 'https://pbs.twimg.com/media/F2NvUYXX0AE-NlY?format=jpg&name=large'
-      }
+        // src: 'https://pbs.twimg.com/media/F1Q8HY-XsAYqdx5?format=jpg&name=small'
+        src: "/tall.png"
+      },
     ],
     replies: 10,
     retweets: 2,
@@ -132,16 +129,16 @@ const DUMMY_TWEETS: TweetType[] = [
     medias: [
       {
         type: "photo",
-        src: "/tall.png",
+        src: "https://pbs.twimg.com/media/F2QrqH1aAAAwY7L?format=jpg&name=medium",
       },
-      // {
-      //   type: "photo",
-      //   src: "https://pbs.twimg.com/media/F1Y3bjcXoAA2RFw?format=jpg&name=large",
-      // },
-      // {
-      //   type: "photo",
-      //   src: "https://pbs.twimg.com/media/F1ARJC8WcAUvDaK?format=jpg&name=medium",
-      // },
+      {
+        type: "photo",
+        src: "https://pbs.twimg.com/media/F2QrqH2bsAA2Byj?format=png&name=small",
+      },
+      {
+        type: "photo",
+        src: "https://pbs.twimg.com/media/F2QrqHzaEAAD6MP?format=jpg&name=medium",
+      },
     ],
     replies: 75,
     retweets: 123,
@@ -155,10 +152,10 @@ const DUMMY_TWEETS: TweetType[] = [
     date: new Date("07-20-2023"),
     body: "Twitter can embed up to 4 photos or videos in a tweet. Clicking on them will open a new modal to showcase the media in full screen. The way the media is displayed changes based on the number. See how the media divisions changes depending on how many media is included?",
     medias: [
-      {type: 'photo', src: '/square.png'},
-      // {type: 'photo', src: 'https://pbs.twimg.com/media/F1OJ_l0WAAQ7XoE?format=jpg&name=large'},
-      // {type: 'photo', src: 'https://pbs.twimg.com/media/Fzd4PWjXsAAyFGk?format=jpg&name=medium'},
-      // {type: 'photo', src: 'https://pbs.twimg.com/media/F0Y62LhWwAEYetY?format=jpg&name=medium'},
+      {type: 'photo', src: 'https://pbs.twimg.com/media/F2OofR7bYAAPRKt?format=jpg&name=small'},
+      {type: 'photo', src: 'https://pbs.twimg.com/media/F2OofjTbsAACXZQ?format=jpg&name=small'},
+      {type: 'photo', src: 'https://pbs.twimg.com/media/F2OofyzbEAAl49p?format=jpg&name=small'},
+      {type: 'photo', src: 'https://pbs.twimg.com/media/F2OogEZagAArSb5?format=jpg&name=small'},
     ],
     replies: 10324,
     retweets: 55903,

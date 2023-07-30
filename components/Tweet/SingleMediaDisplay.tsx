@@ -30,7 +30,7 @@ const SingleMediaDisplay: React.FC<SingleMediaDisplayProps> = ({ medias }) => {
   }, [ref]);
 
   return (
-    <div className="h-[290px]z relative">
+    <div>
       {medias[0].type === "photo" && (
         <Image
           src={medias[0].src}
