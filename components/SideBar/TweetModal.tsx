@@ -43,6 +43,23 @@ const TweetModal: React.FC<TweetModalProps> = () => {
     }
   };
 
+  const addTweetHandler = () => {
+    if (value.trim() === "") return;
+    addTweet({
+      body: value,
+      account: "junsupark",
+      displayName: "Junsu Park",
+      date: new Date(),
+      id: 0,
+      likes: 0,
+      replies: 0,
+      retweets: 0,
+      views: 0,
+    })
+    setValue('');
+    closeModal();
+  }
+
   return (
     <ModalBackdrop closeModal={closeModalHandler}>
       <ModalBox showDraft closeModal={closeModalHandler} positioning="fixed top-12">
@@ -83,19 +100,9 @@ const TweetModal: React.FC<TweetModalProps> = () => {
             <TweetFormIcons />
             <button
               className={`rounded-full bg-twitter-blue ${
-                value === "" && "brightness-50"
+                value === "" && "brightness-50 cursor-default"
               } p-2 px-5 font-bold`}
-              onClick={() => addTweet({
-                body: value,
-                account: "junsupark",
-                displayName: "Junsu Park",
-                date: new Date(),
-                id: 0,
-                likes: 0,
-                replies: 0,
-                retweets: 0,
-                views: 0,
-              })}
+              onClick={addTweetHandler}
             >
               Tweet
             </button>
