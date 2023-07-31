@@ -18,7 +18,7 @@ const DUMMY_TWEETS: TweetType[] = [
     displayName: "Junsu Park",
     id: 0,
     date: new Date("07-02-2023"),
-    body: `I appreciated subtle responsive designs Twitter has such as short transition on changing background color on hover. Text popups. Pressing ESC to close Modals. \nThings that are interactable will have pointer cursor when you hover over it. Feel free to click around, resize the window, and even compose a Tweet!`,
+    body: `I appreciated subtle feedback Twitter has such as short transition on changing background color on hover. Text popups. Pressing ESC to close Modals. \nThings that are interactable will have pointer cursor when you hover over it. Feel free to click around, resize the window, and even compose a Tweet!`,
     replies: 4,
     retweets: 1,
     likes: 6,
@@ -49,7 +49,7 @@ const DUMMY_TWEETS: TweetType[] = [
     id: 4,
     date: new Date("07-04-2023"),
     replying: "nextjs",
-    body: "Next.js took away all the pain of configuring all the tools together. Opinionated frameworks are also great for learning new technologies and best practices. There's still lot of things I need to learn about Next.js.",
+    body: "Next.js took away all the pain of configuring all the tools together. The default optimizations built into the framework got me nearly perfect Lighthouse scores out of the box. Opinionated frameworks are also great for learning new technologies and best practices. There's still lot of things I need to learn about Next.js.",
     medias: [
       {
         type: "photo",
@@ -175,7 +175,7 @@ export const QUEUED_TWEETS: TweetType[] = [
     displayName: "Junsu Park",
     id: 11,
     date: new Date(),
-    body: "I had to cut off adding more features because it wouldn't teach me anything new and I wanted to move on to trying out different frameworks such as Remix, SvelteKit, and SolidStart. \n\nFollow my frontend journey by following me on LinkedIn! Click on my picture for my profile!",
+    body: "I had to cut off adding more features because it wouldn't teach me anything new and I wanted to move on to trying out different frameworks such as Remix, SvelteKit, SolidStart, and also WASM! \n\nFollow my frontend journey by following me on LinkedIn! Click on my picture for my profile!",
     medias: [
       {type: "photo", src: "/solidstart.png"},
       {type: "photo", src: "/remix.jpg"},
