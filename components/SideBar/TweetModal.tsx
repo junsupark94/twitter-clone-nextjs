@@ -13,9 +13,10 @@ import useDiscardModalStore from "@/app/store/discard-modal-store";
 type TweetModalProps = {};
 
 const TweetModal: React.FC<TweetModalProps> = () => {
-  const [isTweetModalVisible, closeModal] = useTweetsStore((state) => [
+  const [isTweetModalVisible, closeModal, addTweet] = useTweetsStore((state) => [
     state.isVisible,
     state.closeModal,
+    state.addTweet
   ]);
   const [openDiscardModal, setSourceModal] = useDiscardModalStore((state) => [
     state.openModal,
@@ -84,7 +85,17 @@ const TweetModal: React.FC<TweetModalProps> = () => {
               className={`rounded-full bg-twitter-blue ${
                 value === "" && "brightness-50"
               } p-2 px-5 font-bold`}
-              // onClick={submitTweetHandler}
+              onClick={() => addTweet({
+                body: value,
+                account: "junsupark",
+                displayName: "Junsu Park",
+                date: new Date(),
+                id: 0,
+                likes: 0,
+                replies: 0,
+                retweets: 0,
+                views: 0,
+              })}
             >
               Tweet
             </button>
