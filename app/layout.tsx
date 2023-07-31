@@ -9,6 +9,7 @@ import TweetModal from "@/components/SideBar/TweetModal";
 import DiscardModal from "@/components/Misc/DiscardModal";
 import DraftsModal from "@/components/Misc/DraftsModal";
 import MediaModal from "@/components/Tweet/MediaModal";
+import { Analytics } from '@vercel/analytics/react';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,7 +30,7 @@ export default function RootLayout({
           <header className="flex w-[275px] shrink-0 grow justify-end 2xl:w-[88px] sm:grow-0 xs:w-[68px]">
             <SideBar />
           </header>
-          <div className="grow lg:grow-[2]">{children}</div>
+          <div className="grow lg:grow-[2]">{children} <Analytics /></div>
           <QuoteTweetModal />
           <ReplyModal />
           <EditTwitterCircleModal />
