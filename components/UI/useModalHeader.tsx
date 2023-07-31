@@ -8,7 +8,7 @@ export default function useModalHeader(options: string[], margins: string = "-mx
       {options.map((option) => (
         <div
           key={option}
-          className="flex grow cursor-pointer justify-center pt-2 text-[15px] text-base font-bold transition hover:bg-[#e7e9ea19]"
+          className="flex grow cursor-pointer justify-center pt-2 text-twitter-md font-bold transition hover:bg-[#e7e9ea19]"
           onClick={() => setSelected(option)}
         >
           <div

@@ -1,12 +1,12 @@
 "use client";
 import RepeatOutlinedIcon from "@mui/icons-material/RepeatOutlined";
-import { TweetType } from "../Misc/tweet-data";
 import TweetHeader from "./TweetHeader";
 import TweetBottom from "./TweetBottom/TweetBottom";
 import ProfileIcon from "../Misc/ProfileIcon";
 import { useEffect, useState } from "react";
 import MediaDisplay from "./MediaDisplay";
 import SingleMediaDisplay from "./SingleMediaDisplay";
+import { TweetType } from "@/app/store/tweets-store";
 
 type TweetProps = {
   tweet: TweetType;
@@ -17,15 +17,16 @@ const Tweet: React.FC<TweetProps> = ({ tweet }) => {
     tweet;
   const [opacity, setOpacity] = useState("");
 
-
   useEffect(() => {
-    setOpacity("opacity-100")
-  }, [])
+    setOpacity("opacity-100");
+  }, []);
 
   return (
-    <div className={`border-b-2 border-color-hover px-2 pb-4 pt-2 hover:bg-[#090909] transition duration-300 opacity-0 ${opacity}`}>
+    <div
+      className={`border-b-2 border-color-hover px-2 pb-4 pt-2 opacity-0 transition duration-300 hover:bg-[#090909] ${opacity}`}
+    >
       {retweeter && (
-        <div className="ml-3 text-gray-600 flex gap-2">
+        <div className="ml-3 flex gap-2 text-gray-600">
           <RepeatOutlinedIcon />
           {retweeter} retweeted this
         </div>
@@ -49,9 +50,13 @@ const Tweet: React.FC<TweetProps> = ({ tweet }) => {
             )}
           </div>
           <div className="my-2">
-            {body && <div className="text-sm whitespace-pre-wrap mb-2">{body}</div>}
-            {medias && medias.length === 1 && <SingleMediaDisplay medias={medias}/>}
-            {medias && medias.length > 1 && <MediaDisplay medias={medias} />}
+            {body && (
+              <div className="mb-2 whitespace-pre-wrap text-sm">{body}</div>
+            )}
+            {medias && medias.length === 1 && (
+              <SingleMediaDisplay tweet={tweet} />
+            )}
+            {medias && medias.length > 1 && <MediaDisplay tweet={tweet} />}
           </div>
           <TweetBottom tweet={tweet} />
         </div>

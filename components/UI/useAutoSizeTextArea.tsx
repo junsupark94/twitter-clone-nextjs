@@ -13,7 +13,7 @@ const useAutoSizeTextArea = (placeholder: string, height: number = 50) => {
 
   const AutoSizeTextArea = (
     <textarea
-      className="w-full resize-none bg-black outline-none text-[20px]"
+      className="w-full resize-none bg-black outline-none text-twitter-base"
       style={{height: `${height}px`}}
       placeholder={placeholder}
       value={value}

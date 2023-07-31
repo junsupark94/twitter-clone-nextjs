@@ -62,11 +62,11 @@ const DraftsModal: React.FC<DraftsModalProps> = () => {
             <div className="flex items-center gap-4">
               <button
                 onClick={closeModalHandler}
-                className="h-9 w-9 rounded-full text-[20px] hover:bg-color-hover"
+                className="h-9 w-9 rounded-full text-twitter-base hover:bg-color-hover"
               >
                 <ArrowBackIcon fontSize="inherit" />
               </button>
-              <span className="text-[20px] font-bold">Drafts</span>
+              <span className="text-twitter-base font-bold">Drafts</span>
             </div>
             <button
               onClick={() => setIsEditting((prev) => !prev)}
@@ -131,7 +131,7 @@ const DraftsModal: React.FC<DraftsModalProps> = () => {
                         </>
                       )}
                     </div>
-                    <div className="mt-1 text-[15px] text-[#e7e9ea]">
+                    <div className="mt-1 text-twitter-md text-[#e7e9ea]">
                       {draft.body}
                     </div>
                   </div>
@@ -149,14 +149,14 @@ const DraftsModal: React.FC<DraftsModalProps> = () => {
                 <div className="mb-2 text-3xl font-extrabold text-[#e7e9ea]">
                   Hold that thought
                 </div>
-                <div className="text-[15px] text-[#71767b]">{`Not read to send a Tweet just yet? Save it to your drafts or schedule it for later. (This function is not available in this demo app.)`}</div>
+                <div className="text-twitter-md text-[#71767b]">{`Not read to send a Tweet just yet? Save it to your drafts or schedule it for later. (This function is not available in this demo app.)`}</div>
               </div>
             </div>
           </div>
           <div
             className={`${
               isEditting ? "flex" : "hidden"
-            } -mb-4 justify-between border-t border-[#2f3336] p-1 text-[15px]`}
+            } -mb-4 justify-between border-t border-[#2f3336] p-1 text-twitter-md`}
           >
             {draftsSelected.length === 0 && (
               <button
@@ -175,7 +175,7 @@ const DraftsModal: React.FC<DraftsModalProps> = () => {
               </button>
             )}
             <button
-              className={`rounded-full px-4 text-[15px] font-bold text-[#f4212e] ${
+              className={`rounded-full px-4 text-twitter-md font-bold text-[#f4212e] ${
                 draftsSelected.length === 0
                   ? "pointer-events-none opacity-50"
                   : "hover:bg-[#f4212e1a]"

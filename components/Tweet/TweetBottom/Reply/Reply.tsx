@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import ReplyIcon from "@mui/icons-material/ChatBubbleOutlineOutlined";
-import { Media } from "@/components/Misc/tweet-data";
 import IconButton from "@/components/UI/IconButton";
 import useReplyStore from "./reply-store";
+import { Media } from "@/app/store/tweets-store";
 
 
 type ReplyProps = {

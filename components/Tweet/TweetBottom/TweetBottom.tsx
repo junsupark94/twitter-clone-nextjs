@@ -4,7 +4,7 @@ import Views from "./Views";
 import Share from "./Share";
 import Like from "./Like";
 import Retweet from "./Retweet/Retweet";
-import { TweetType } from "@/components/Misc/tweet-data";
+import { TweetType } from "@/app/store/tweets-store";
 
 type TweetBottomProps = {
   tweet: TweetType;

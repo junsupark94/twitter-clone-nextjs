@@ -20,6 +20,10 @@ module.exports = {
         'default-text': '#E7E9EA',
         "twitter-blue": "#1D9BF0",
       },
+      fontSize: {
+        "twitter-base": "20px",
+        "twitter-md": "15px",
+      }
     },
     container: {
       screens: {

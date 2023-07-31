@@ -21,7 +21,7 @@ const Views: React.FC<ViewsProps> = ({ value }) => {
                 <h1 className="mb-2 text-2xl font-extrabold text-white">
                   Views
                 </h1>
-                <p className="mb-8 text-[15px]">
+                <p className="mb-8 text-twitter-md">
                   Times this Tweet was seen. To learn more, visit the{" "}
                   <a
                     target="_blank"

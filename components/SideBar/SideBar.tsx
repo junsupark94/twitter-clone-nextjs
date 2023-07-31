@@ -57,7 +57,7 @@ const SideBar: React.FC<SideBarProps> = () => {
         <ProfileIcon />
 
         <div className="flex grow items-center justify-between 2xl:hidden">
-          <div className="flex flex-col px-3 text-[15px] leading-5">
+          <div className="flex flex-col px-3 text-twitter-md leading-5">
             <p className="font-bold">Display Name</p>
             <p className="font-normal">@username</p>
           </div>

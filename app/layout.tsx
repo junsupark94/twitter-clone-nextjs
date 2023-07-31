@@ -8,6 +8,7 @@ import SideBar from "@/components/SideBar/SideBar";
 import TweetModal from "@/components/SideBar/TweetModal";
 import DiscardModal from "@/components/Misc/DiscardModal";
 import DraftsModal from "@/components/Misc/DraftsModal";
+import MediaModal from "@/components/Tweet/MediaModal";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -35,6 +36,7 @@ export default function RootLayout({
           <TweetModal />
           <DiscardModal />
           <DraftsModal />
+          <MediaModal />
           <Toast />
         </div>
       </body>

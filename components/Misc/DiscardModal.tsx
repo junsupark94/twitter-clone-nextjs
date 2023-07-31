@@ -53,8 +53,8 @@ const DiscardModal: React.FC<DiscardModalProps> = () => {
         positioning="h-[260px] p-8"
       >
         <>
-          <div className="text-[20px] font-bold">Save Tweet?</div>
-          <div className="text-[15px] text-gray-500">
+          <div className="text-twitter-base font-bold">Save Tweet?</div>
+          <div className="text-twitter-md text-gray-500">
             You can save this to send later from your drafts.
           </div>
           <button

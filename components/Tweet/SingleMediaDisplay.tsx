@@ -1,14 +1,17 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import { Media } from "../Misc/tweet-data";
 import Image from "next/image";
+import { TweetType } from "@/app/store/tweets-store";
+import useMediaModalStore from "@/app/store/media-modal";
 
 type SingleMediaDisplayProps = {
-  medias: Media[];
+  tweet: TweetType;
 };
 
-const SingleMediaDisplay: React.FC<SingleMediaDisplayProps> = ({ medias }) => {
+const SingleMediaDisplay: React.FC<SingleMediaDisplayProps> = ({ tweet }) => {
+  const openMediaModal = useMediaModalStore((state) => state.openModal);
   const ref = useRef<HTMLImageElement & HTMLVideoElement>(null);
+  const { medias } = tweet;
   useEffect(() => {
     if (!ref.current) {
       return;
@@ -24,10 +27,12 @@ const SingleMediaDisplay: React.FC<SingleMediaDisplayProps> = ({ medias }) => {
     }
     if (scrollHeight > 510) {
       ref.current.style.height = "510px";
-      const factor = scrollHeight/510;
-      ref.current.style.width = `${scrollWidth/factor}px`
+      const factor = scrollHeight / 510;
+      ref.current.style.width = `${scrollWidth / factor}px`;
     }
   }, [ref]);
+
+  if (!medias) return null;
 
   return (
     <div>
@@ -35,10 +40,11 @@ const SingleMediaDisplay: React.FC<SingleMediaDisplayProps> = ({ medias }) => {
         <Image
           src={medias[0].src}
           alt="Image"
-          className="rounded-2xl object-cover border border-gray-600"
+          className="cursor-pointer rounded-2xl border border-gray-600 object-cover"
           width={512}
           height={512}
           ref={ref}
+          onClick={() => openMediaModal(tweet)}
         />
       )}
       {medias[0].type === "video" && (
@@ -46,7 +52,8 @@ const SingleMediaDisplay: React.FC<SingleMediaDisplayProps> = ({ medias }) => {
           key={medias[0].src}
           src={medias[0].src}
           controls
-          className="w-[512px] h-[512px] rounded-2xl border border-gray-600"
+          className="h-[512px] w-[512px] cursor-pointer rounded-2xl border border-gray-600"
+          onClick={() => openMediaModal(tweet)}
         />
       )}
     </div>

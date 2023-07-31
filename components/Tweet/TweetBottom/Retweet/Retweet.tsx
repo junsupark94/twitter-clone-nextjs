@@ -4,9 +4,9 @@ import RetweetIcon from "@mui/icons-material/RepeatOutlined";
 import { useState } from "react";
 import QuoteTweetIcon from "@mui/icons-material/Create";
 import useQuoteTweetStore from "@/app/store/quote-tweet-store";
-import { Media } from "@/components/Misc/tweet-data";
 import Menu from "@/components/UI/Menu";
 import truncateNumber from "@/utils/truncateNumber";
+import { Media } from "@/app/store/tweets-store";
 
 type RetweetProps = {
   data: {

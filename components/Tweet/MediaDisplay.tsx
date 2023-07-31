@@ -1,11 +1,14 @@
-import { Media } from "../Misc/tweet-data";
+import { TweetType } from "@/app/store/tweets-store";
 import Image from "next/image";
 
 type MediaDisplayProps = {
-  medias: Media[];
+  tweet: TweetType
 };
 
-const MediaDisplay: React.FC<MediaDisplayProps> = ({ medias }) => {
+const MediaDisplay: React.FC<MediaDisplayProps> = ({ tweet }) => {
+  const {medias} = tweet;
+  if (!medias) return null;
+
   if (medias.length === 2 || medias.length === 4) {
     let height = 288;
     let heightPx = "h-[288px]";

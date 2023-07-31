@@ -1,29 +1,5 @@
-export type Media = {
-  type: "photo" | "video";
-  src: string;
-};
+import { TweetType } from "@/app/store/tweets-store";
 
-export type TweetType = {
-  account: string;
-  displayName: string;
-  id: number | string;
-  date: Date;
-  replies: number;
-  retweets: number;
-  likes: number;
-  views: number;
-  retweeter?: string;
-  replying?: number | string;
-} & (
-  | {
-      body: string;
-      medias?: Media[];
-    }
-  | {
-      body?: string;
-      medias: Media[];
-    }
-);
 
 const DUMMY_TWEETS: TweetType[] = [
   {
@@ -31,7 +7,7 @@ const DUMMY_TWEETS: TweetType[] = [
     displayName: "Junsu Park",
     id: 1,
     date: new Date("07-01-2023"),
-    body: "Welcome to my fake Twitter clone! I was bored of the very basic Twitter clone projects on Youtube. I wanted to create a high fidelity copy of Twitter's UI to develop my frontend skills and this project really challenged me. Do links becomes links? https://www.linkedin.com/in/junsupark-swe/",
+    body: "Welcome to my fake Twitter clone! I was bored of the very basic Twitter clone projects on Youtube. I wanted to create a high fidelity copy of Twitter's UI to develop my frontend skills and this project really challenged me.",
     replies: 0,
     retweets: 0,
     likes: 0,
@@ -94,7 +70,7 @@ const DUMMY_TWEETS: TweetType[] = [
     displayName: "Junsu Park",
     id: 3,
     date: new Date("02-15-2023"),
-    body: "Zustand is a very intuitive global state management library, much easier to use than Redux. The modals that pop up are rendered via changing their visibility status and passing any relevant information along.",
+    body: "Zustand is a very intuitive global state management library, much easier to use than Redux. The modals that pop up are rendered via changing their visibility status and passing any relevant information along. 🐻",
     medias: [{ type: "video", src: "/zustand.mp4" }],
     replies: 75,
     retweets: 123,
@@ -146,7 +122,7 @@ const DUMMY_TWEETS: TweetType[] = [
     displayName: 'Junsu Park',
     id: 7,
     date: new Date("07-20-2023"),
-    body: "Twitter can embed up to 4 photos or videos in a tweet. Clicking on them will open a new modal to showcase the media in full screen. The way the media is displayed changes based on the number. See how the media divisions changes depending on how many media is included?",
+    body: "Twitter can embed up to 4 photos or videos in a tweet. The way the media is displayed changes based on the number. See how the media divisions changes depending on how many media is included?",
     medias: [
       {type: 'photo', src: 'https://pbs.twimg.com/media/F1Ae67NXsAEBcnH?format=jpg&name=medium'},
       {type: 'photo', src: 'https://pbs.twimg.com/media/F1OJ_l0WAAQ7XoE?format=jpg&name=large'},
@@ -200,6 +176,11 @@ export const QUEUED_TWEETS: TweetType[] = [
     id: 11,
     date: new Date(),
     body: "I had to cut off adding more features because it wouldn't teach me anything new and I wanted to move on to trying out different frameworks such as Remix, SvelteKit, and SolidStart. \n\nFollow my frontend journey by following me on LinkedIn! Click on my picture for my profile!",
+    medias: [
+      {type: "photo", src: "/solidstart.png"},
+      {type: "photo", src: "/remix.jpg"},
+      {type: "photo", src: "/sveltekit.png"},
+    ],
     replies: 0,
     retweets: 0,
     likes: 0,

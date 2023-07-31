@@ -6,6 +6,7 @@ type ModalBackdropProps = {
   children?: React.JSX.Element;
   background?: string;
   scroll?: boolean;
+  position?: string;
 };
 
 const ModalBackdrop: React.FC<ModalBackdropProps> = ({
@@ -13,6 +14,7 @@ const ModalBackdrop: React.FC<ModalBackdropProps> = ({
   background = "bg-[#5b708366]",
   scroll = false,
   children,
+  position = "items-center justify-center"
 }) => {
   useEffect(() => {
     function handleEscapeKey(e: KeyboardEvent) {
@@ -36,7 +38,7 @@ const ModalBackdrop: React.FC<ModalBackdropProps> = ({
         e.stopPropagation();
         closeModal();
       }}
-      className={`fixed left-0 top-0 h-screen w-screen ${background} z-10 flex items-center justify-center`}
+      className={`fixed left-0 top-0 h-screen w-screen ${background} z-10 flex ${position}`}
     >
       {children}
     </div>

@@ -64,7 +64,7 @@ const EditTwitterCircleModal: React.FC<EditTwitterCircleModalProps> = () => {
               <div className="flex min-h-[40px] grow items-center justify-center rounded-full border border-[#71767b] text-[14px] text-[#71767b]">
                 <SearchIcon /> Search People
               </div>
-              <div className="mx-8 text-center text-[15px] text-[#71767b]">
+              <div className="mx-8 text-center text-twitter-md text-[#71767b]">
                 People won’t be notified when you edit your Twitter Circle.
                 Anyone you add will be able to see your previous Twitter Circle
                 Tweets.{" "}
