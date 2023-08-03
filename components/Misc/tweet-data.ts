@@ -153,7 +153,7 @@ export const QUEUED_TWEETS: TweetType[] = [
     displayName: "Junsu Park",
     id: 9,
     date: new Date(),
-    body: "I'm proud of the scrolling behavior with the right side bar. See how the Verified box doesn't scroll? I couldn't figure out Twitter's implementation so I came up with my own!",
+    body: "I'm proud of the scrolling behavior with the right side bar. See how the Verified box doesn't scroll? I couldn't figure out Twitter's implementation so I came up with my own! Also try resizing the window, make it smaller and see how the app resizes like Twitter's.",
     replies: 0,
     retweets: 0,
     likes: 0,
