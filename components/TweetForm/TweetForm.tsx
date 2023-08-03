@@ -35,13 +35,14 @@ const TweetForm: React.FC<TweetFormProps> = () => {
 
   const submitTweetHandler = (e: React.MouseEvent) => {
     e.stopPropagation();
+    if (value === '') return;
     setIsClicked(false);
     setIsSubmitting(true);
     setTimeout(() => {
       addTweet({
         body: value,
         account: "junsupark",
-        displayName: "J-money",
+        displayName: "Junsu Park",
         likes: 0,
         retweets: 0,
         replies: 0,
@@ -103,7 +104,7 @@ const TweetForm: React.FC<TweetFormProps> = () => {
             <TweetFormIcons />
             <button
               className={`rounded-full bg-twitter-blue ${
-                value === "" && "brightness-50"
+                value === "" && "brightness-50 cursor-default"
               } p-2 px-5 font-bold`}
               onClick={submitTweetHandler}
             >
